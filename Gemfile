@@ -5,9 +5,16 @@ gem 'rails', '3.2.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'postgres'
-gem 'heroku'
+group :development, :test do
+   gem 'sqlite3'
+end
+group :production do
+  gem 'pg'
+end
 
+gem 'heroku'
+gem 'twitter-bootstrap-rails'
+gem 'twitter_bootstrap_form_for'
 
 # Gems used only for assets and not required
 # in production environments by default.
