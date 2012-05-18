@@ -1,4 +1,6 @@
 class CompetitionsController < ApplicationController
+  before_filter :authenticate_cyclist!
+  
   # GET /competitions
   # GET /competitions.json
   def index
