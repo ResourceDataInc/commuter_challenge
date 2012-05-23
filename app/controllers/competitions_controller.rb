@@ -1,5 +1,5 @@
 class CompetitionsController < ApplicationController
-  before_filter :authenticate_cyclist!
+  load_and_authorize_resource
   
   # GET /competitions
   # GET /competitions.json

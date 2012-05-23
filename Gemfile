@@ -9,10 +9,13 @@ group :production do
   gem 'pg'
 end
 
-gem "devise"
+# Authentication and Authorization
+gem 'devise'
+gem 'cancan'
 
 gem 'heroku'
 
+# Assets
 gem 'twitter-bootstrap-rails'
 gem 'twitter_bootstrap_form_for'
 
