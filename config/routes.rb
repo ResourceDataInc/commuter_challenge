@@ -1,10 +1,9 @@
 BikeChallenge::Application.routes.draw do
   resources :competitions
 
-  authenticated :user do
-    root :to => 'home#index'
-  end
-  root :to => "home#index"
+  root :to => "competitions#index"
+
   devise_for :users
+
   resources :users, :only => [:show, :index]
 end
