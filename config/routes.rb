@@ -1,8 +1,8 @@
-SummerBikeChallenge::Application.routes.draw do
-  devise_for :cyclists
-
-  resources :competitions
-  
-  root :to => 'competitions#index'
-
+BikeChallenge::Application.routes.draw do
+  authenticated :user do
+    root :to => 'home#index'
+  end
+  root :to => "home#index"
+  devise_for :users
+  resources :users, :only => [:show, :index]
 end

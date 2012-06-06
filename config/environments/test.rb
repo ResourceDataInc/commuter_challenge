@@ -1,4 +1,4 @@
-SummerBikeChallenge::Application.configure do
+BikeChallenge::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # The test environment is used exclusively to run your application's
@@ -35,5 +35,7 @@ SummerBikeChallenge::Application.configure do
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
   
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  # ActionMailer Config
+  config.action_mailer.default_url_options = { :host => 'example.com' }
+
 end
