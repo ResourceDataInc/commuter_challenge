@@ -1,4 +1,4 @@
-<h1>Listing competitions</h1>
+<h1>Competitions</h1>
 
 <table>
   <tr>
@@ -18,8 +18,14 @@
     <td><%= competition.start_date %></td>
     <td><%= competition.end_date %></td>
     <td><%= link_to 'Show', competition %></td>
+    
+    <% if can? :update, Competition %>
     <td><%= link_to 'Edit', edit_competition_path(competition) %></td>
+    <% end %>
+    
+    <% if can? :destroy, Competition %>
     <td><%= link_to 'Destroy', competition, confirm: 'Are you sure?', method: :delete %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
