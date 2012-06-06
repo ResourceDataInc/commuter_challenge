@@ -21,6 +21,7 @@ class CompetitionsController < ApplicationController
 
   def new
     @competition = Competition.new
+    @competition.contact = current_user
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,6 +35,7 @@ class CompetitionsController < ApplicationController
 
   def create
     @competition = Competition.new(params[:competition])
+    @competition.contact = current_user
 
     respond_to do |format|
       if @competition.save

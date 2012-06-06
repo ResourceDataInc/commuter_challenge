@@ -18,5 +18,10 @@
   <%= @competition.end_date %>
 </p>
 
+<p>
+  <b>Contact</b>
+  <%= mail_to @competition.contact.email, @competition.contact.name %>
+</p>
+
 <%= link_to 'Edit', edit_competition_path(@competition) %> |
 <%= link_to 'Back', competitions_path %>
