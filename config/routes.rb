@@ -1,4 +1,6 @@
 BikeChallenge::Application.routes.draw do
+  resources :competitions
+
   authenticated :user do
     root :to => 'home#index'
   end

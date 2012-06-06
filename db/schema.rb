@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120605002048) do
+ActiveRecord::Schema.define(:version => 20120606062453) do
+
+  create_table "competitions", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "competitions", ["user_id"], :name => "index_competitions_on_user_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
