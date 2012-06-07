@@ -23,5 +23,17 @@
   <%= mail_to @competition.contact.email, @competition.contact.name %>
 </p>
 
+<p>
+  <b>Business Sizes</b>
+  <ul>
+  <%= render @competition.business_sizes %>
+  </ul>
+</p>
+
+<p>
+  <h6>Add Business Size</h6>
+  
+  <%= render 'business_sizes/form'%>
+</p>
 <%= link_to 'Edit', edit_competition_path(@competition) %> |
 <%= link_to 'Back', competitions_path %>

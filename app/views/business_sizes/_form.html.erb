@@ -1,16 +1,4 @@
-<%= form_for(@business_size) do |f| %>
-  <% if @business_size.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@business_size.errors.count, "error") %> prohibited this Business Size from being saved:</h2>
-
-      <ul>
-      <% @business_size.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form_for([@competition, @competition.business_sizes.build]) do |f| %>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>

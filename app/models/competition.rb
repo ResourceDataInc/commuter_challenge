@@ -1,6 +1,7 @@
 class Competition < ActiveRecord::Base
   belongs_to :contact, class_name: "User", foreign_key: "user_id"
   has_many :business_sizes, :dependent => :destroy
+  accepts_nested_attributes_for :business_sizes, :allow_destroy => true
   attr_accessible :description, :end_date, :name, :start_date, :contact, :user_id
 
   validates_presence_of :name, :description, :start_date, :end_date, :contact

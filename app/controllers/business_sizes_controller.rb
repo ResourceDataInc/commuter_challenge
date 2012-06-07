@@ -32,12 +32,12 @@ class BusinessSizesController < ApplicationController
   end
 
   def create
-    @business_size = BusinessSize.new(params[:business_size])
+    @competition = Competition.find(params[:competition_id])
+    @business_size = @competition.business_sizes.new(params[:business_size])
 
     respond_to do |format|
       if @business_size.save
-        format.html { redirect_to @business_size, notice: 'Business size was successfully created.' }
-        format.json { render json: @business_size, status: :created, location: @business_size }
+        format.html { redirect_to competition_path @competition, notice: 'Business size was successfully created.' }
       else
         format.html { render action: "new" }
         format.json { render json: @business_size.errors, status: :unprocessable_entity }
@@ -46,6 +46,7 @@ class BusinessSizesController < ApplicationController
   end
 
   def update
+    @competition = Competition.find(params[:competition_id])
     @business_size = BusinessSize.find(params[:id])
 
     respond_to do |format|
@@ -60,11 +61,12 @@ class BusinessSizesController < ApplicationController
   end
 
   def destroy
-    @business_size = BusinessSize.find(params[:id])
+    @competition = Competition.find(params[:competition_id])
+    @business_size = @competition.business_sizes.find(params[:id])
     @business_size.destroy
 
     respond_to do |format|
-      format.html { redirect_to business_sizes_url }
+      format.html { redirect_to competition_path @competition }
       format.json { head :no_content }
     end
   end

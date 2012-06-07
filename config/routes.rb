@@ -1,7 +1,8 @@
 BikeChallenge::Application.routes.draw do
-  resources :business_sizes
 
-  resources :competitions
+  resources :competitions do
+    resources :business_sizes
+  end
 
   root :to => "competitions#index"
 
