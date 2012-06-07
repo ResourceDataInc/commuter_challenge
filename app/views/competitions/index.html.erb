@@ -6,6 +6,7 @@
     <th>Description</th>
     <th>Start date</th>
     <th>End date</th>
+    <th>Contact</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,6 +18,7 @@
     <td><%= competition.description %></td>
     <td><%= competition.start_date %></td>
     <td><%= competition.end_date %></td>
+    <td><%= competition.contact.name %></td>
     <td><%= link_to 'Show', competition %></td>
     
     <% if can? :update, Competition %>

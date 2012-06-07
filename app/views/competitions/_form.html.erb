@@ -27,6 +27,12 @@
     <%= f.label :end_date %><br />
     <%= f.date_select :end_date %>
   </div>
+  
+  <div class="field">
+    <%= f.label :contact %><br />
+    <%= f.collection_select :user_id, User.order(:name), :id, :name %>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
