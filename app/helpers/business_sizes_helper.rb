@@ -1,0 +1,2 @@
+module BusinessSizesHelper
+end

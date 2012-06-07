@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%= @business_size.name %>
+</p>
+
+<p>
+  <b>Lower bound:</b>
+  <%= @business_size.lower_bound %>
+</p>
+
+<p>
+  <b>Upper bound:</b>
+  <%= @business_size.upper_bound %>
+</p>
+
+
+<%= link_to 'Edit', edit_business_size_path(@business_size) %> |
+<%= link_to 'Back', business_sizes_path %>

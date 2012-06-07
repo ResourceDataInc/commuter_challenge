@@ -1,0 +1,29 @@
+<%= form_for(@business_size) do |f| %>
+  <% if @business_size.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@business_size.errors.count, "error") %> prohibited this Business Size from being saved:</h2>
+
+      <ul>
+      <% @business_size.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :lower_bound %><br />
+    <%= f.number_field :lower_bound %>
+  </div>
+  <div class="field">
+    <%= f.label :upper_bound %><br />
+    <%= f.number_field :upper_bound %>
+  </div> 
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

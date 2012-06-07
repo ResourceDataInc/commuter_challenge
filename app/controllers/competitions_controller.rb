@@ -22,7 +22,7 @@ class CompetitionsController < ApplicationController
   def new
     @competition = Competition.new
     @competition.contact = current_user
-
+    @users = User.all
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @competition }
