@@ -18,6 +18,7 @@ describe BusinessSize do
   end
   
   it "should not allow lower bound greater than upper bound" do
+    subject.name = 'test'
     subject.upper_bound = 1
     subject.lower_bound = 5
     subject.should have(1).error_on(:upper_bound)
