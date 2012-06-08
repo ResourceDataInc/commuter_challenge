@@ -1,4 +1,6 @@
 <li>
   <%= business_size.name %> (<%= business_size.lower_bound %> to <%= business_size.upper_bound %> people)
-  <%= link_to 'Remove', [business_size.competition, business_size], :confirm=>'Are you sure?', :method=> :delete %>
+  <% if can? :destroy, BusinessSize %>
+    <%= link_to 'Remove', [business_size.competition, business_size], :confirm=>'Are you sure?', :method=> :delete %>
+  <% end %>
 </li>

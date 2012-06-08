@@ -1,22 +1,5 @@
 class BusinessSizesController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
-  def index
-    @business_sizes = BusinessSize.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @business_sizes }
-    end
-  end
-
-  def show
-    @business_size = BusinessSize.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @business_size }
-    end
-  end
 
   def new
     @business_size = BusinessSize.new
