@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120607010721) do
+ActiveRecord::Schema.define(:version => 20120608064811) do
 
   create_table "business_sizes", :force => true do |t|
     t.string   "name"
@@ -36,6 +36,14 @@ ActiveRecord::Schema.define(:version => 20120607010721) do
 
   add_index "competitions", ["user_id"], :name => "index_competitions_on_user_id"
 
+  create_table "competitions_teams", :force => true do |t|
+    t.integer "competition_id"
+    t.integer "team_id"
+  end
+
+  add_index "competitions_teams", ["competition_id"], :name => "index_competitions_teams_on_competition_id"
+  add_index "competitions_teams", ["team_id"], :name => "index_competitions_teams_on_team_id"
+
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.integer  "resource_id"
@@ -46,6 +54,16 @@ ActiveRecord::Schema.define(:version => 20120607010721) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "teams", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "teams", ["user_id"], :name => "index_teams_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

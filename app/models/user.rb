@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :created_competitions, class_name: "Competition"
+  has_many :teams_to_captain, class_name: "Team"
 
 	rolify
   # Include default devise modules. Others available are:

@@ -35,8 +35,6 @@ class CompetitionsController < ApplicationController
   end
 
   def create
-      logger.debug "*******"
-      logger.debug params
     @competition = Competition.new(params[:competition])
   
 

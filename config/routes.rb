@@ -1,5 +1,7 @@
 BikeChallenge::Application.routes.draw do
 
+  resources :teams
+
   resources :competitions do
     resources :business_sizes
   end

@@ -5,7 +5,7 @@ class CreateCompetitions < ActiveRecord::Migration
       t.text :description
       t.date :start_date
       t.date :end_date
-      t.references :competition
+      t.references :user
 
       t.timestamps
     end
