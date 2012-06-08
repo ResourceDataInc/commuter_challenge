@@ -33,7 +33,7 @@ class BusinessSize < ActiveRecord::Base
     if(bound.nil?)
       return false
     else
-      return BusinessSize.where("competition_id = ? AND upper_bound NOT NULL AND lower_bound <= ? AND upper_bound >= ?", competition_id, bound, bound).count > 0
+      return BusinessSize.where("competition_id = ? AND upper_bound IS NOT NULL AND lower_bound <= ? AND upper_bound >= ?", competition_id, bound, bound).count > 0
     end
   end
 end
