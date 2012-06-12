@@ -1,12 +1,17 @@
 BikeChallenge::Application.routes.draw do
 
   resources :teams do
-    get :join, :on => :member
-    get :leave, :on => :member
+    member do
+      get :join, :leave
+    end 
   end
 
   resources :competitions do
-    resources :business_sizes
+    #resources :business_sizes
+    resources :competitions_teams do
+      get :delete, :on => :collection
+      post :remove, :on => :collection
+    end
   end
 
   root :to => "competitions#index"

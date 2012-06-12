@@ -18,7 +18,7 @@ class CompetitionsController < ApplicationController
       format.json { render json: @competition }
     end
   end
-
+  
   def new
     @competition = Competition.new
     @competition.contact = current_user

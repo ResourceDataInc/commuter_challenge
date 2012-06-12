@@ -20,3 +20,14 @@ puts "New business size created: " + xlarge.name
 puts "SETTING UP DEFAULT TEAMS"
 rdi = Team.create! name: "RDI Riders", description: "Riders from Resource Data, Inc", user_id: user.id
 puts "New team created: " + rdi.name
+
+puts "SETTING UP DEFAULT TEAMS ON COMPETITIONS"
+rdi.competitions << competition
+rdi.save
+puts "Added " + rdi.name + " to " + competition.name
+
+puts "SETTING UP DEFAULT USERS ON TEAMS"
+user.teams << rdi
+user.save
+puts "Added " + user.name + " to " + rdi.name
+

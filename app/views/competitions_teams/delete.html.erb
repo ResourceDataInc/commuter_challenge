@@ -1,0 +1,16 @@
+<h1>Leave Competition: <%= @competition.name %></h1>
+
+<%= form_for @competition_team, url: remove_competition_competitions_teams_path(@competition) do |f| %>
+
+<div class="field">
+  <%= f.label "Team" %>
+  <%= f.collection_select :team_id, @teams, :id, :name %>
+</div>
+
+<div class="actions">
+  <%= f.submit "Leave" %>
+</div>
+
+<% end %>
+
+<%= link_to 'Back', competitions_path %>

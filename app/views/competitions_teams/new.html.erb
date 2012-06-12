@@ -1,0 +1,16 @@
+<h1>Joining Competition: <%= @competition.name %></h1>
+
+<%= form_for [@competition, @competition_team] do |f| %>
+
+<div class="field">
+  <%= f.label "Team" %>
+  <%= f.collection_select :team_id, @teams, :id, :name %>
+</div>
+
+<div class="actions">
+  <%= f.submit "Join"%>
+</div>
+
+<% end %>
+
+<%= link_to 'Back', competitions_path %>

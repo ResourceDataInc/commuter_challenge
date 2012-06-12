@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :created_competitions, class_name: "Competition"
   has_many :teams_to_captain, class_name: "Team"
+  has_many :competitions, through: :teams
   has_and_belongs_to_many :teams
 
 	rolify
@@ -15,5 +16,13 @@ class User < ActiveRecord::Base
   
   def member? team
     return teams.include? team
+  end
+  
+  def joined? competition
+    return competitions.include? competition
+  end
+  
+  def has_unjoined_team? competition
+    teams.any?{|t| !t.competitions.include? competition}
   end
 end

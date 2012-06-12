@@ -21,6 +21,15 @@
     <td><%= competition.contact.name %></td>
     <td><%= link_to 'Show', competition %></td>
     
+    <% if can? :join, Competition %>
+      <% if current_user.joined? competition %>
+      <td><%= link_to 'Leave', delete_competition_competitions_teams_path(competition) %></td>
+      <% end %>
+      <% if current_user.has_unjoined_team? competition %>
+      <td><%= link_to 'Join', new_competition_competitions_team_path(competition) %></td>
+      <% end %>
+    <% end %>
+      
     <% if can? :update, Competition %>
     <td><%= link_to 'Edit', edit_competition_path(competition) %></td>
     <% end %>
