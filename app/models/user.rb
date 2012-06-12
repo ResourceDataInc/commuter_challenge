@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :created_competitions, class_name: "Competition"
   has_many :teams_to_captain, class_name: "Team"
+  has_and_belongs_to_many :teams
 
 	rolify
   # Include default devise modules. Others available are:
@@ -11,4 +12,8 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
+  
+  def member? team
+    return teams.include? team
+  end
 end

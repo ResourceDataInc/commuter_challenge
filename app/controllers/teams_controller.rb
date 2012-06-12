@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
   def index
-    @teams = Team.all
+    @teams = Team.order(:name)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -18,6 +18,36 @@ class TeamsController < ApplicationController
     end
   end
 
+  def join
+    @team = Team.find(params[:id])
+    @team.cyclists << current_user
+    
+    respond_to do |format|
+      if @team.save
+        format.html { redirect_to root_path, notice: 'Successfully joined team.' }
+        format.json { render json: @team, status: :joined, location: @team }
+      else
+        format.html { render action: "index" }
+        format.json { render json: @team.errors, status: :unprocessable_entity }
+      end
+    end
+  end 
+  
+  def leave
+    @team = Team.find(params[:id])
+    @team.cyclists.delete(current_user)
+    
+    respond_to do |format|
+      if @team.save
+        format.html { redirect_to root_path, notice: 'Successfully left team.' }
+        format.json { render json: @team, status: :joined, location: @team }
+      else
+        format.html { render action: "index" }
+        format.json { render json: @team.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  
   def new
     @team = Team.new
     @team.captain = current_user

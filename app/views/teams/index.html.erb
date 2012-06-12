@@ -8,6 +8,7 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
 
 <% @teams.each do |team| %>
@@ -16,6 +17,15 @@
     <td><%= team.description %></td>
     <td><%= team.captain.name %></td>
     <td><%= link_to 'Show', team %></td>
+    
+    <% if can? :join, Team %>
+      <% if current_user.member? team %>
+        <td><%= link_to 'Leave', leave_team_path(team), confirm: 'Are you sure you want to leave this team?'%></td>
+      <% else %>
+        <td><%= link_to 'Join', join_team_path(team), confirm: 'Are you sure you want to join this team?'%></td>
+      <% end %>
+    <% end %>
+    
     <% if can? :update, Team %>
       <td><%= link_to 'Edit', edit_team_path(team) %></td>
     <% end %>

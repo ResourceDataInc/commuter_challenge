@@ -1,0 +1,6 @@
+<li>
+  <%= team.name %> 
+  <% if can? :join, Team %>
+    <%= link_to 'Leave', leave_team_path(team), confirm: 'Are you sure you want to leave this team?'%>
+  <% end %>
+</li>

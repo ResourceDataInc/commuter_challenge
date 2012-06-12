@@ -2,7 +2,7 @@ class CompetitionsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
 
   def index
-    @competitions = Competition.all
+    @competitions = Competition.order(:start_date)
 
     respond_to do |format|
       format.html # index.html.erb
