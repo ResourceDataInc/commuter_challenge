@@ -1,42 +1,46 @@
-<p>
-  <b>Name:</b>
-  <%= @team.name %>
-</p>
+<h1><%= @team.name %></h1>
+<h3>5th place</h3><br />
 
-<p>
-  <b>Business Size:</b>
-  <%= @team.business_size%>
-</p>
+<div class='container-fluid'>
+  <div class='row-fluid'>
+    <div class='span8'>
+      <p>
+        <b>Business Size: </b>
+        <%= @team.business_size%>
+      </p>
 
-<p>
-  <b>Description:</b>
-  <%= @team.description %>
-</p>
+      <p>
+        <b>Description: </b>
+        <%= @team.description %>
+      </p>
 
-<p>
-  <b>Captain</b>
-  <%= mail_to @team.captain.email, @team.captain.name %>
-</p>
+      <p>
+        <b>Captain: </b>
+        <%= mail_to @team.captain.email, @team.captain.name %>
+      </p>
+      
+      <% if can? :update, Team %>
+        <%= link_to 'Edit', edit_team_path(@team) %> 
+      <% end %>
 
-<p>
-  <b>Competitions</b>
-  <ul>
-  <% @team.competitions.each do |competition| %>
-    <li><%= link_to competition.name, competition %>
-  <% end %>
-  </ul>
-</p>
+      <% if can? :join, Team %>
+        <% if current_user.member? @team %>
+          | <%= link_to 'Leave this team', leave_team_path(@team), confirm: 'Are you sure you want to leave this team?'%>
+        <% else %>
+          | <%= link_to 'Join this team', join_team_path(@team), confirm: 'Are you sure you want to join this team?'%>
+        <% end %>
+      <% end %>
+    </div>
+    
+    <div class='span4'>
+      <p>
+        <b>Top Riders</b>
+        <ul>
+          <li><%= link_to 'Fake Rider', '#' %></li>
+          <li><%= link_to 'Another Fake Rider', '#' %></li>
+        </ul>
+      </p>
+    </div>
+  </div>
+</div>
 
-<% if can? :update, Team %>
-  <%= link_to 'Edit', edit_team_path(@team) %> |
-<% end %>
-
-<% if can? :join, Team %>
-  <% if current_user.member? @team %>
-    <td><%= link_to 'Leave', leave_team_path(@team), confirm: 'Are you sure you want to leave this team?'%></td>
-  <% else %>
-    <td><%= link_to 'Join', join_team_path(@team), confirm: 'Are you sure you want to join this team?'%></td>
-  <% end %>
-<% end %>
-
-<%= link_to 'Back', teams_path %>

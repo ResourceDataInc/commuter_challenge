@@ -2,7 +2,7 @@
 
 <div class='container-fluid'>
   <div class='row-fluid'>
-    <div class='span10'>
+    <div class='span9'>
       <p>
         It runs from <%= pretty_date @competition.start_date %> to <%= pretty_date @competition.end_date %>.
       </p>
@@ -21,7 +21,7 @@
       <% end %>
     </div>
   
-    <div class='span2'>
+    <div class='span3'>
       <p>
         <b>Who's Participating</b>
         <% @competition.business_sizes.each do |size| %>
@@ -34,8 +34,12 @@
           </ul>
         </div>
       <% end %>
-      </p>
-
+      </p>      
+    </div>
+  </div>
+  
+  <div class='row-fluid'>
+    <div class='span4 offset6'>
       <% if can? :create, BusinessSize %>
       <p>
         <h6>Add Business Size</h6>
@@ -43,7 +47,7 @@
         <%= render 'business_sizes/form'%>
       </p>
     
-      <% end %>      
-    </div>
+      <% end %>
+  </div>
   </div>
 </div>
