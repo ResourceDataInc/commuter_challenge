@@ -18,7 +18,7 @@ xlarge = competition.business_sizes.create! name: 'X-Large', lower_bound: 201
 puts "New business size created: " + xlarge.name
 
 puts "SETTING UP DEFAULT TEAMS"
-rdi = Team.create! name: "RDI Riders", description: "Riders from Resource Data, Inc", user_id: user.id
+rdi = Team.create! name: "RDI Riders", description: "Riders from Resource Data, Inc", user_id: user.id, business_size: 81
 puts "New team created: " + rdi.name
 
 puts "SETTING UP DEFAULT TEAMS ON COMPETITIONS"

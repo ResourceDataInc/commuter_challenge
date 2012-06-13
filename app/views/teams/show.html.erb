@@ -4,6 +4,11 @@
 </p>
 
 <p>
+  <b>Business Size:</b>
+  <%= @team.business_size%>
+</p>
+
+<p>
   <b>Description:</b>
   <%= @team.description %>
 </p>
@@ -11,6 +16,15 @@
 <p>
   <b>Captain</b>
   <%= mail_to @team.captain.email, @team.captain.name %>
+</p>
+
+<p>
+  <b>Competitions</b>
+  <ul>
+  <% @team.competitions.each do |competition| %>
+    <li><%= link_to competition.name, competition %>
+  <% end %>
+  </ul>
 </p>
 
 <% if can? :update, Team %>

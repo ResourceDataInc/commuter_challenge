@@ -4,7 +4,8 @@ class Team < ActiveRecord::Base
   has_and_belongs_to_many :cyclists, class_name: "User", :association_foreign_key => "user_id",
       :join_table => "teams_users"
   
-  attr_accessible :description, :name, :captain, :user_id
+  attr_accessible :description, :name, :captain, :user_id, :business_size
   
   validates :name, :uniqueness => true
+  validates_presence_of :name, :business_size
 end

@@ -38,6 +38,15 @@
   </p>
 <% end %>
 
+<p>
+  <b>Teams</b>
+  <ul>
+  <% @competition.teams.each do |team| %>
+    <li> <%=link_to team.name, team %></li>
+  <% end %>
+  </ul>
+</p>
+
 <% if can? :manage, Competition %>
   <%= link_to 'Edit', edit_competition_path(@competition) %> |
 <% end %>

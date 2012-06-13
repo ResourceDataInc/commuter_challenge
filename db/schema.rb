@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120612035005) do
+ActiveRecord::Schema.define(:version => 20120613021322) do
 
   create_table "business_sizes", :force => true do |t|
     t.string   "name"
@@ -59,8 +59,9 @@ ActiveRecord::Schema.define(:version => 20120612035005) do
     t.string   "name"
     t.text     "description"
     t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "business_size"
   end
 
   add_index "teams", ["user_id"], :name => "index_teams_on_user_id"
