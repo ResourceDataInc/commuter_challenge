@@ -18,7 +18,7 @@
     <td><%= team.captain.name %></td>
     <td><%= link_to 'Show', team %></td>
     
-    <% if can? :join, Team %>
+    <% if can? :join, team %>
       <% if current_user.member? team %>
         <td><%= link_to 'Leave', leave_team_path(team), confirm: 'Are you sure you want to leave this team?'%></td>
       <% else %>
@@ -26,10 +26,10 @@
       <% end %>
     <% end %>
     
-    <% if can? :update, Team %>
+    <% if can? :update, team %>
       <td><%= link_to 'Edit', edit_team_path(team) %></td>
     <% end %>
-    <% if can? :destroy, Team %>
+    <% if can? :destroy, team %>
       <td><%= link_to 'Destroy', team, confirm: 'Are you sure?', method: :delete %></td>
     <% end %>
   </tr>

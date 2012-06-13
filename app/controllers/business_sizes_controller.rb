@@ -1,5 +1,7 @@
 class BusinessSizesController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
+  load_and_authorize_resource
+  skip_authorize_resource :only => [:index, :show]
 
   def new
     @business_size = BusinessSize.new

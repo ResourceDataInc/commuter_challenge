@@ -1,11 +1,16 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-<p>User: <%= @user.name %></p>
+<h1><%= @user.name %></h1>
 <p>Email: <%= @user.email if @user.email %></p>
 
 <p>
   <b>Teams</b>
   <ul>
   <%= render @user.teams %>
+  </ul>
+</p>
+
+<p>
+  <b>Rides</b>
+  <ul>
+    <%= render @user.rides %>
   </ul>
 </p>

@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <b>User:</b>
+  <%= @ride.user.name%>
+</p>
+
+<p>
   <b>Name:</b>
   <%= @ride.name %>
 </p>
@@ -15,7 +20,7 @@
   <%= @ride.distance %>
 </p>
 
-<% if can? :manage, Ride %>
+<% if can? :manage, @ride %>
 <%= link_to 'Edit', edit_ride_path(@ride) %> |
 <% end %>
 <%= link_to 'Back', rides_path %>

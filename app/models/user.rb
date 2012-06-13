@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_many :created_competitions, class_name: "Competition"
   has_many :teams_to_captain, class_name: "Team"
   has_many :competitions, through: :teams
+  has_many :rides
   has_and_belongs_to_many :teams
 
 	rolify

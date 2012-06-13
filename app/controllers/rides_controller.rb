@@ -1,5 +1,8 @@
 class RidesController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
+  load_and_authorize_resource
+  skip_authorize_resource :only => [:index, :show]
+  
   def index
     @rides = Ride.all
 
@@ -33,7 +36,7 @@ class RidesController < ApplicationController
   end
 
   def create
-    @ride = Ride.new(params[:ride])    
+    @ride = Ride.new(params[:ride])   
     @ride.user = current_user
     
     respond_to do |format|
@@ -49,7 +52,6 @@ class RidesController < ApplicationController
 
   def update
     @ride = Ride.find(params[:id])
-    @ride.user = current_user
     
     respond_to do |format|
       if @ride.update_attributes(params[:ride])

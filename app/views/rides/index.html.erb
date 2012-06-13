@@ -1,7 +1,8 @@
-<h1>Listing rides</h1>
+<h1>All Rides</h1>
 
 <table>
   <tr>
+    <th>Rider</th>
     <th>Name</th>
     <th>Date</th>
     <th>Distance</th>
@@ -12,16 +13,17 @@
 
 <% @rides.each do |ride| %>
   <tr>
+    <td><%= link_to(ride.user.name, user_path(ride.user)) %></td>
     <td><%= ride.name %></td>
     <td><%= ride.date %></td>
     <td><%= ride.distance %></td>
     <td><%= link_to 'Show', ride %></td>
     
-    <% if can? :update, Ride %>
+    <% if can? :update, ride %>
     <td><%= link_to 'Edit', edit_ride_path(ride) %></td>
     <% end %>
     
-    <% if can? :destroy, Ride %>
+    <% if can? :destroy, ride %>
     <td><%= link_to 'Destroy', ride, confirm: 'Are you sure?', method: :delete %></td>
     <% end %>
   </tr>
@@ -29,6 +31,3 @@
 </table>
 
 <br />
-<% if can? :create, Ride %>
-<%= link_to 'New Ride', new_ride_path %>
-<% end %>

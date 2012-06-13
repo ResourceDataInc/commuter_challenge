@@ -1,5 +1,6 @@
 class Ride < ActiveRecord::Base
-  attr_accessible :date, :distance, :name
+  belongs_to :user
+  attr_accessible :date, :distance, :name, :user
   
   validates_presence_of :distance, :date
 end

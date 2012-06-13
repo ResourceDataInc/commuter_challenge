@@ -18,7 +18,7 @@ BikeChallenge::Application.routes.draw do
 
   root :to => "competitions#index"
 
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
 
   resources :users, :only => [:show, :index]
 end

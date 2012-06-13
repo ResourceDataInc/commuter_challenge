@@ -31,3 +31,7 @@ user.teams << rdi
 user.save
 puts "Added " + user.name + " to " + rdi.name
 
+puts "SETTING UP DEFAULT RIDES"
+ride = Ride.create! name: 'Test Ride', date: Time.now, user: user, distance: 1.2
+puts "Added a ride for " + user.name + " for " + ride.distance.to_s + " miles"
+
