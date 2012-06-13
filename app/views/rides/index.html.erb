@@ -1,0 +1,34 @@
+<h1>Listing rides</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Date</th>
+    <th>Distance</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @rides.each do |ride| %>
+  <tr>
+    <td><%= ride.name %></td>
+    <td><%= ride.date %></td>
+    <td><%= ride.distance %></td>
+    <td><%= link_to 'Show', ride %></td>
+    
+    <% if can? :update, Ride %>
+    <td><%= link_to 'Edit', edit_ride_path(ride) %></td>
+    <% end %>
+    
+    <% if can? :destroy, Ride %>
+    <td><%= link_to 'Destroy', ride, confirm: 'Are you sure?', method: :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<% if can? :create, Ride %>
+<%= link_to 'New Ride', new_ride_path %>
+<% end %>
