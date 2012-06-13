@@ -5,18 +5,20 @@ BikeChallenge::Application.routes.draw do
   resources :teams do
     member do
       get :join, :leave
-    end 
+    end
   end
 
   resources :competitions do
-    #resources :business_sizes
+    resources :business_sizes
     resources :competitions_teams do
       get :delete, :on => :collection
       post :remove, :on => :collection
     end
   end
 
-  root :to => "competitions#index"
+  match "home" => "home#index", as: :home
+
+  root :to => "home#index"
 
   devise_for :users, :controllers => {:registrations => "registrations"}
 

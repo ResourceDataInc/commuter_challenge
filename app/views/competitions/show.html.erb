@@ -1,21 +1,11 @@
+<h1><%= @competition.name %></h1>
+
 <p>
-  <b>Name:</b>
-  <%= @competition.name %>
+  <%= linkify @competition.description %>
 </p>
 
 <p>
-  <b>Description:</b>
-  <%= @competition.description %>
-</p>
-
-<p>
-  <b>Start date:</b>
-  <%= @competition.start_date %>
-</p>
-
-<p>
-  <b>End date:</b>
-  <%= @competition.end_date %>
+  It runs from <%= pretty_date @competition.start_date %> to <%= pretty_date @competition.end_date %>.
 </p>
 
 <p>
@@ -24,28 +14,26 @@
 </p>
 
 <p>
-  <b>Business Sizes</b>
-  <ul>
-  <%= render @competition.business_sizes %>
-  </ul>
+  <b>Who's Participating</b>
+  <% @competition.business_sizes.each do |size| %>
+    <div>
+      <p>Team size <%= size.lower_bound %> to <%= size.upper_bound || "&#8734;".html_safe %></p>
+      <ul>
+        <% size.teams.each do |team| %>
+          <li><%= link_to team.name, team %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 </p>
 
 <% if can? :create, BusinessSize %>
   <p>
     <h6>Add Business Size</h6>
-  
+
     <%= render 'business_sizes/form'%>
   </p>
 <% end %>
-
-<p>
-  <b>Teams</b>
-  <ul>
-  <% @competition.teams.each do |team| %>
-    <li> <%=link_to team.name, team %></li>
-  <% end %>
-  </ul>
-</p>
 
 <% if can? :manage, @competition %>
   <%= link_to 'Edit', edit_competition_path(@competition) %> |

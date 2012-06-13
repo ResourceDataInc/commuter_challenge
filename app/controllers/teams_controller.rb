@@ -24,7 +24,7 @@ class TeamsController < ApplicationController
   def join
     @team = Team.find(params[:id])
     @team.cyclists << current_user
-    
+
     respond_to do |format|
       if @team.save
         format.html { redirect_to root_path, notice: 'Successfully joined team.' }
@@ -34,12 +34,12 @@ class TeamsController < ApplicationController
         format.json { render json: @team.errors, status: :unprocessable_entity }
       end
     end
-  end 
-  
+  end
+
   def leave
     @team = Team.find(params[:id])
     @team.cyclists.delete(current_user)
-    
+
     respond_to do |format|
       if @team.save
         format.html { redirect_to root_path, notice: 'Successfully left team.' }
@@ -50,7 +50,7 @@ class TeamsController < ApplicationController
       end
     end
   end
-  
+
   def new
     @team = Team.new
     @team.captain = current_user
@@ -68,6 +68,7 @@ class TeamsController < ApplicationController
 
   def create
     @team = Team.new(params[:team])
+    @team.cyclists << current_user
 
     respond_to do |format|
       if @team.save
