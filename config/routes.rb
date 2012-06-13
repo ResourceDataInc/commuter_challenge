@@ -9,7 +9,7 @@ BikeChallenge::Application.routes.draw do
   end
 
   resources :competitions do
-    #resources :business_sizes
+    resources :business_sizes
     resources :competitions_teams do
       get :delete, :on => :collection
       post :remove, :on => :collection
