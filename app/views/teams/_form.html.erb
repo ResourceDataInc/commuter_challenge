@@ -1,4 +1,5 @@
-<%= form_for(@team) do |f| %>
+<%= form_for(@team, :html => { :class => 'form-horizontal' }) do |f| %>
+  <fieldset>
   <% if @team.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@team.errors.count, "error") %> prohibited this team from being saved:</h2>
@@ -11,25 +12,36 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class='controls'>
+      <%= f.text_field :name %>
+    </div>
   </div>
   
-  <div class = "field">
-    <%= f.label :business_size %>
-    <%= f.number_field :business_size%>
+  <div class = "control-group">
+    <%= f.label :business_size, :class => 'control-label' %>
+    <div class='controls'>
+      <%= f.number_field :business_size%>
+    </div>
   </div>
   
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class='controls'>
+      <%= f.text_area :description %>
+    </div>
   </div>
-  <div class="field">
-     <%= f.label :captain %><br />
-     <%= f.collection_select :user_id, User.order(:name), :id, :name %>
+  
+  <div class="control-group">
+     <%= f.label :captain, :class => 'control-label' %>
+     <div class='controls'>
+       <%= f.collection_select :user_id, User.order(:name), :id, :name %>
+    </div>
    </div>
-  <div class="actions">
-    <%= f.submit %>
+   
+  <div class="">
+    <%= f.submit 'Submit', :class => 'btn btn-primary' %>
   </div>
+  </fieldset>
 <% end %>

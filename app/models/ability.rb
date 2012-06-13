@@ -8,7 +8,6 @@ class Ability
     elsif user.has_role? :cyclist
       can :manage, Ride, :user_id => user.id
       can :manage, Competition, :user_id => user.id
-      puts ("***************************Authorizing user")
     end
     
     # Define abilities for the passed in user here. For example:

@@ -1,4 +1,5 @@
-<%= form_for(@ride) do |f| %>
+<%= form_for(@ride, :html => { :class => 'form-horizontal' }) do |f| %>
+  <fieldset>
   <% if @ride.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@ride.errors.count, "error") %> prohibited this ride from being saved:</h2>
@@ -10,20 +11,31 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+  <div class = 'control-group'>
+    <%= f.label :name, :class => 'control-label' %>
+    <div class='controls'>
+      <%= f.text_field :name %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :date %><br />
-    <%= f.date_select :date %>
+  
+  <div class = 'control-group'>
+    <%= f.label :date, :class => 'control-label' %>
+    <div class='controls'>
+      <%= f.date_select :date %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :distance %><br />
-    <%= f.text_field :distance %>
+  
+  <div class = 'control-group'>    
+    <%= f.label :distance, :class => 'control-label' %>
+    <div class='controls'>
+      <%= f.text_field :distance %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+      
   </div>
+            
+  <div class="">
+    <%= f.submit 'Submit', :class => 'btn btn-primary' %>
+  </div>
+  </fieldset>
 <% end %>

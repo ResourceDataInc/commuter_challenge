@@ -1,6 +1,6 @@
 <h1>All Rides</h1>
 
-<table>
+<table class='table table-striped'> <!-- table-condensed table-striped table-bordered -->
   <tr>
     <th>Rider</th>
     <th>Name</th>
@@ -21,10 +21,14 @@
     
     <% if can? :update, ride %>
     <td><%= link_to 'Edit', edit_ride_path(ride) %></td>
+    <% else %>
+    <td></td>
     <% end %>
     
     <% if can? :destroy, ride %>
     <td><%= link_to 'Destroy', ride, confirm: 'Are you sure?', method: :delete %></td>
+    <% else %>
+    <td></td>
     <% end %>
   </tr>
 <% end %>

@@ -4,7 +4,8 @@ puts 'New user created: ' << user.name
 user.add_role :admin
 
 puts "SETTING UP DEFAULT COMPETITION"
-competition = Competition.create! name: "2012 BCA Summer Bike Challenge", description: "Friendly competition to encourage bicycle commuting and see which businesses can get the greatest percentage of employees commuting to work by bike.  http://bicycleanchorage.org/wordpress/?page_id=2038", start_date: Date.parse("21/05/2012"), end_date: Date.parse("17/08/2012"), contact: user
+competition = Competition.create! name: "2012 BCA Summer Bike Challenge", 
+description: "Join the Alaska chapter of the American Institute of Architects and Bicycle Commuters of Anchorage in a friendly competition to encourage bicycle commuting and see which businesses can get the greatest percentage of employees commuting to work by bike. Join in at any time throughout the summer. There will be an awards party and celebration (location and date TBD). Last year we had great door prizes and of course some fantastic trophies for the winners. We welcome sponsors and prize donors.  Let us know if you would like to contribute to this celebration of people power.  See http://bicycleanchorage.org/wordpress/?page_id=2038 for additional information.", start_date: Date.parse("21/05/2012"), end_date: Date.parse("17/08/2012"), contact: user
 puts "New competition created " + competition.name
 
 puts "SETTING UP DEFAULT BUSINESS SIZES"
