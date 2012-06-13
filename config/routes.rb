@@ -5,7 +5,7 @@ BikeChallenge::Application.routes.draw do
   resources :teams do
     member do
       get :join, :leave
-    end 
+    end
   end
 
   resources :competitions do
@@ -16,7 +16,9 @@ BikeChallenge::Application.routes.draw do
     end
   end
 
-  root :to => "competitions#index"
+  match "home" => "home#index", as: :home
+
+  root :to => "home#index"
 
   devise_for :users
 
