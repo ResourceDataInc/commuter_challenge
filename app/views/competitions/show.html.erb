@@ -7,9 +7,7 @@
         It runs from <%= pretty_date @competition.start_date %> to <%= pretty_date @competition.end_date %>.
       </p>
 
-      <p>
-        <%= linkify @competition.description %>
-      </p>
+      <%= markdown @competition.description %>
 
       <p>
         <b>Contact</b>
