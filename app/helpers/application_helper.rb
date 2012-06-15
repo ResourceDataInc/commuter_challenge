@@ -6,4 +6,10 @@ module ApplicationHelper
   def pretty_date(date)
     date.strftime "%B %e, %Y"
   end
+  
+  def markdown(text)
+    renderer = Redcarpet::Render::HTML.new(:hard_wrap => true)
+    md = Redcarpet::Markdown.new(renderer, :autolink => true)
+    md.render(text).html_safe
+  end
 end
