@@ -18,6 +18,7 @@ end
 
 # Users
 user = find_or_create User, :name => 'Becky', :email => 'becky.sue.boone@gmail.com', :password => 'norain', :password_confirmation => 'norain'
+user.add_role :admin
 
 # Competitions
 competition = find_or_create Competition, name: "2012 BCA Summer Bike Challenges", 
@@ -37,5 +38,7 @@ rdi = find_or_create Team, name: "RDI Riders", description: "Riders from Resourc
 teams_competitions = find_or_create CompetitionsTeam, :competition_id => competition.id, :team_id => rdi.id
 
 # Add User to Team
-users_teams = find_or_create TeamsUser, :team_id => rdi.id, :user_id => user.id
+users_teams = find_or_create TeamsUser, :team_id => rdi.id, :user_id => user.id, :approved => true
+
+# 
 

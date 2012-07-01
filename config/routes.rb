@@ -1,7 +1,8 @@
 BikeChallenge::Application.routes.draw do
 
   resources :rides
-
+  resources :teams_users
+  
   resources :teams do
     member do
       get :join, :leave

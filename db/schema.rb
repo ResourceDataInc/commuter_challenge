@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120613024800) do
+ActiveRecord::Schema.define(:version => 20120702021241) do
 
   create_table "business_sizes", :force => true do |t|
     t.string   "name"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(:version => 20120613024800) do
   create_table "teams_users", :force => true do |t|
     t.integer "team_id"
     t.integer "user_id"
+    t.boolean "approved", :default => false
   end
 
   add_index "teams_users", ["team_id"], :name => "index_teams_users_on_team_id"

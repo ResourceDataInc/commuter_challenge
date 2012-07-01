@@ -1,0 +1,8 @@
+<li>
+  <%= teams_user.user.name %> 
+  <% if can? :approve, teams_user.team %>
+  <%= form_for(teams_user) do %>
+    <%= submit_tag (teams_user.approved ? :unapprove : :approve) %>
+  <% end %>
+  <% end %>
+</li>

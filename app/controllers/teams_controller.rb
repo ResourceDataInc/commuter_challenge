@@ -27,7 +27,7 @@ class TeamsController < ApplicationController
 
     respond_to do |format|
       if @team.save
-        format.html { redirect_to root_path, notice: 'Successfully joined team.' }
+        format.html { redirect_to root_path, notice: 'Team membership pending approval.' }
         format.json { render json: @team, status: :joined, location: @team }
       else
         format.html { render action: "index" }
@@ -69,6 +69,7 @@ class TeamsController < ApplicationController
   def create
     @team = Team.new(params[:team])
     @team.cyclists << current_user
+    @team.teams_users.first.approved = true
 
     respond_to do |format|
       if @team.save

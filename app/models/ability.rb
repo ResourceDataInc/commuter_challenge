@@ -2,12 +2,18 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    # TODO: Use rolify for scoped roles (ie Team captain)
     user ||= User.new # guest user (not logged in)
     if user.has_role? :admin
-      can :manage, :all
+      can :manage, :all    
     elsif user.has_role? :cyclist
       can :manage, Ride, :user_id => user.id
       can :manage, Competition, :user_id => user.id
+      can :manage, Team, :user_id => user.id
+      can :manage, TeamsUser do |teams_user| 
+        teams_user.team.user_id == user.id
+      end
+      can [:join, :leave], Team
     end
     
     # Define abilities for the passed in user here. For example:
