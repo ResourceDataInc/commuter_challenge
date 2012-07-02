@@ -3,9 +3,9 @@ class User < ActiveRecord::Base
   has_many :teams_to_captain, class_name: "Team"
   has_many :competitions, through: :teams
   has_many :rides
+  
   has_many :teams_users
   has_many :teams, :through => :teams_users
-  #has_and_belongs_to_many :teams
   
 
 	rolify

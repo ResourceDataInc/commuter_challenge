@@ -1,7 +1,6 @@
 BikeChallenge::Application.routes.draw do
 
   resources :rides
-  resources :teams_users
   
   resources :teams do
     member do
@@ -11,6 +10,7 @@ BikeChallenge::Application.routes.draw do
 
   resources :competitions do
     resources :business_sizes
+#    resources :competitions_teams
     resources :competitions_teams do
       get :delete, :on => :collection
       post :remove, :on => :collection

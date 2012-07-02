@@ -59,4 +59,19 @@ class CompetitionsTeamsController < ApplicationController
       end
     end
   end
+  
+  def update
+    @competitions_team = CompetitionsTeam.find(params[:id])
+    @competitions_team.approved = !@competitions_team.approved
+    
+    respond_to do |format|
+      if @competitions_team.save()
+        format.html { redirect_to :back, notice: 'Approval successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to :back, :flash => {:error=> 'Approval was not updated: ' + @competitions_team.errors.inspect }}
+        format.json { render json: @competitions_team.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 end

@@ -2,7 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    # TODO: Use rolify for scoped roles (ie Team captain)
+    # TODO: Refactor, use rolify for scoped roles (ie Team captain)
     user ||= User.new # guest user (not logged in)
     if user.has_role? :admin
       can :manage, :all    
@@ -18,7 +18,11 @@ class Ability
       end
       can :leave, Team do |team|
         user.member? team
-      end 
+      end
+       
+      can :manage, CompetitionsTeam do |competitions_team|
+        competitions_team.competition.user_id == user.id
+      end
     end
     
     # Define abilities for the passed in user here. For example:

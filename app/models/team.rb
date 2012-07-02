@@ -1,8 +1,11 @@
 class Team < ActiveRecord::Base
   belongs_to :captain, class_name: "User", foreign_key: "user_id"
-  has_and_belongs_to_many :competitions
+  
   has_many :teams_users
   has_many :cyclists, :through => :teams_users, source: :user
+  
+  has_many :competitions_teams
+  has_many :competitions, :through => :competitions_teams
 
   attr_accessible :description, :name, :captain, :user_id, :business_size, :cyclists
 

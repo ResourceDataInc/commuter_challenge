@@ -8,8 +8,11 @@ class BusinessSize < ActiveRecord::Base
   validate :upper_bound_cannot_be_between_existing_boundary
   validate :lower_bound_cannot_be_between_existing_boundary
 
-  def teams
-    competition.teams.in_range(lower_bound, upper_bound)
+  def competitions_teams
+    stuff = competition.competitions_teams.approved.joins(:team).merge(Team.in_range(lower_bound, upper_bound))
+    puts "*"*50
+    puts stuff.inspect
+    stuff
   end
 
   private

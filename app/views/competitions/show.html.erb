@@ -26,13 +26,20 @@
         <div>
           <p>Team size <%= size.lower_bound %> to <%= size.upper_bound || "&#8734;".html_safe %></p>
           <ul>
-          <% size.teams.each do |team| %>
-            <li><%= link_to team.name, team %></li>
-          <% end %>
+            <%= render size.competitions_teams %>          
           </ul>
         </div>
       <% end %>
-      </p>      
+      </p>   
+      
+      <% if can? :approve, @competition %>
+      <p>
+        <b>Teams needing approval</b>
+        <ul>
+          <%= render @competition.unapproved_competitions_teams %>
+        </ul>
+      </p>   
+      <% end %>
     </div>
   </div>
   
