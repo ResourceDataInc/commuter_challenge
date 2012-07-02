@@ -20,4 +20,5 @@ class Team < ActiveRecord::Base
   def not_approved_team_users
     teams_users.not_approved
   end
+  
 end

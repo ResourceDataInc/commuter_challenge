@@ -13,7 +13,12 @@ class Ability
       can :manage, TeamsUser do |teams_user| 
         teams_user.team.user_id == user.id
       end
-      can [:join, :leave], Team
+      can :join, Team do |team|
+        user.not_a_member? team
+      end
+      can :leave, Team do |team|
+        user.member? team
+      end 
     end
     
     # Define abilities for the passed in user here. For example:
