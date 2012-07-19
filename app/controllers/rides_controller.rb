@@ -1,10 +1,11 @@
 class RidesController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
+  helper_method :sort_column, :sort_direction
   load_and_authorize_resource
   skip_authorize_resource :only => [:index, :show]
   
   def index
-    @rides = Ride.all
+    @rides = Ride.order(sort_column + ' ' + sort_direction)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -72,5 +73,14 @@ class RidesController < ApplicationController
       format.html { redirect_to rides_url }
       format.json { head :no_content }
     end
+  end
+  
+  private 
+  def sort_column
+    Ride.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end

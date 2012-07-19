@@ -23,5 +23,6 @@ gem "cancan", ">= 1.6.7"
 gem "rolify", ">= 3.1.0"
 gem "redcarpet"
 gem "bootstrap-sass", ">= 2.0.3"
+
 gem "heroku", :group => [:development]
 
