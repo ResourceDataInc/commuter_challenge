@@ -1,8 +1,8 @@
-# Summer Beat Down Extreme Biking Challenge
+# Bike Commute Challenge
 
 ## What is it?
 
-An app for the [Anchorage Summer Bike Commute Challenge](http://bicycleanchorage.org/).
+An app for the [Anchorage Summer Bike Commute Challenge](http://bicycleanchorage.org/).  It pits teams against each other based on participation.
 
 ## Test 
 [Test Site](http://bca-summer-bike-challenge.heroku.com)
