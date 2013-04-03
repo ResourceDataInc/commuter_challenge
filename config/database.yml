@@ -1,0 +1,15 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: bike_commute_challenge_development
+  pool: 5
+  username: bike_commute_challenge
+  password: peddlehard
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: bike_commute_challenge_test
+  pool: 5
+  username: bike_commute_challenge
+  password: peddlehard
