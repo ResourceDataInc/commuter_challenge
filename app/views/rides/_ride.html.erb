@@ -1,6 +1,0 @@
-<li>
-  <%= ride.name %> 
-  <% if can? :destory, ride %>
-    <%= link_to 'Remove', ride, confirm: 'Are you sure you want to remove this ride?', :method=> :delete%>
-  <% end %>
-</li>
