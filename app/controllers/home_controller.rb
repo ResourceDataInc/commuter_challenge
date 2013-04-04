@@ -1,8 +1,9 @@
 class HomeController < ApplicationController
+  before_filter :authenticate_user!, only: :secret
+
   def index
-    flash[:success] = "Success!"
-    flash[:error] = "Error!"
-    flash[:warning] = "Warning!"
-    flash[:info] = "Info!"
+  end
+
+  def secret
   end
 end

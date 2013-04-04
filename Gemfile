@@ -5,6 +5,8 @@ ruby '2.0.0'
 gem 'rails', '3.2.13'
 gem 'pg', '~> 0.15'
 gem 'jquery-rails', '~> 2.2'
+gem 'devise', '~> 2.2'
+gem 'simple_form', '~> 2.1'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -15,6 +17,7 @@ group :assets do
 end
 
 group :development, :test do
+  gem 'shoulda-matchers', '~> 1.5'
   gem 'rspec-rails', '~> 2.13'
   gem 'capybara', '~> 2.0'
 end
