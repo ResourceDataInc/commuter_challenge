@@ -1,0 +1,23 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-chevron-down icon-white"></span>
+      </a>
+
+      <%= link_to "Bike Commute Challenge", root_path, class: "brand" %>
+
+      <div class="nav-collapse collapse">
+
+        <ul id="main-menu" class="nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <%= render "layouts/user_session" %>
+      </div>
+    </div>
+  </div>
+</div>

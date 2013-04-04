@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-BikeChallenge::Application.load_tasks
+BikeCommuteChallenge::Application.load_tasks

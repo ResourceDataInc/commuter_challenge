@@ -82,7 +82,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = "11b83c2837a34af0240130a358164dc1a8eba1e0bcde7d6c09b39daf49364365f73f6cdbb5620a51b7083caa15cda61ba02c3bae2005e200bd55e485db74f136"
+  # config.pepper = "8cc9698cb3f691938a67322d37f021014ae4dbcc336e41b5d472c4ee6b3daf4a4221e283fbc411e1461f967ec592298be492831c84c19aa9b09bc41ba4636660"
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -91,6 +91,14 @@ Devise.setup do |config|
   # access will be blocked just in the third day. Default is 0.days, meaning
   # the user cannot access the website without confirming his account.
   # config.allow_unconfirmed_access_for = 2.days
+
+  # A period that the user is allowed to confirm their account before their
+  # token becomes invalid. For example, if set to 3.days, the user can confirm
+  # their account within 3 days after the mail was sent, but on the fourth day
+  # their account can't be confirmed with the token any more.
+  # Default is nil, meaning there is no restriction on how long a user can take
+  # before confirming their account.
+  # config.confirm_within = 3.days
 
   # If true, requires any email changes to be confirmed (exactly the same way as
   # initial account confirmation) to be applied. Requires additional unconfirmed_email
@@ -113,8 +121,8 @@ Devise.setup do |config|
   # config.rememberable_options = {}
 
   # ==> Configuration for :validatable
-  # Range for password length. Default is 6..128.
-  # config.password_length = 6..128
+  # Range for password length. Default is 8..128.
+  config.password_length = 8..128
 
   # Email regex used to validate email formats. It simply asserts that
   # an one (and only one) @ exists in the given string. This is mainly
@@ -125,6 +133,9 @@ Devise.setup do |config|
   # The time you want to timeout the user session without activity. After this
   # time the user will be asked for credentials again. Default is 30 minutes.
   # config.timeout_in = 30.minutes
+
+  # If true, expires auth token on session timeout.
+  # config.expire_auth_token_on_timeout = false
 
   # ==> Configuration for :lockable
   # Defines which strategy will be used to lock an account.
@@ -181,9 +192,8 @@ Devise.setup do |config|
   # devise role declared in your routes (usually :user).
   # config.default_scope = :user
 
-  # Configure sign_out behavior.
-  # Sign_out action can be scoped (i.e. /users/sign_out affects only :user scope).
-  # The default is true, which means any logout action will sign out all active scopes.
+  # Set this configuration to false if you want /users/sign_out to sign out
+  # only the current scope. By default, Devise signs out all scopes.
   # config.sign_out_all_scopes = true
 
   # ==> Navigation configuration
@@ -198,7 +208,7 @@ Devise.setup do |config|
   # config.navigational_formats = ["*/*", :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
-  config.sign_out_via = Rails.env.test? ? :get : :delete
+  config.sign_out_via = :delete
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
@@ -213,4 +223,18 @@ Devise.setup do |config|
   #   manager.intercept_401 = false
   #   manager.default_strategies(:scope => :user).unshift :some_external_strategy
   # end
+
+  # ==> Mountable engine configurations
+  # When using Devise inside an engine, let's call it `MyEngine`, and this engine
+  # is mountable, there are some extra configurations to be taken into account.
+  # The following options are available, assuming the engine is mounted as:
+  #
+  #     mount MyEngine, at: "/my_engine"
+  #
+  # The router that invoked `devise_for`, in the example above, would be:
+  # config.router_name = :my_engine
+  #
+  # When using omniauth, Devise cannot automatically set Omniauth path,
+  # so you need to do it manually. For the users scope, it would be:
+  # config.omniauth_path_prefix = "/my_engine/users/auth"
 end

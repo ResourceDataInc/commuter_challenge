@@ -1,0 +1,24 @@
+.container-fluid {
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Large desktop */
+@media (min-width: 980px) {
+  body {
+    padding-top: 60px;
+  }
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (max-width: 979px) {
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+}

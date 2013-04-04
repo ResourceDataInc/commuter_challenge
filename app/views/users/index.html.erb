@@ -1,8 +1,0 @@
-<h1>Users</h1>
-<ul  class='table table-striped'>
-  <% @users.each do |user| %>
-    <li>
-      <%= link_to user.name, user %> signed up <%= user.created_at.to_date %>
-    </li>
-  <% end %>
-</ul>

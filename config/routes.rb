@@ -1,27 +1,7 @@
-BikeChallenge::Application.routes.draw do
+BikeCommuteChallenge::Application.routes.draw do
+  devise_for :users
 
-  resources :rides
-  
-  resources :teams do
-    member do
-      get :join, :leave
-    end
-  end
+  get "/secret" => "home#secret", as: "secret"
 
-  resources :competitions do
-    resources :business_sizes
-#    resources :competitions_teams
-    resources :competitions_teams do
-      get :delete, :on => :collection
-      post :remove, :on => :collection
-    end
-  end
-
-  match "home" => "home#index", as: :home
-
-  root :to => "home#index"
-
-  devise_for :users, :controllers => {:registrations => "registrations"}
-
-  resources :users, :only => [:show, :index]
+  root to: "home#index"
 end

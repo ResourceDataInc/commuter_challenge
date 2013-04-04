@@ -1,8 +1,0 @@
-<li>
-  <%= link_to competitions_team.team.name, competitions_team.team %>
-  <% if can? :approve, competitions_team.competition %>
-    <%= form_for([competitions_team.competition, competitions_team]) do %>    
-      <%= submit_tag (competitions_team.approved ? :unapprove : :approve) %>
-    <% end %>
-  <% end %>
-</li>

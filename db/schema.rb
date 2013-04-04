@@ -11,81 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120702043959) do
-
-  create_table "business_sizes", :force => true do |t|
-    t.string   "name"
-    t.integer  "lower_bound"
-    t.integer  "upper_bound"
-    t.integer  "competition_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-  end
-
-  add_index "business_sizes", ["competition_id"], :name => "index_business_sizes_on_competition_id"
-
-  create_table "competitions", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  add_index "competitions", ["user_id"], :name => "index_competitions_on_user_id"
-
-  create_table "competitions_teams", :force => true do |t|
-    t.integer "competition_id"
-    t.integer "team_id"
-    t.boolean "approved",       :default => false
-  end
-
-  add_index "competitions_teams", ["competition_id"], :name => "index_competitions_teams_on_competition_id"
-  add_index "competitions_teams", ["team_id"], :name => "index_competitions_teams_on_team_id"
-
-  create_table "rides", :force => true do |t|
-    t.string   "name"
-    t.date     "date"
-    t.decimal  "distance"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "rides", ["user_id"], :name => "index_rides_on_user_id"
-
-  create_table "roles", :force => true do |t|
-    t.string   "name"
-    t.integer  "resource_id"
-    t.string   "resource_type"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
-  add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
-  add_index "roles", ["name"], :name => "index_roles_on_name"
-
-  create_table "teams", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.integer  "user_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-    t.integer  "business_size"
-  end
-
-  add_index "teams", ["user_id"], :name => "index_teams_on_user_id"
-
-  create_table "teams_users", :force => true do |t|
-    t.integer "team_id"
-    t.integer "user_id"
-    t.boolean "approved", :default => false
-  end
-
-  add_index "teams_users", ["team_id"], :name => "index_teams_users_on_team_id"
-  add_index "teams_users", ["user_id"], :name => "index_teams_users_on_user_id"
+ActiveRecord::Schema.define(:version => 20130403232839) do
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -100,17 +26,11 @@ ActiveRecord::Schema.define(:version => 20120702043959) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
-    t.string   "name"
+    t.string   "username"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
-
-  create_table "users_roles", :id => false, :force => true do |t|
-    t.integer "user_id"
-    t.integer "role_id"
-  end
-
-  add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
+  add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
 end

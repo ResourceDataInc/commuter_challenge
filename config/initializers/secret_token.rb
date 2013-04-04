@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-BikeChallenge::Application.config.secret_token = 'ff0c19582fd3f1e6c3829bddaceb3a801ea7664fed4adb05e368f1eced79d6c22e95a0845841649b939ae020a7e9be2837c1dcff4daa5761c646d52a7b6b869e'
+BikeCommuteChallenge::Application.config.secret_token = 'cc2aff366aa167a550eb0d28022397d7c57523c1d1b169192695b4955ca2604288ea7993d0608cb2d22a3bd3717a0dd97a8bc7e03428ae5f300c3514440f5a64'

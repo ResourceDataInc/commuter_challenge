@@ -1,5 +1,8 @@
 class HomeController < ApplicationController
   def index
-    redirect_to Competition.first
+  end
+
+  def secret
+    authorize! :read, :secret
   end
 end
