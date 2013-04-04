@@ -2,6 +2,7 @@ development:
   adapter: postgresql
   encoding: unicode
   database: bike_commute_challenge_development
+  host: localhost
   pool: 5
   username: bike_commute_challenge
   password: peddlehard
@@ -10,6 +11,7 @@ test:
   adapter: postgresql
   encoding: unicode
   database: bike_commute_challenge_test
+  host: localhost
   pool: 5
   username: bike_commute_challenge
   password: peddlehard
