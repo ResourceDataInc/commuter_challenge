@@ -7,6 +7,7 @@ gem 'pg', '~> 0.15'
 gem 'jquery-rails', '~> 2.2'
 gem 'devise', '~> 2.2'
 gem 'simple_form', '~> 2.1'
+gem 'cancan', '~> 1.6'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -21,4 +22,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 2.13'
   gem 'capybara', '~> 2.0'
   gem 'factory_girl_rails'
+end
+
+group :development do
+  gem 'better_errors', '~> 0.7'
 end

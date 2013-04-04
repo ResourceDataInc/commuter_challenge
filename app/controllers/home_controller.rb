@@ -1,9 +1,8 @@
 class HomeController < ApplicationController
-  before_filter :authenticate_user!, only: :secret
-
   def index
   end
 
   def secret
+    authorize! :read, :secret
   end
 end
