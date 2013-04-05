@@ -21,9 +21,14 @@ describe "a user" do
     end
 
     it "can sign in" do
+      FactoryGirl.create :user,
+        email: "test@example.com",
+        username: "Test User",
+        password: "pwd4test"
+
       click_on "Sign in"
       fill_in "user_email", with: "test@example.com"
-      fill_in "user_password", with: user.password
+      fill_in "user_password", with: "pwd4test"
       click_button "Sign in"
       page.should have_content "Test User"
       page.should have_link "Sign out"

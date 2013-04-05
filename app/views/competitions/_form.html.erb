@@ -1,0 +1,9 @@
+<%= simple_form_for @competition do |f| %>
+  <%= f.input :title %>
+  <%= f.input :start_on, as: :string, input_html: { class: "datepicker" } %>
+  <%= f.input :end_on, as: :string, input_html: { class: "datepicker" } %>
+  <%= f.input :description %>
+
+  <%= f.button :submit, class: "btn btn-success" %>
+  <%= link_to "Cancel", :back, class: "btn" %>
+<% end %>

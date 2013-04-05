@@ -33,6 +33,8 @@ GEM
     better_errors (0.7.2)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
+    bootstrap-datepicker-rails (1.0.0.3)
+      railties (>= 3.0)
     bootstrap-sass (2.3.1.0)
       sass (~> 3.2)
     bourne (1.4.0)
@@ -176,6 +178,7 @@ PLATFORMS
 
 DEPENDENCIES
   better_errors (~> 0.7)
+  bootstrap-datepicker-rails (~> 1.0)
   bootstrap-sass (~> 2.3)
   cancan (~> 1.6)
   capybara (~> 2.0)

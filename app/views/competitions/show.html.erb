@@ -1,0 +1,22 @@
+<%= title @competition.title %>
+
+<%= content_tag_for :div, @competition do %>
+  <h1><%= @competition.title %></h1>
+
+  <p>
+    Starts: <%= @competition.start_on %>
+    Ends: <%= @competition.end_on %>
+  </p>
+
+  <p>
+    <%# user a presenter for this %>
+    Created by: <%= mail_to @competition.owner.email, @competition.owner.username %>
+  </p>
+
+  <%= simple_format @competition.description %>
+
+  <% if can? :manage, @competition %>
+    <%= link_to "Edit", edit_competition_path(@competition), class: "btn" %>
+    <%= link_to "Delete", delete_competition_path(@competition), class: "btn" %>
+  <% end %>
+<% end %>

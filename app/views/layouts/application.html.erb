@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BikeCommuteChallenge</title>
+  <title>
+    <% if content_for? :title %>
+      <%= yield :title %> |
+    <% end %>
+    BikeCommuteChallenge
+  </title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
