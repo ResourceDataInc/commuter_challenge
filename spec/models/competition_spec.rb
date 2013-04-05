@@ -7,5 +7,26 @@ describe Competition do
     it { should validate_presence_of :owner }
     it { should validate_presence_of :start_on }
     it { should validate_presence_of :end_on }
+
+    it "should require end date be greater than start date" do
+      competition = FactoryGirl.build :competition,
+        start_on: 2.weeks.from_now,
+        end_on: 1.day.from_now
+      competition.should_not be_valid
+      competition.should have(1).error_on(:end_on)
+
+      competition.end_on = 1.month.from_now
+      competition.should be_valid
+    end
+
+    it "should require start date be in the future" do
+      competition = FactoryGirl.build :competition,
+        start_on: 1.month.ago
+      competition.should_not be_valid
+      competition.should have(1).error_on(:start_on)
+
+      competition.start_on = Time.now
+      competition.should be_valid
+    end
   end
 end
