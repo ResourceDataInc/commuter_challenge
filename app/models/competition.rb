@@ -1,5 +1,5 @@
 class Competition < ActiveRecord::Base
-  attr_accessible :description, :ends_on, :owner_id, :starts_on, :title
+  attr_accessible :description, :end_on, :owner_id, :start_on, :title
 
   belongs_to :owner, class_name: "User"
 

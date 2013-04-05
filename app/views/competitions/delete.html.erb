@@ -1,0 +1,11 @@
+<% title "#{@competition.title} - Confirm Delete" %>
+
+<h1>Confirm Delete</h1>
+
+<p>
+  Are you sure you wish to delete the competition '<%= @competition.title %>'?
+  Deleting it will delete all data associated with it, including teams and
+  logged rides.
+</p>
+
+<%= link_to "Delete", @competition, data: { method: :delete } %>

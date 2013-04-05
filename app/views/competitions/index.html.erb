@@ -1,0 +1,19 @@
+<% title "Competitions" %>
+
+<h1>Competitions</h1>
+
+<% if @competitions.blank? %>
+  <p>No competitions!</p>
+<% end %>
+
+<% if can? :create, Competition %>
+  <%= link_to "Start Competition", new_competition_path %>
+<% end %>
+
+<ul class="competitions">
+  <% @competitions.each do |competition| %>
+    <%= content_tag_for :li, competition do %>
+      <%= link_to competition.title, competition %>
+    <% end %>
+  <% end %>
+</ul>

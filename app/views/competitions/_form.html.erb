@@ -1,0 +1,8 @@
+<%= simple_form_for @competition do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :start_on, as: :string %>
+  <%= f.input :end_on, as: :string %>
+
+  <%= f.submit %>
+<% end %>
