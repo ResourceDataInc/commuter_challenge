@@ -7,7 +7,7 @@
 <% end %>
 
 <% if can? :create, Competition %>
-  <%= link_to "Start Competition", new_competition_path %>
+  <%= link_to "Start Competition", new_competition_path, class: "btn" %>
 <% end %>
 
 <ul class="competitions">

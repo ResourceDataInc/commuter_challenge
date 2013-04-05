@@ -16,7 +16,7 @@
   <%= simple_format @competition.description %>
 
   <% if can? :manage, @competition %>
-    <%= link_to "Edit", edit_competition_path(@competition) %>
-    <%= link_to "Delete", delete_competition_path(@competition) %>
+    <%= link_to "Edit", edit_competition_path(@competition), class: "btn" %>
+    <%= link_to "Delete", delete_competition_path(@competition), class: "btn" %>
   <% end %>
 <% end %>

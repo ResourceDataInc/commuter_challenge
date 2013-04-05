@@ -4,5 +4,6 @@
   <%= f.input :start_on, as: :string %>
   <%= f.input :end_on, as: :string %>
 
-  <%= f.submit %>
+  <%= f.button :submit, class: "btn btn-success" %>
+  <%= link_to "Cancel", :back, class: "btn" %>
 <% end %>
