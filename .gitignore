@@ -21,6 +21,8 @@ db/*.sqlite3
 
 # various artifacts
 .rvmrc
+.ruby-version
+.ruby-gemset
 .powrc
 **.war
 *.rbc
