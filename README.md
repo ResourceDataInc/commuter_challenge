@@ -20,7 +20,7 @@ An application for setting up and tracking bicycle competitions.
 1. Install PostgreSQL.
 1. Create a database user using the following command.
 
-        createuser -d -S -R -P bike_commute_challenge
+        createuser -d -S -R -P -h localhost bike_commute_challenge
 
 1. Enter "peddlehard" as the password.
 1. From the Rails application root directory, run the following command.
