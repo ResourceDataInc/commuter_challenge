@@ -15,6 +15,14 @@ describe Ability do
     it "cannot create a competition" do
       ability.should_not be_able_to :create, Competition
     end
+
+    it "can read all teams" do
+      ability.should be_able_to :read, Team
+    end
+
+    it "cannot create a team" do
+      ability.should_not be_able_to :create, Team
+    end
   end
 
   context "for authenticated user" do
@@ -37,6 +45,20 @@ describe Ability do
     it "cannot manage another user's competition" do
       competition = FactoryGirl.create :competition
       ability.should_not be_able_to :manage, competition
+    end
+
+    it "can create a team" do
+      ability.should be_able_to :create, Team
+    end
+
+    it "can manage own team" do
+      team = FactoryGirl.create :team, captain: user
+      ability.should be_able_to :manage, team
+    end
+
+    it "cannot manage another user's team" do
+      team = FactoryGirl.create :team, captain: FactoryGirl.create(:user)
+      ability.should_not be_able_to :manage, team
     end
   end
 end

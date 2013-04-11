@@ -1,0 +1,18 @@
+<% title "Teams" %>
+<h1>Teams</h1>
+
+<% if @teams.blank? %>
+  <p>No teams!</p>
+<% end %>
+
+<% if can? :create, Team %>
+  <%= link_to "Create Team", new_team_path, class: "btn" %>
+<% end %>
+
+<ul class="teams">
+  <% @teams.each do |team| %>
+    <%= content_tag_for :li, team do %>
+      <%= link_to team.name, team %>
+    <% end %>
+  <% end %>
+</ul>

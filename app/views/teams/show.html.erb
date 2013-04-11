@@ -1,0 +1,17 @@
+<%= title @team.name %>
+
+<%= content_tag_for :div, @team do %>
+  <h1><%= @team.name %></h1>
+
+  <p>
+    <%# user a presenter for this %>
+    Created by: <%= mail_to @team.captain.email, @team.captain.username %>
+  </p>
+
+  <%= simple_format @team.description %>
+
+  <% if can? :manage, @team %>
+    <%= link_to "Edit", edit_team_path(@team), class: "btn" %>
+    <%= link_to "Delete", delete_team_path(@team), class: "btn" %>
+  <% end %>
+<% end %>
