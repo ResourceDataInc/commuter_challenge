@@ -1,4 +1,6 @@
 # Bike Commute Challenge
+* [Staging](http://summer-bike-challenge-staging.herokuapp.com/)
+* [Production](http://summer-bike-challenge-prod.herokuapp.com/)
 
 ## What is it?
 
@@ -38,3 +40,7 @@ An application for setting up and tracking bicycle competitions.
   GitHub to merge your `feature_branch` *into* the `master` branch. Other team
   members will then review your changes.
 * Once everyone agrees the feature is good to go, merge your branch.
+
+### Jenkins
+[Staging](http://kaiubuntu:8080/job/Bike%20Commute%20Challenge-Staging/)
+[Production](http://kaiubuntu:8080/job/Bike%20Commute%20Challenge-Production/)
