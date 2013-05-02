@@ -1,0 +1,10 @@
+<% title "#{@ride.date} - Confirm Delete" %>
+
+<h1>Confirm Delete</h1>
+
+<p>
+  Are you sure you wish to delete the ride logged on '<%= @ride.date %>'?
+</p>
+
+<%= link_to "Delete", @ride, data: { method: :delete }, class: "btn btn-danger" %>
+<%= link_to "Cancel", :back, class: "btn" %>

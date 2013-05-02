@@ -9,6 +9,10 @@ BikeCommuteChallenge::Application.routes.draw do
     get :delete, on: :member
   end
 
+  resources :rides do
+    get :delete, on: :member
+  end
+
   get "/secret" => "home#secret", as: "secret"
 
   root to: "home#index"
