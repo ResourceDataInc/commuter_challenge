@@ -1,0 +1,18 @@
+<% title "Rides" %>
+<h1>Rides</h1>
+
+<% if @rides.blank? %>
+  <p>No rides logged!</p>
+<% end %>
+
+<% if can? :create, Ride %>
+  <%= link_to "Log a Ride", new_ride_path, class: "btn" %>
+<% end %>
+
+<ul class="rides">
+  <% @rides.each do |ride| %>
+    <%= content_tag_for :li, ride do %>
+      <%= link_to "#{ride.date} #{ride.rider.username} #{ride.distance}", ride %>
+    <% end %>
+  <% end %>
+</ul>
