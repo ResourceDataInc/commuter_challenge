@@ -10,6 +10,12 @@
 
   <%= simple_format @team.description %>
 
+  <% if can? :join, @team %>
+    <%= simple_form_for [@team, @membership] do |f| %>
+      <%= f.submit t("team.join.action"), class: "btn btn-primary" %>
+    <% end %>
+  <% end %>
+
   <% if can? :manage, @team %>
     <%= link_to "Edit", edit_team_path(@team), class: "btn" %>
     <%= link_to "Delete", delete_team_path(@team), class: "btn" %>

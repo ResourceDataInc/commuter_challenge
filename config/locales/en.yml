@@ -2,4 +2,8 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  team:
+    join:
+      action: "Join Team"
+      request_confirmation: "Request sent"
+      request_already_member: "You are already a member of this team"
