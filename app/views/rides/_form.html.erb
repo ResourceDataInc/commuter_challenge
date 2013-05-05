@@ -1,0 +1,10 @@
+<%= simple_form_for @ride do |f| %>
+
+  <%= f.input :date, as: :string, input_html: { class: "datepicker" } %>
+  <%= f.input :description %>
+  <%= f.input :distance %>
+  <%= f.input :is_round_trip, :collection => [["Round Trip", "true"], ["One Way", "false"]], :as => :radio_buttons %>
+
+  <%= f.button :submit, "Log Ride", class: "btn btn-success" %>
+  <%= link_to "Cancel", :back, class: "btn" %>
+<% end %>
