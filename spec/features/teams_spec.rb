@@ -8,12 +8,12 @@ describe "teams" do
 
     visit root_url
     click_on "Teams"
-    click_on "Create Team"
+    click_on I18n.t("team.add.action")
     fill_in "team_name", with: "RDI Riders"
     fill_in "team_description", with: "Resource Data Inc"
     click_on "Create Team"
 
-    within(".alert") { page.should have_content "Team created" }
+    within(".alert") { page.should have_content I18n.t("team.add.success") }
     within ".team" do
       page.should have_content "RDI Riders"
       page.should have_content "Resource Data Inc"
@@ -33,13 +33,13 @@ describe "teams" do
     visit root_url
     click_on "Teams"
     click_on team.name
-    within(".team") { click_on "Edit" }
+    within(".team") { click_on I18n.t("team.edit.action") }
 
     fill_in "team_name", with: "RDI Riders"
     fill_in "team_description", with: "Resource Data Inc"
     click_on "Update Team"
 
-    within(".alert") { page.should have_content "Team updated" }
+    within(".alert") { page.should have_content I18n.t("team.edit.success") }
     within ".team" do
       page.should have_content "RDI Riders"
       page.should have_content "Resource Data Inc"
@@ -55,10 +55,10 @@ describe "teams" do
     visit root_url
     click_on "Teams"
     click_on team.name
-    within(".team") { click_on "Delete" }
+    within(".team") { click_on I18n.t("team.delete.action") }
 
     page.should have_content "Are you sure"
-    click_on "Delete"
-    within(".alert") { page.should have_content "Team deleted" }
+    click_on I18n.t("team.delete.action")
+    within(".alert") { page.should have_content I18n.t("team.delete.success") }
   end
 end

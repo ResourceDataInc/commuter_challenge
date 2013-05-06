@@ -55,6 +55,21 @@ en:
       round: "Round Trip"
     submit: "Log Ride"
   team:
+    add:
+      action: "Create Team"
+      success: "Team created"
+      title: "New Team"
+    delete:
+      action: "Delete"
+      success: "Team updated"
+      title: "Confirm Delete"
+    edit:
+      action: "Edit"
+      success: "Team deleted"  
+      title: "Edit Team"
+    index:
+      action: "Teams"
+      none: "No teams!"
     join:
       action: "Join Team"
       request_confirmation: "Request sent"
