@@ -22,6 +22,10 @@ class Ability
       can :join, Team do |team|
         !team.members.include? user
       end
+
+      cannot :join, Team do |team|
+        team.members.include? user
+      end
     end
   end
 end

@@ -113,5 +113,10 @@ describe Ability do
       membership = FactoryGirl.create(:membership, team: team)
       ability.should be_able_to :manage, membership
     end
+
+    it "cannot rejoin a team" do
+      FactoryGirl.create :membership, team: team, user: user
+      ability.should_not be_able_to :join, team
+    end
   end
 end
