@@ -1,3 +1,4 @@
-<h1>Edit Category</h1>
+<% title t("bracket.edit.action") + " #{@bracket.name}" %>
+<h1><%=t("bracket.edit.action") + " " +  @bracket.name %></h1>
 
 <%= render "form" %>

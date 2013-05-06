@@ -2,6 +2,22 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  bracket:
+    add:
+      action: "Add Category"
+      success: "Category created"
+    delete:
+      action: "Delete"
+      confirm: "Are you sure you want to delete this category?"
+      success: "Category removed"
+    edit:
+      action: "Edit"
+      success: "Category updated"
+    submit: "Save"
+  membership:
+    delete:
+      action: "Delete"
+      success: "Membership deleted"
   team:
     join:
       action: "Join Team"
@@ -10,7 +26,3 @@ en:
       approve_action: "Approve"
       approve_confirmation: "Team approved"
       approve_failure: "Unable to approve team :("
-  membership:
-    delete:
-      action: "Delete"
-      success: "Membership deleted"
