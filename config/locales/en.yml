@@ -7,3 +7,6 @@ en:
       action: "Join Team"
       request_confirmation: "Request sent"
       request_already_member: "You are already a member of this team"
+      approve_action: "Approve"
+      approve_confirmation: "Team approved"
+      approve_failure: "Unable to approve team :("

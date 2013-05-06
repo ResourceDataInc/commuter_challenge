@@ -103,4 +103,15 @@ describe Ability do
       ability.should be_able_to :create, Membership
     end
   end
+
+  context "team captain" do
+    let(:user) { FactoryGirl.create(:user) }
+    subject(:ability) { Ability.new(user) }
+    let(:team) { FactoryGirl.create(:team, captain: user) }
+
+    it "can manage memberships" do
+      membership = FactoryGirl.create(:membership, team: team)
+      ability.should be_able_to :manage, membership
+    end
+  end
 end
