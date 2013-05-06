@@ -15,6 +15,15 @@
 
   <%= simple_format @competition.description %>
 
+  <% if @competition.brackets.any? %>
+  <p>
+    <h2>Categories</h2>
+    <ul>
+      <%= render @competition.brackets %>
+    </ul>
+  </p>
+  <% end %>
+
   <% if can? :manage, @competition %>
     <%= link_to "Edit", edit_competition_path(@competition), class: "btn" %>
     <%= link_to "Delete", delete_competition_path(@competition), class: "btn" %>

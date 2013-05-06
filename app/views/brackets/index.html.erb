@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Lower Limit</th>
+    <th>Upper Limit</th>
+  </tr>
+<% @brackets.each do |bracket| %>
+  <tr>
+    <td><%= bracket.name %></td>
+    <td><%= bracket.lower_limit %></td>
+    <td><%= bracket.upper_limit %></td>
+  </tr>
+<% end %>
+</table>

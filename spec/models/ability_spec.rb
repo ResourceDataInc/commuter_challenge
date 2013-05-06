@@ -23,6 +23,10 @@ describe Ability do
     it "cannot create a team" do
       ability.should_not be_able_to :create, Team
     end
+
+    it "cannot create a bracket" do
+      ability.should_not be_able_to :create, Bracket
+    end
   end
 
   context "for authenticated user" do
@@ -59,6 +63,21 @@ describe Ability do
     it "cannot manage another user's team" do
       team = FactoryGirl.create :team, captain: FactoryGirl.create(:user)
       ability.should_not be_able_to :manage, team
+    end
+
+    it "can create a bracket" do
+      ability.should be_able_to :create, Bracket
+    end
+
+    it "can manage own bracket" do
+      bracket = FactoryGirl.create :bracket, 
+        competition: FactoryGirl.create(:competition, owner: user)
+      ability.should be_able_to :manage, bracket
+    end
+
+    it "cannot manage another user's competition bracket" do
+      bracket = FactoryGirl.create :bracket
+      ability.should_not be_able_to :manage, bracket
     end
   end
 end
