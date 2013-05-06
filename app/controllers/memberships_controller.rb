@@ -4,18 +4,18 @@ class MembershipsController < ApplicationController
 
   def create
     if @membership.save
-      flash[:success] = I18n.t("team.join.request_confirmation")
+      flash[:success] = t("team.join.request_confirmation")
     else
-      flash[:alert] = I18n.t("team.join.request_already_member")
+      flash[:alert] = t("team.join.request_already_member")
     end
     redirect_to @team
   end
 
   def update
     if @membership.update_attributes(params[:membership])
-      flash[:success] = I18n.t("team.join.approve_confirmation")
+      flash[:success] = t("team.join.approve_confirmation")
     else
-      flash[:error] = I18n.t("team.join.approve_failure")
+      flash[:error] = t("team.join.approve_failure")
     end
     redirect_to @team
   end
@@ -25,7 +25,7 @@ class MembershipsController < ApplicationController
 
   def destroy
     @membership.destroy
-    flash[:success] = I18n.t("membership.delete.success")
+    flash[:success] = t("membership.delete.success")
     redirect_to @team
   end
 end
