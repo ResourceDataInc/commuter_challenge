@@ -34,6 +34,26 @@ en:
     delete:
       action: "Delete"
       success: "Membership deleted"
+  ride:
+    add:
+      action: "Log a Ride"
+      success: "Ride logged"
+      title: "Log Ride"
+    delete:
+      action: "Delete"
+      success: "Ride updated"
+      title: "Confirm Delete"
+    edit:
+      action: "Edit"
+      success: "Ride deleted"  
+      title: "Edit Ride"
+    index:
+      action: "Rides"
+      none: "No rides logged."
+    options:
+      one: "One Way"
+      round: "Round Trip"
+    submit: "Log Ride"
   team:
     join:
       action: "Join Team"
