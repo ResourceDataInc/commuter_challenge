@@ -14,6 +14,22 @@ en:
       action: "Edit"
       success: "Category updated"
     submit: "Save"
+  competition:
+    add:
+      action: "Start Competition"
+      success: "Competition created"
+      title: "New Competition"
+    delete:
+      action: "Delete"
+      confirm: "Are you sure you wish to delete the competition? Deleting it will delete all data associated with it, including teams and logged rides."
+      success: "Competition removed"
+      title: "Confirm Delete"
+    edit:
+      action: "Edit"
+      success: "Competition updated"
+    index:
+      action: "Competitions"
+      none: "No competitions!"
   membership:
     delete:
       action: "Delete"
