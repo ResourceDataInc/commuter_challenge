@@ -1,11 +1,11 @@
 class Membership < ActiveRecord::Base
-  belongs_to :team
-  belongs_to :user
+  belongs_to :team, inverse_of: :memberships
+  belongs_to :user, inverse_of: :memberships
 
-  validates :team, presence: true
-  validates :user, presence: true
+  validates :team, associated: true, presence: true
+  validates :user, associated: true, presence: true
 
-  attr_accessible :team_id, :user_id, :user, :approved
+  attr_accessible :team_id, :team, :user_id, :user, :approved
 
   before_save :update_approved_at
 
