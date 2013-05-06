@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130502215311) do
+ActiveRecord::Schema.define(:version => 20130503193316) do
+
+  create_table "brackets", :force => true do |t|
+    t.string   "name"
+    t.integer  "lower_limit"
+    t.integer  "upper_limit"
+    t.integer  "competition_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "competitions", :force => true do |t|
     t.string   "title"

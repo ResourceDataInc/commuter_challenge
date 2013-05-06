@@ -5,6 +5,7 @@ class Ability
     can :read, Competition
     can :read, Team
     can :read, Ride
+    can :read, Bracket
 
     if user.present?
       can :read, :secret
@@ -12,6 +13,7 @@ class Ability
       can :manage, Competition, owner_id: user.id
       can :manage, Team, captain_id: user.id
       can :manage, Ride, rider_id: user.id
+      can :manage, Bracket, :competition => { :owner_id => user.id }
     end
   end
 end

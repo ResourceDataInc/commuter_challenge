@@ -1,8 +1,10 @@
 class Competition < ActiveRecord::Base
-  attr_accessible :description, :end_on, :owner_id, :start_on, :title
+  attr_accessible :description, :end_on, :owner_id, :start_on, :title, :brackets_attributes
 
   belongs_to :owner, class_name: "User"
-
+  has_many :brackets, :dependent => :destroy
+  accepts_nested_attributes_for :brackets
+  
   validates :title, presence: true
   validates :description, presence: true
   validates :owner, presence: true
