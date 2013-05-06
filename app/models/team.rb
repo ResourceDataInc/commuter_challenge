@@ -5,6 +5,7 @@ class Team < ActiveRecord::Base
 
   validates :name, presence: true
   validates :captain, presence: true
+  validates :business_size, presence: true, :numericality => { :greater_than => 0 }
 
-  attr_accessible :captain_id, :description, :name
+  attr_accessible :captain_id, :description, :name, :business_size
 end
