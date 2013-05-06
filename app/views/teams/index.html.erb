@@ -1,12 +1,12 @@
-<% title "Teams" %>
-<h1>Teams</h1>
+<% title t("team.index.action") %>
+<h1><%= t("team.index.action") %></h1>
 
 <% if @teams.blank? %>
-  <p>No teams!</p>
+  <p><%= t("team.index.none") %></p>
 <% end %>
 
 <% if can? :create, Team %>
-  <%= link_to "Create Team", new_team_path, class: "btn" %>
+  <%= link_to t("team.add.action"), new_team_path, class: "btn" %>
 <% end %>
 
 <ul class="teams">

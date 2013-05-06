@@ -9,7 +9,7 @@ class CompetitionsController < ApplicationController
 
   def create
     if @competition.save
-      flash[:success] = "Competition created"
+      flash[:success] = t("competition.add.success")
       redirect_to @competition
     else
       render :new
@@ -25,7 +25,7 @@ class CompetitionsController < ApplicationController
 
   def update
     if @competition.update_attributes(params[:competition])
-      flash[:success] = "Competition updated"
+      flash[:success] = t("competition.edit.success")
       redirect_to @competition
     else
       render :edit
@@ -37,7 +37,7 @@ class CompetitionsController < ApplicationController
 
   def destroy
     @competition.destroy
-    flash[:success] = "Competition deleted"
+    flash[:success] = t("competition.delete.success")
     redirect_to root_url
   end
 end

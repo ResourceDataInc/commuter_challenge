@@ -11,7 +11,7 @@ class TeamsController < ApplicationController
     @team.memberships.build(user: current_user, approved: true)
 
     if @team.save
-      flash[:success] = "Team created"
+      flash[:success] = t("team.add.success") 
       redirect_to @team
     else
       render :new
@@ -27,7 +27,7 @@ class TeamsController < ApplicationController
 
   def update
     if @team.update_attributes(params[:team])
-      flash[:success] = "Team updated"
+      flash[:success] = t("team.edit.success") 
       redirect_to @team
     else
       render :edit
@@ -39,7 +39,7 @@ class TeamsController < ApplicationController
 
   def destroy
     @team.destroy
-    flash[:success] = "Team deleted"
+    flash[:success] = t("team.delete.success") 
     redirect_to root_url
   end
 end

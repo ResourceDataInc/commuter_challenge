@@ -7,14 +7,14 @@ describe "competitions" do
     login_as user
     visit competitions_url
 
-    click_on "Start Competition"
+    click_on I18n.t("competition.add.action")
     fill_in "competition_title", with: "Awesome Competition"
     fill_in "competition_description", with: "This compeition will rock the world"
     fill_in "competition_start_on", with: 1.week.from_now.strftime("%Y-%m-%d")
     fill_in "competition_end_on", with: 2.months.from_now.strftime("%Y-%m-%d")
     click_button "Create Competition"
 
-    within(".alert") { page.should have_content "Competition created" }
+    within(".alert") { page.should have_content I18n.t("competition.add.success")}
     within ".competition" do
       page.should have_content "Awesome Competition"
       page.should have_content "This compeition will rock the world"
@@ -26,7 +26,7 @@ describe "competitions" do
     competition = FactoryGirl.create :competition, owner: user
     login_as user
     visit competition_url(competition)
-    within(".competition") { click_on "Edit" }
+    within(".competition") { click_on I18n.t("competition.edit.action") }
 
     fill_in "competition_title", with: "Lol Comp"
     fill_in "competition_description", with: "lolwut"
@@ -34,7 +34,7 @@ describe "competitions" do
     fill_in "competition_end_on", with: 23.years.from_now.strftime("%Y-%m-%d")
     click_button "Update Competition"
 
-    within(".alert") { page.should have_content "Competition updated" }
+    within(".alert") { page.should have_content I18n.t("competition.edit.success") }
     within ".competition" do
       page.should have_content "Lol Comp"
       page.should have_content "lolwut"
@@ -45,14 +45,14 @@ describe "competitions" do
     competition = FactoryGirl.create :competition, owner: user
     login_as user
     visit competition_url(competition)
-    click_on "Delete"
+    click_on I18n.t("competition.delete.action")
     page.should have_content "Are you sure"
-    click_on "Delete"
-    within(".alert") { page.should have_content "Competition deleted" }
+    click_on I18n.t("competition.delete.action")
+    within(".alert") { page.should have_content I18n.t("competition.delete.success") }
   end
 
   it "cannot be created by anonymous user" do
-    visit root_url
-    page.should_not have_link "Create Competition"
+    visit competitions_url
+    page.should_not have_link I18n.t("competition.add.action")
   end
 end

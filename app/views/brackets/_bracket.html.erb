@@ -1,9 +1,9 @@
 <li>
   <%= bracket.name %> (<%= bracket.lower_limit %> to <%= bracket.upper_limit %> people)
   <% if can? :destroy, bracket %>
-    <%= link_to 'Remove', [bracket.competition, bracket], :confirm=>'Are you sure?', :method=> :delete %>
+    <%= link_to t("bracket.delete.action") , [bracket.competition, bracket], :confirm=>t("bracket.delete.confirm") , :method=> :delete %>
   <% end %>
   <% if can? :edit, bracket %>
-    <%= link_to 'Edit', edit_competition_bracket_path(bracket.competition, bracket) %>
+    <%= link_to t("bracket.edit.action") , edit_competition_bracket_path(bracket.competition, bracket) %>
   <% end %>
 </li>

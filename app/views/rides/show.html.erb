@@ -9,10 +9,10 @@
 
   <%= simple_format @ride.description %>
   <%= simple_format @ride.distance.to_s %>
-  <%= simple_format (@ride.is_round_trip)? "Round Trip" : "One Way" %>
+  <%= simple_format (@ride.is_round_trip)? t("ride.options.round") : t("ride.options.one") %>
 
   <% if can? :manage, @ride %>
-    <%= link_to "Edit", edit_ride_path(@ride), class: "btn" %>
-    <%= link_to "Delete", delete_ride_path(@ride), class: "btn" %>
+    <%= link_to t("ride.edit.action"), edit_ride_path(@ride), class: "btn" %>
+    <%= link_to t("ride.delete.action"), delete_ride_path(@ride), class: "btn" %>
   <% end %>
 <% end %>

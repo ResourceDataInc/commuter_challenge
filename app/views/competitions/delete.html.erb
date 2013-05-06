@@ -1,12 +1,8 @@
-<% title "#{@competition.title} - Confirm Delete" %>
+<% title "#{@competition.title} - " +  t("competition.delete.title") %>
 
-<h1>Confirm Delete</h1>
+<h1><%= t("competition.delete.title")  %></h1>
 
-<p>
-  Are you sure you wish to delete the competition '<%= @competition.title %>'?
-  Deleting it will delete all data associated with it, including teams and
-  logged rides.
-</p>
+<p><%= t("competition.delete.confirm") %></p>
 
-<%= link_to "Delete", @competition, data: { method: :delete }, class: "btn btn-danger" %>
+<%= link_to t("competition.delete.action"), @competition, data: { method: :delete }, class: "btn btn-danger" %>
 <%= link_to "Cancel", :back, class: "btn" %>

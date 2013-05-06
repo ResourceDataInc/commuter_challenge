@@ -2,7 +2,74 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  bracket:
+    add:
+      action: "Add Category"
+      success: "Category created"
+    delete:
+      action: "Delete"
+      confirm: "Are you sure you want to delete this category?"
+      success: "Category removed"
+    edit:
+      action: "Edit"
+      success: "Category updated"
+    submit: "Save"
+  competition:
+    add:
+      action: "Start Competition"
+      success: "Competition created"
+      title: "New Competition"
+    delete:
+      action: "Delete"
+      confirm: "Are you sure you wish to delete the competition? Deleting it will delete all data associated with it, including teams and logged rides."
+      success: "Competition removed"
+      title: "Confirm Delete"
+    edit:
+      action: "Edit"
+      success: "Competition updated"
+    index:
+      action: "Competitions"
+      none: "No competitions!"
+  membership:
+    delete:
+      action: "Delete"
+      success: "Membership deleted"
+  ride:
+    add:
+      action: "Log a Ride"
+      success: "Ride logged"
+      title: "Log Ride"
+    delete:
+      action: "Delete"
+      success: "Ride updated"
+      title: "Confirm Delete"
+    edit:
+      action: "Edit"
+      success: "Ride deleted"  
+      title: "Edit Ride"
+    index:
+      action: "Rides"
+      none: "No rides logged."
+    options:
+      one: "One Way"
+      round: "Round Trip"
+    submit: "Log Ride"
   team:
+    add:
+      action: "Create Team"
+      success: "Team created"
+      title: "New Team"
+    delete:
+      action: "Delete"
+      success: "Team updated"
+      title: "Confirm Delete"
+    edit:
+      action: "Edit"
+      success: "Team deleted"  
+      title: "Edit Team"
+    index:
+      action: "Teams"
+      none: "No teams!"
     join:
       action: "Join Team"
       request_confirmation: "Request sent"
@@ -10,7 +77,3 @@ en:
       approve_action: "Approve"
       approve_confirmation: "Team approved"
       approve_failure: "Unable to approve team :("
-  membership:
-    delete:
-      action: "Delete"
-      success: "Membership deleted"
