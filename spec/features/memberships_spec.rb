@@ -43,4 +43,19 @@ describe "memberships" do
       page.should_not have_link I18n.t("team.join.approve_action")
     end
   end
+
+  it "can be deleted by captain" do
+    membership = FactoryGirl.create(:membership, team: team, approved: true)
+    login_as captain
+    visit team_url(team)
+    within selector_for(membership) do
+      click_on I18n.t("membership.delete.action")
+    end
+
+    page.should have_content "Are you sure"
+    click_on I18n.t("membership.delete.action")
+    within(".alert") do
+      page.should have_content I18n.t("membership.delete.success")
+    end
+  end
 end

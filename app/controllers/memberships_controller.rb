@@ -19,4 +19,13 @@ class MembershipsController < ApplicationController
     end
     redirect_to @team
   end
+
+  def delete
+  end
+
+  def destroy
+    @membership.destroy
+    flash[:success] = I18n.t("membership.delete.success")
+    redirect_to @team
+  end
 end

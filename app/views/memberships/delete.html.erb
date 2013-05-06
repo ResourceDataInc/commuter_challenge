@@ -1,0 +1,12 @@
+<% title "#{@membership.user.username} - #{@membership.team.name} - Confirm Delete" %>
+
+<h1>Confirm Delete</h1>
+
+<p>
+  Are you sure you wish to remove '<%= @membership.user.username %>' from the
+  team '<%= @team.name %>'? Delete this membership will remove all of the
+  user's logged rides from the team.
+</p>
+
+<%= link_to t("membership.delete.action"), [@team, @membership], data: { method: :delete }, class: "btn btn-danger" %>
+<%= link_to "Cancel", :back, class: "btn" %>

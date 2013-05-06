@@ -10,3 +10,7 @@ en:
       approve_action: "Approve"
       approve_confirmation: "Team approved"
       approve_failure: "Unable to approve team :("
+  membership:
+    delete:
+      action: "Delete"
+      success: "Membership deleted"

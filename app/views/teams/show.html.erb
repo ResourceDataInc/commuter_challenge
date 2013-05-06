@@ -27,10 +27,14 @@
         <%= membership.user.username %>
         (<%= membership.user.email %>)
 
-        <% if can?(:manage, @team) && !membership.approved? %>
-          <%= simple_form_for [@team, membership], html: { class: "form-inline" } do |f| %>
-            <%= f.input :approved, as: :hidden, input_html: { value: true } %>
-            <%= f.submit I18n.t("team.join.approve_action"), class: "btn btn-mini" %>
+        <% if can? :manage, @team %>
+          <% if membership.approved? %>
+            <%= link_to t("membership.delete.action"), delete_team_membership_path(@team, membership) %>
+          <% else %>
+            <%= simple_form_for [@team, membership], html: { class: "form-inline" } do |f| %>
+              <%= f.input :approved, as: :hidden, input_html: { value: true } %>
+              <%= f.submit I18n.t("team.join.approve_action"), class: "btn btn-mini" %>
+            <% end %>
           <% end %>
         <% end %>
       <% end %>
