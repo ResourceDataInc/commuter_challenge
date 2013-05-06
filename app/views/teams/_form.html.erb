@@ -1,6 +1,7 @@
 <%= simple_form_for @team do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
+  <%= f.input :business_size %>
 
   <%= f.button :submit, class: "btn btn-success" %>
   <%= link_to "Cancel", :back, class: "btn" %>
