@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130505215657) do
+ActiveRecord::Schema.define(:version => 20130506003122) do
   create_table "brackets", :force => true do |t|
     t.string   "name"
     t.integer  "lower_limit"
@@ -36,9 +36,10 @@ ActiveRecord::Schema.define(:version => 20130505215657) do
   create_table "memberships", :force => true do |t|
     t.integer  "team_id"
     t.integer  "user_id"
-    t.boolean  "approved",   :default => false
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.boolean  "approved",    :default => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.datetime "approved_at"
   end
 
   add_index "memberships", ["team_id", "user_id"], :name => "index_memberships_on_team_id_and_user_id", :unique => true
