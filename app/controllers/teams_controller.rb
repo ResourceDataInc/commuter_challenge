@@ -8,6 +8,8 @@ class TeamsController < ApplicationController
   end
 
   def create
+    @team.memberships.build(user: current_user, approved: true)
+
     if @team.save
       flash[:success] = "Team created"
       redirect_to @team

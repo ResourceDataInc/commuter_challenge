@@ -19,6 +19,11 @@ describe "teams" do
       page.should have_content "Resource Data Inc"
       page.should have_content user.username
     end
+
+    within ".memberships" do
+      page.should have_content user.username
+      page.should have_content user.email
+    end
   end
 
   it "can be edited by a captain" do
