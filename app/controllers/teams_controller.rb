@@ -8,8 +8,7 @@ class TeamsController < ApplicationController
   end
 
   def create
-    membership = @team.memberships.build(user: current_user, approved: true)
-    membership.team = @team #omg this is stupid
+    @team.memberships.build(user: current_user, approved: true)
 
     if @team.save
       flash[:success] = "Team created"

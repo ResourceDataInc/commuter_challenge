@@ -1,6 +1,6 @@
 class Team < ActiveRecord::Base
   belongs_to :captain, class_name: "User"
-  has_many :memberships
+  has_many :memberships, inverse_of: :team
   has_many :members, through: :memberships, source: :user
 
   validates :name, presence: true
