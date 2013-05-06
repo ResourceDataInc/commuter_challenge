@@ -3,3 +3,17 @@
 <h1>Edit Competition</h1>
 
 <%= render "form" %>
+
+<p>
+  <h3>Add Category</h3>
+  <%= render "brackets/form" %>
+</p>
+
+<% unless @competition.brackets.empty? %>
+<p>
+  <h2>Categories</h2>
+  <ul>
+    <%= render @competition.brackets %>
+  </ul>
+</p>
+<% end %>

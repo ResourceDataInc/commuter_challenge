@@ -20,6 +20,7 @@ class CompetitionsController < ApplicationController
   end
 
   def edit
+    @bracket = Bracket.new
   end
 
   def update

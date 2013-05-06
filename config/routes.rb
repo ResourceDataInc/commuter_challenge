@@ -3,6 +3,7 @@ BikeCommuteChallenge::Application.routes.draw do
 
   resources :competitions do
     get :delete, on: :member
+    resources :brackets
   end
 
   resources :teams do
