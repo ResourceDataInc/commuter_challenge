@@ -11,7 +11,7 @@ class RidesController < ApplicationController
 
   def create
     if @ride.save
-      flash[:success] = "Ride logged."
+      flash[:success] = t("ride.add.success")
       redirect_to @ride
     else
       render :new
@@ -26,7 +26,7 @@ class RidesController < ApplicationController
 
   def update
     if @ride.update_attributes(params[:ride])
-      flash[:success] = "Ride updated."
+      flash[:success] = t("ride.edit.success")
       redirect_to @ride
     else
       render :edit
@@ -38,7 +38,7 @@ class RidesController < ApplicationController
 
   def destroy
     @ride.destroy
-    flash[:success] = "Ride deleted."
+    flash[:success] = t("ride.delete.success")
     redirect_to rides_url
   end
 end

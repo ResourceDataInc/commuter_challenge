@@ -5,7 +5,7 @@ class BracketsController < ApplicationController
   def create
     @bracket = @competition.brackets.build(params[:bracket])
     if @bracket.save
-      flash[:success] = "Category added."
+      flash[:success] = t("bracket.add.success")
       redirect_to edit_competition_url(@competition)
     else
       render :new
@@ -14,7 +14,7 @@ class BracketsController < ApplicationController
 
   def update
     if @bracket.update_attributes(params[:bracket])
-      flash[:success] = "Category updated."
+      flash[:success] = t("bracket.edit.success")
       redirect_to edit_competition_url(@competition)
     else
       render :edit
@@ -24,7 +24,7 @@ class BracketsController < ApplicationController
   def destroy
     @bracket = @competition.brackets.find(params[:id])
     @bracket.destroy
-    flash[:success] = "Category removed."
+    flash[:success] = t("bracket.delete.success")
     redirect_to edit_competition_url(@competition)
   end
 end

@@ -19,8 +19,8 @@
   <% end %>
 
   <% if can? :manage, @team %>
-    <%= link_to "Edit", edit_team_path(@team), class: "btn" %>
-    <%= link_to "Delete", delete_team_path(@team), class: "btn" %>
+    <%= link_to t("team.edit.action"), edit_team_path(@team), class: "btn" %>
+    <%= link_to t("team.delete.action"), delete_team_path(@team), class: "btn" %>
   <% end %>
 
   <ul class="memberships">

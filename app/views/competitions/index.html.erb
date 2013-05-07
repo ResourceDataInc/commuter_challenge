@@ -1,13 +1,13 @@
-<% title "Competitions" %>
+<% title t("competition.index.action")%>
 
-<h1>Competitions</h1>
+<h1><%= t("competition.index.action") %></h1>
 
 <% if @competitions.blank? %>
-  <p>No competitions!</p>
+  <p><%= t("competition.index.none") %></p>
 <% end %>
 
 <% if can? :create, Competition %>
-  <%= link_to "Start Competition", new_competition_path, class: "btn" %>
+  <%= link_to t("competition.add.action"), new_competition_path, class: "btn" %>
 <% end %>
 
 <ul class="competitions">

@@ -1,12 +1,12 @@
-<% title "Rides" %>
-<h1>Rides</h1>
+<% title t("ride.index.action") %>
+<h1><%= t("ride.index.action") %></h1>
 
 <% if @rides.blank? %>
-  <p>No rides logged!</p>
+  <p><%= t("ride.index.none") %></p>
 <% end %>
 
 <% if can? :create, Ride %>
-  <%= link_to "Log a Ride", new_ride_path, class: "btn" %>
+  <%= link_to t("ride.add.action"), new_ride_path, class: "btn" %>
 <% end %>
 
 <ul class="rides">
