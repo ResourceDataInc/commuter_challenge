@@ -8,8 +8,6 @@ class Ability
     can :read, Bracket
 
     if user.present?
-      can :read, :secret
-
       can :manage, Competition, owner_id: user.id
       can :manage, Team, captain_id: user.id
       can :manage, Ride, rider_id: user.id

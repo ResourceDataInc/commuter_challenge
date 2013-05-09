@@ -1,18 +1,33 @@
 <% title t("team.index.action") %>
-<h1><%= t("team.index.action") %></h1>
-
+<div class="row-fluid">
+  <div class="span8">
+    <h1><%= t("team.index.action") %></h1>
+  </div>
+  <div class="pull-right">
+    <% if can? :create, Team %>
+      <%= link_to t("team.add.action"), new_team_path, class: "btn header-btn" %>
+    <% end %>
+  </div>
+</div>
 <% if @teams.blank? %>
   <p><%= t("team.index.none") %></p>
 <% end %>
 
-<% if can? :create, Team %>
-  <%= link_to t("team.add.action"), new_team_path, class: "btn" %>
-<% end %>
 
-<ul class="teams">
+
+<table class="teams table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Size</th>
+      <th>Description</th>
+    </tr>
+  </thead>
   <% @teams.each do |team| %>
-    <%= content_tag_for :li, team do %>
-      <%= link_to team.name, team %>
+    <%= content_tag_for :tr, team do %>
+      <td><%= link_to truncate(team.name, :separator=>'...', :length=>40), team %></td>
+      <td><%= team.business_size %></td>
+      <td><%= truncate(team.description, :separator=>'...', :length =>90) %></td>
     <% end %>
   <% end %>
-</ul>
+</table>
