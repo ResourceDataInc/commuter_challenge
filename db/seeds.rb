@@ -25,6 +25,20 @@ team1 = Team.where(name: "Team 1").first_or_create!(
 Membership.where(user_id: captain1.id, team_id: team1.id).first_or_create!(
   approved: true)
 
+team1mate1 = User.where(email: "team1mate1@example.com").first_or_create!(
+  username: "team1mate1",
+  password: "password",
+  password_confirmation: "password")
+Membership.where(user_id: team1mate1.id, team_id: team1.id).first_or_create!(
+  approved: true)
+
+team1mate2 = User.where(email: "team1mate2@example.com").first_or_create!(
+  username: "team1mate2",
+  password: "password",
+  password_confirmation: "password")
+Membership.where(user_id: team1mate2.id, team_id: team1.id).first_or_create!(
+  approved: true)
+
 captain2 = User.where(email: "captain2@example.com").first_or_create!(
   username: "captain2",
   password: "password",
@@ -34,4 +48,18 @@ team2 = Team.where(name: "Team 2").first_or_create!(
   business_size: 7,
   captain_id: owner.id)
 Membership.where(user_id: captain2.id, team_id: team2.id).first_or_create!(
+  approved: true)
+
+team2mate1 = User.where(email: "team2mate1@example.com").first_or_create!(
+  username: "team2mate1",
+  password: "password",
+  password_confirmation: "password")
+Membership.where(user_id: team2mate1.id, team_id: team2.id).first_or_create!(
+  approved: true)
+
+team2mate2 = User.where(email: "team2mate2@example.com").first_or_create!(
+  username: "team2mate2",
+  password: "password",
+  password_confirmation: "password")
+Membership.where(user_id: team2mate2.id, team_id: team2.id).first_or_create!(
   approved: true)
