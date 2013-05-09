@@ -35,6 +35,10 @@ describe Ability do
     it "cannot create a membership" do
       ability.should_not be_able_to :create, Membership
     end
+
+    it "cannot create a competitor" do
+      ability.should_not be_able_to :create, Competitor
+    end
   end
 
   context "for authenticated user" do
@@ -102,6 +106,12 @@ describe Ability do
     it "can create membership" do
       ability.should be_able_to :create, Membership
     end
+
+    it "cannot manage a competitor" do
+      team = FactoryGirl.create(:team, captain: FactoryGirl.create(:user))
+      competitor = FactoryGirl.create(:competitor, team: team)
+      ability.should_not be_able_to :manage, competitor
+    end
   end
 
   context "team captain" do
@@ -117,6 +127,12 @@ describe Ability do
     it "cannot rejoin a team" do
       FactoryGirl.create :membership, team: team, user: user
       ability.should_not be_able_to :join, team
+    end
+
+    it "can manage competitors" do
+      team = FactoryGirl.create(:team, captain: user)
+      competitor = FactoryGirl.create(:competitor, team: team)
+      ability.should be_able_to :manage, competitor
     end
   end
 end
