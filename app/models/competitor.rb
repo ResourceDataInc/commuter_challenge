@@ -1,11 +1,11 @@
 class Competitor < ActiveRecord::Base
-  belongs_to :competition
-  belongs_to :team
+  belongs_to :competition, inverse_of: :competitors
+  belongs_to :team, inverse_of: :competitors
 
-  validates :competition, presence: true
-  validates :team, presence: true
+  validates :competition, associated: true, presence: true
+  validates :team, associated: true, presence: true
 
-  attr_accessible :approved, :approved_at
+  attr_accessible :approved, :approved_at, :team_id
 
   before_save :update_approved_at
 

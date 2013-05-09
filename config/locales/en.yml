@@ -30,6 +30,18 @@ en:
     index:
       action: "Competitions"
       none: "No competitions!"
+    join:
+      action: "Join Competition"
+      request_confirmation: "Request sent"
+      request_already_member: "Your team is already participating in this competition"
+      approve_action: "Approve"
+      approve_confirmation: "Team approved"
+      approve_failure: "Unable to approve team :("
+  competitor:
+    delete:
+      action: "Leave"
+      success: "Team removed from competition"
+      title: "Leave Competition"
   membership:
     delete:
       action: "Delete"

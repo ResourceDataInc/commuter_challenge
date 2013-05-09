@@ -42,4 +42,37 @@
       <% end %>
     <% end %>
   </ul>
+
+  <div>
+    <% unless @team.competitors.empty? %>
+      <h3>Current Competition</h3>
+      <% @team.competitors.each do |competitor| %>
+      <ul>
+        <%= content_tag_for :li, competitor do %>
+          <%= competitor.competition.title%>
+          <% if can? :manage, competitor %>
+            <%= link_to t("competitor.delete.action"), delete_competition_competitor_path(competitor.competition, competitor) %>
+          <% end %>
+        <% end %>
+      </ul>
+      <% end %>
+    <% end %>
+
+    <% unless @team.available_competitions.empty? %>
+      <h3>Join a Competition</h3>
+      <% @team.available_competitions.each do |competition|%>
+      <ul>
+        <%= content_tag_for :li, competition do %>
+          <%= competition.title%>
+          <% if can? :manage, @team %>
+            <%= simple_form_for [competition, Competitor.new], html: { class: "form-inline" } do |f| %>
+              <%= f.input :team_id, as: :hidden, input_html: { value: @team.id } %>
+              <%= f.submit I18n.t("competition.join.action"), class: "btn btn-mini" %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </ul>
+      <% end %>
+    <% end %>
+  </div>
 <% end %>

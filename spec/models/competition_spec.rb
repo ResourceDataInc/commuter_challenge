@@ -29,4 +29,14 @@ describe Competition do
       competition.should be_valid
     end
   end
+
+  it "should find competitions team has not joined" do
+    team = FactoryGirl.create :team
+    competition = FactoryGirl.create :competition
+    joined = FactoryGirl.create :competition
+    joined.competitors.create(team_id: team.id)
+    competitions = Competition.joinable_by_team(team)
+    competitions.should include competition
+    competitions.should_not include joined
+  end
 end
