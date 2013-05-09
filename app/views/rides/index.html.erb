@@ -1,18 +1,35 @@
 <% title t("ride.index.action") %>
-<h1><%= t("ride.index.action") %></h1>
+
+<div class="row-fluid">
+  <div class="span8">
+    <h1><%= t("ride.index.action") %></h1>
+  </div>
+  <div class="pull-right">
+    <% if can? :create, Ride %>
+      <%= link_to t("ride.add.action"), new_ride_path, class: "btn header-btn" %>
+    <% end %>
+  </div>
+</div>
 
 <% if @rides.blank? %>
   <p><%= t("ride.index.none") %></p>
 <% end %>
 
-<% if can? :create, Ride %>
-  <%= link_to t("ride.add.action"), new_ride_path, class: "btn" %>
-<% end %>
 
-<ul class="rides">
+
+<table class="rides table table-striped">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Rider</th>
+      <th>Distance</th>
+    </tr>
+  </thead>
   <% @rides.each do |ride| %>
-    <%= content_tag_for :li, ride do %>
-      <%= link_to "#{ride.date} #{ride.rider.username} #{ride.distance}", ride %>
+    <%= content_tag_for :tr, ride do %>
+      <td><%= link_to ride.date, ride %></td>
+      <td><%= ride.rider.username %></td>
+      <td><%= ride.distance%></td>
     <% end %>
   <% end %>
-</ul>
+</table>
