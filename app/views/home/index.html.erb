@@ -2,12 +2,4 @@
 
 <p>This site is a work in progress. Please forward any comments or bugs you find to the contact address in the footer.</p>
 
-<div class="row-fluid">
-  <h2>Get Started</h2>
-  <ol>
-    <li><%= link_to "Create a user account.", new_user_registration_path %></li>
-    <li><%= link_to "Create or join a team.", teams_path %></li>
-    <li>Team captain joins the competition.</li>
-    <li><%= link_to "Log rides!",  new_ride_path %></li>
-  </ol>
-</div>
+<%= render "home/getting_started" %>

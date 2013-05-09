@@ -1,3 +1,6 @@
+.header-btn {
+  margin-top: 15px;
+}
 .container-fluid {
   max-width: 980px;
   margin-left: auto;
@@ -7,6 +10,17 @@
 .footer {
   background-color: #f5f5f5;
   padding-top: 5px;
+}
+
+.line {
+  width: 100% !important;
+  border-top: 2px solid grey !important;
+  margin-bottom: 20px;
+}
+
+.wide-input {
+  width: 71.5%; 
+  height: 60px
 }
 
 /* Large desktop */
