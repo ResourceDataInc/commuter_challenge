@@ -18,6 +18,9 @@ class Ability
       can :manage, Membership do |membership|
         membership.team.captain == user
       end
+      can :manage, Competitor do |competitor|
+        competitor.team.captain == user || competitor.competition.owner == user
+      end
 
       can :join, Team do |team|
         !team.members.include? user

@@ -1,0 +1,10 @@
+<% title "Leave Competition" %>
+
+<h1><%= t("competitor.delete.title") %></h1>
+
+<p>
+  Are you sure you wish to leave the competition'?
+</p>
+
+<%= link_to t("competitor.delete.action"), [@competition, @competitor], data: { method: :delete }, class: "btn btn-danger" %>
+<%= link_to "Cancel", :back, class: "btn" %>

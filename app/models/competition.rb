@@ -4,6 +4,7 @@ class Competition < ActiveRecord::Base
   belongs_to :owner, class_name: "User"
   has_many :brackets, :dependent => :destroy
   accepts_nested_attributes_for :brackets
+  has_many :competitors, inverse_of: :competition
   
   validates :title, presence: true
   validates :description, presence: true
@@ -13,6 +14,10 @@ class Competition < ActiveRecord::Base
 
   validate :validate_start_on_before_end_on
   validate :validate_start_on_not_in_past
+
+  def self.joinable_by_team(team)
+    includes("competitors").where("competitors.team_id is null or competitors.team_id != ?", team.id)
+  end
 
   private
 
