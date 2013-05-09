@@ -1,20 +1,13 @@
-<h1>Hi</h1>
+<h1>Welcome to the BCA's Summer Bike Challenge!</h1>
 
-<p>Testing the container width.</p>
+<p>This site is a work in progress. Please forward any comments or bugs you find to the contact address in the footer.</p>
 
 <div class="row-fluid">
-  <span class="span1">1</span>
-  <span class="span1">2</span>
-  <span class="span1">3</span>
-  <span class="span1">4</span>
-  <span class="span1">5</span>
-  <span class="span1">6</span>
-  <span class="span1">7</span>
-  <span class="span1">8</span>
-  <span class="span1">9</span>
-  <span class="span1">10</span>
-  <span class="span1">11</span>
-  <span class="span1">12</span>
+  <h2>Get Started</h2>
+  <ol>
+    <li><%= link_to "Create a user account.", new_user_registration_path %></li>
+    <li><%= link_to "Create or join a team.", teams_path %></li>
+    <li>Team captain joins the competition.</li>
+    <li><%= link_to "Log rides!",  new_ride_path %></li>
+  </ol>
 </div>
-
-<p>There may be a <%= link_to "secret page", secret_path %> on this site.</p>
