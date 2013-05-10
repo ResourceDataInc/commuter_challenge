@@ -70,7 +70,7 @@ en:
     add:
       action: "Create Team"
       success: "Team created"
-      title: "New Team"
+      title: "Create a Team"
     delete:
       action: "Delete"
       success: "Team updated"

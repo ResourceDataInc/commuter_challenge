@@ -1,10 +1,22 @@
 <%= simple_form_for @ride do |f| %>
 
-  <%= f.input :date, as: :string, input_html: { class: "datepicker" } %>
-  <%= f.input :description %>
-  <%= f.input :distance %>
-  <%= f.input :is_round_trip, :collection => [[t("ride.options.round"), "true"], [t("ride.options.one"), "false"]], :as => :radio_buttons %>
+  <div class="row">
+    <div class="span12">
+      <%= f.input :is_round_trip, :collection => [[t("ride.options.round"), "true"], [t("ride.options.one"), "false"]], :as => :radio_buttons, :label=> false %>
+    </div>
+  </div>
 
-  <%= f.button :submit, t("ride.submit"), class: "btn btn-success" %>
-  <%= link_to "Cancel", :back, class: "btn" %>
+  <div class="row">
+    <div class="span5"><%= f.input :date, as: :string, input_html: { class: "datepicker" } %></div>
+    <div class="span5"><%= f.input :distance %></div>
+  </div>
+
+  <div class="row">
+    <div class="span12"><%= f.input :description, :input_html => { :class=>"wide-input"} %></div>
+  </div>
+
+  <div class="actions pull-right">
+    <%= f.button :submit, t("ride.submit"), class: "btn btn-success" %>
+    <%= link_to "Cancel", :back, class: "btn" %>
+  </div>
 <% end %>

@@ -4,10 +4,6 @@ describe Ability do
   context "for anonymous user" do
     subject(:ability) { Ability.new(nil) }
 
-    it "can't read the secret" do
-      ability.should_not be_able_to :read, :secret
-    end
-
     it "can read all competitions" do
       ability.should be_able_to :read, Competition
     end
@@ -44,10 +40,6 @@ describe Ability do
   context "for authenticated user" do
     let(:user) { FactoryGirl.create(:user) }
     subject(:ability) { Ability.new(user) }
-
-    it "can read the secret" do
-      ability.should be_able_to :read, :secret
-    end
 
     it "can create a competition" do
       ability.should be_able_to :create, Competition

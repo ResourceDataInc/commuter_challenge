@@ -1,8 +1,17 @@
 <%= simple_form_for @team do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :business_size %>
+  <div class="row">
+    <div class="span5"><%= f.input :name %></div>
+    <div class="span5"><%= f.input :business_size %></div>
+  </div>
 
-  <%= f.button :submit, class: "btn btn-success" %>
-  <%= link_to "Cancel", :back, class: "btn" %>
+  <div class="row">
+    <div class="span12">
+      <%= f.input :description, :input_html => { :class=>"wide-input"} %>
+    </div>
+  </div>
+
+  <div class="actions pull-right">
+      <%= f.button :submit, class: "btn btn-success" %>
+      <%= link_to "Cancel", :back, class: "btn" %>
+  </div>
 <% end %>
