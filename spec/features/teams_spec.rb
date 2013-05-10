@@ -24,7 +24,6 @@ describe "teams" do
 
     within ".memberships" do
       page.should have_content user.username
-      page.should have_content user.email
     end
   end
 
