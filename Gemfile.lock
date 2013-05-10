@@ -28,6 +28,7 @@ GEM
     activesupport (3.2.13)
       i18n (= 0.6.1)
       multi_json (~> 1.0)
+    addressable (2.3.4)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     better_errors (0.7.2)
@@ -82,6 +83,8 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.7.7)
+    launchy (2.3.0)
+      addressable (~> 2.3)
     libv8 (3.11.8.17)
     mail (2.5.3)
       i18n (>= 0.4.0)
@@ -187,6 +190,7 @@ DEPENDENCIES
   devise (~> 2.2)
   factory_girl_rails
   jquery-rails (~> 2.2)
+  launchy
   pg (~> 0.15)
   rails (= 3.2.13)
   rspec-rails (~> 2.13)
