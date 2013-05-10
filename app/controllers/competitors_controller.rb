@@ -8,7 +8,7 @@ class CompetitorsController < ApplicationController
     else
       flash[:alert] = t("competition.join.request_already_member")
     end
-    redirect_to @competition
+    redirect_to @competitor.team
   end
 
   def update
@@ -17,7 +17,7 @@ class CompetitorsController < ApplicationController
     else
       flash[:error] = t("competition.join.approve_failure")
     end
-    redirect_to @competition
+    redirect_to @competitor.team
   end
 
   def delete
@@ -26,6 +26,6 @@ class CompetitorsController < ApplicationController
   def destroy
     @competitor.destroy
     flash[:success] = t("competitor.delete.success")
-    redirect_to @competition
+    redirect_to @competitor.team
   end
 end
