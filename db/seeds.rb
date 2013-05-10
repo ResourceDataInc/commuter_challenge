@@ -39,6 +39,14 @@ team1mate2 = User.where(email: "team1mate2@example.com").first_or_create!(
 Membership.where(user_id: team1mate2.id, team_id: team1.id).first_or_create!(
   approved: true)
 
+
+team1mate3 = User.where(email: "team1mate3@example.com").first_or_create!(
+  username: "team1mate3",
+  password: "password",
+  password_confirmation: "password")
+Membership.where(user_id: team1mate3.id, team_id: team1.id).first_or_create!(
+  approved: false)
+
 captain2 = User.where(email: "captain2@example.com").first_or_create!(
   username: "captain2",
   password: "password",
@@ -46,7 +54,7 @@ captain2 = User.where(email: "captain2@example.com").first_or_create!(
 team2 = Team.where(name: "Team 2").first_or_create!(
   description: "Team 2",
   business_size: 7,
-  captain_id: owner.id)
+  captain_id: captain2.id)
 Membership.where(user_id: captain2.id, team_id: team2.id).first_or_create!(
   approved: true)
 
