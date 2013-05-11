@@ -39,7 +39,7 @@ en:
       approve_failure: "Unable to approve team :("
   competitor:
     delete:
-      action: "Leave"
+      action: "Remove"
       success: "Team removed from competition"
       title: "Leave Competition"
   membership:

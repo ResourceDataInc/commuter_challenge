@@ -1,9 +1,23 @@
-<li>
-  <%= bracket.name %> (<%= bracket.lower_limit %> to <%= bracket.upper_limit %> people)
-  <% if can? :destroy, bracket %>
-    <%= link_to t("bracket.delete.action") , [bracket.competition, bracket], :confirm=>t("bracket.delete.confirm") , :method=> :delete %>
+
+<%= content_tag_for :tr, bracket do %>
+  <td><%= link_to bracket.name, edit_competition_bracket_path(bracket.competition, bracket)  %></td>
+  <td><%= bracket.lower_limit %></td>
+  <td><%= bracket.upper_limit %></td>
+  <% if can? :manage, bracket %>
+    <td class="hidden-phone">
+      <% if can? :destroy, bracket %>
+        <%= link_to competition_bracket_path(bracket.competition, bracket), :confirm=>t("bracket.delete.confirm") , :method=> :delete do %>
+          <i class="icon-trash"></i>
+          <%= t("bracket.delete.action") %>
+        <% end %>
+      <% end %>
+
+      <% if can? :edit, bracket %>
+        <%= link_to edit_competition_bracket_path(bracket.competition, bracket) do %>
+          <i class="icon-edit"></i>
+          <%= t("bracket.edit.action") %>
+        <% end %>
+      <% end %>
+    </td>
   <% end %>
-  <% if can? :edit, bracket %>
-    <%= link_to t("bracket.edit.action") , edit_competition_bracket_path(bracket.competition, bracket) %>
-  <% end %>
-</li>
+<% end %>
