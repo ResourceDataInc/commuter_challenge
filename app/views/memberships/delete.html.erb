@@ -1,10 +1,10 @@
-<% title "#{@membership.user.username} - #{@membership.team.name} - Confirm Delete" %>
+<% title "#{@membership.user.username} - #{@membership.team.name} - " + t("membership.delete.title") %>
 
-<h1>Confirm Delete</h1>
+<h1><%= t("membership.delete.title") %></h1>
 
 <p>
   Are you sure you wish to remove '<%= @membership.user.username %>' from the
-  team '<%= @team.name %>'? Delete this membership will remove all of the
+  team '<%= @team.name %>'? Removing this membership will remove all of the
   user's logged rides from the team.
 </p>
 
