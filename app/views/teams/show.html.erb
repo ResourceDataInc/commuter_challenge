@@ -1,20 +1,24 @@
+
 <%= title @team.name %>
 
 <%= content_tag_for :div, @team, class: "row" do %>
-  <div class="pull-right">
-    <% if can? :join, @team %>
+  <div class="row">
+    <div class="span8">
+      <h1><%= @team.name %></h1>
+    </div>
+    <div class="pull-right">
+      <% if can? :join, @team %>
       <%= simple_form_for [@team, @membership] do |f| %>
-        <%= f.submit t("team.join.action"), class: "btn" %>
+        <%= f.submit t("team.join.action"), class: "btn header-btn" %>
       <% end %>
     <% end %>
 
     <% if can? :manage, @team %>
-      <%= link_to t("team.edit.action"), edit_team_path(@team), class: "btn" %>
-      <%= link_to t("team.delete.action"), delete_team_path(@team), class: "btn" %>
+      <%= link_to t("team.edit.action"), edit_team_path(@team), class: "btn header-btn" %>
+      <%= link_to t("team.delete.action"), delete_team_path(@team), class: "btn header-btn" %>
     <% end %>
+    </div>
   </div>
-
-  <h1><%= @team.name %></h1>
 
   <p>
     <%# user a presenter for this %>

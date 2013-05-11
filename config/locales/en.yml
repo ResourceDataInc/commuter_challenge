@@ -44,8 +44,9 @@ en:
       title: "Leave Competition"
   membership:
     delete:
-      action: "Delete"
-      success: "Membership deleted"
+      action: "Remove"
+      success: "Member removed"
+      title: "Remove Member"
   ride:
     add:
       action: "Log a Ride"
