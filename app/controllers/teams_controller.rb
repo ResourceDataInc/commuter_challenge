@@ -49,7 +49,7 @@ class TeamsController < ApplicationController
   def join_first_competition(team)
     competition = Competition.first
     unless competition.nil?
-      competition.competitors.create(team_id: team.id)
+      competition.competitors.create(team_id: team.id, approved: true)
     end
   end
 end
