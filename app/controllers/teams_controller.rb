@@ -11,6 +11,7 @@ class TeamsController < ApplicationController
     @team.memberships.build(user: current_user, approved: true)
 
     if @team.save
+      join_first_competition(@team)
       flash[:success] = t("team.add.success") 
       redirect_to @team
     else
@@ -41,5 +42,14 @@ class TeamsController < ApplicationController
     @team.destroy
     flash[:success] = t("team.delete.success") 
     redirect_to root_url
+  end
+
+  private
+
+  def join_first_competition(team)
+    competition = Competition.first
+    unless competition.nil?
+      competition.competitors.create(team_id: team.id, approved: true)
+    end
   end
 end
