@@ -12,6 +12,6 @@ class Team < ActiveRecord::Base
   attr_accessible :captain_id, :description, :name, :business_size
 
   def available_competitions
-    @available_competitions ||= Competition.joinable_by_team(self)
+    Competition.joinable_by_team(self)
   end
 end

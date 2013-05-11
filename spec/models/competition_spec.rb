@@ -31,12 +31,17 @@ describe Competition do
   end
 
   it "should find competitions team has not joined" do
-    team = FactoryGirl.create :team
-    competition = FactoryGirl.create :competition
-    joined = FactoryGirl.create :competition
-    joined.competitors.create(team_id: team.id)
-    competitions = Competition.joinable_by_team(team)
-    competitions.should include competition
-    competitions.should_not include joined
+    joined = FactoryGirl.create(:competition)
+    us = FactoryGirl.create(:team)
+    joined.competitors.create(team_id: us.id, approved: true)
+
+    them = FactoryGirl.create(:team)
+    joined.competitors.create(team_id: them.id, approved: true)
+
+    not_joined = FactoryGirl.create(:competition)
+
+    joinable_competitions = Competition.joinable_by_team(us)
+    joinable_competitions.should include not_joined
+    joinable_competitions.should_not include joined
   end
 end
