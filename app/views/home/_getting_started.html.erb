@@ -1,9 +1,22 @@
-<div class="row-fluid">
-  <h2>Get Started</h2>
-  <ol>
-    <li><%= link_to "Create a user account.", new_user_registration_path %></li>
-    <li><%= link_to "Create or join a team.", teams_path %></li>
-    <li>Team captain joins the competition.</li>
-    <li><%= link_to "Log rides!",  new_ride_path %></li>
-  </ol>
+<h2>Get Started</h2>
+<div class="table">
+<div class="row">  
+  <div class="span4 well equal-height">
+      <h3>All Users</h3>
+      <ol>
+        <li><%= link_to "Create a user account.", new_user_registration_path %></li>
+        <li><%= link_to "Join a team.", teams_path %></li>
+        <li><%= link_to "Log rides!",  new_ride_path %></li>
+      </ol>
+  </div>
+  <div class="span4 well equal-height">
+      <h3>Team Captains</h3>
+      <ol>
+        <li><%= link_to "Create a user account.", new_user_registration_path %></li>
+        <li><%= link_to "Create a team", new_team_path %></li>
+        <li>Join the competition.</li>
+        <li>Approve users that join your team.</li>
+      </ol>
+  </div>
+</div>
 </div>
