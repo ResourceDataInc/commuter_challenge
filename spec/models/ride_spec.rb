@@ -8,7 +8,6 @@ describe Ride do
   context "validation" do
     it { should validate_presence_of :date }
     it { should validate_presence_of :rider } 
-    it { should validate_presence_of :description}
     it { should validate_presence_of :distance}
 
     it "should require distance is larger than 0" do
