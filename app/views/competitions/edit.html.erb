@@ -1,19 +1,28 @@
 <% title "#{@competition.title} - Edit" %>
 
 <h1>Edit Competition</h1>
+<div class="line"></div>
 
 <%= render "form" %>
 
-<p>
-  <h3>Add Category</h3>
-  <%= render "brackets/form" %>
-</p>
+<div class="clearfix"></div>
 
 <% unless @competition.brackets.empty? %>
-<p>
-  <h2>Categories</h2>
-  <ul>
+  <h3>Categories</h3>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Lower</th>
+        <th>Upper</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
     <%= render @competition.brackets %>
-  </ul>
-</p>
+  </table>
 <% end %>
+
+<div class="well category">
+  <h3>Add Category</h3>
+  <%= render "brackets/form" %>
+</div>
