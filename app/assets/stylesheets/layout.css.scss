@@ -1,6 +1,10 @@
-.header-btn {
-  margin-top: 15px;
+$border-color: grey;
+
+.box {
+  border: 2px solid $border-color !important;
+  height: 100%;
 }
+
 .container-fluid {
   max-width: 980px;
   margin-left: auto;
@@ -12,9 +16,13 @@
   padding-top: 5px;
 }
 
+.header-btn {
+  margin-top: 15px;
+}
+
 .line {
   width: 100% !important;
-  border-top: 2px solid grey !important;
+  border-top: 2px solid $border-color !important;
   margin-bottom: 20px;
 }
 
