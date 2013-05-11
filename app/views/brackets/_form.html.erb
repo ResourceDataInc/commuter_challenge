@@ -1,8 +1,15 @@
 <%= simple_form_for [@competition, @bracket] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :lower_limit %>
-  <%= f.input :upper_limit %>
+  <div class="row">
+    <div class="span6"><%= f.input :name %></div>
+  </div>
 
-  <%= f.button :submit, t("bracket.submit") , class: "btn btn-success" %>
-  <%= link_to "Cancel", :back, class: "btn" %>
+  <div class="row">
+    <div class="span4"><%= f.input :lower_limit %></div>
+    <div class="span4"><%= f.input :upper_limit %></div>
+  </div>
+
+  <div class="actions pull-right">
+    <%= f.button :submit, t("bracket.submit") , class: "btn btn-success" %>
+    <%= link_to "Cancel", :back, class: "btn" %>
+  </div>
 <% end %>

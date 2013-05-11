@@ -1,9 +1,21 @@
  <%= simple_form_for @competition do |f| %>
-  <%= f.input :title %>
-  <%= f.input :start_on, as: :string, input_html: { class: "datepicker" } %>
-  <%= f.input :end_on, as: :string, input_html: { class: "datepicker" } %>
-  <%= f.input :description %>
+  <div class="row">
+    <div class="span12"><%= f.input :title %></div>
+  </div>
 
-  <%= f.button :submit, class: "btn btn-success" %>
-  <%= link_to "Cancel", :back, class: "btn" %>
+  <div class="row">
+    <div class="span5"><%= f.input :start_on, as: :string, input_html: { class: "datepicker" } %></div>
+    <div class="span5"><%= f.input :end_on, as: :string, input_html: { class: "datepicker" } %></div>
+  </div>
+
+  <div class="row">
+    <div class="span12">
+      <%= f.input :description, :input_html => { :class=>"wide-input"} %>
+    </div>
+  </div>
+
+  <div class="actions pull-right">
+    <%= f.button :submit, class: "btn btn-success" %>
+    <%= link_to "Cancel", :back, class: "btn" %>
+  </div>
 <% end %>

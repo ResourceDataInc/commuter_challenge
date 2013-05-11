@@ -1,19 +1,34 @@
 <% title t("competition.index.action")%>
-
-<h1><%= t("competition.index.action") %></h1>
+<div class="row">
+  <div class="span8">
+    <h1><%= t("competition.index.action") %></h1>
+  </div>
+  <div class="pull-right">
+    <% if can? :create, Competition %>
+      <%= link_to t("competition.add.action"), new_competition_path, class: "btn header-btn" %>
+    <% end %>
+  </div>
+</div>
 
 <% if @competitions.blank? %>
   <p><%= t("competition.index.none") %></p>
 <% end %>
 
-<% if can? :create, Competition %>
-  <%= link_to t("competition.add.action"), new_competition_path, class: "btn" %>
-<% end %>
-
-<ul class="competitions">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Start</th>
+      <th>End</th>
+      <th>Description</th>
+    </tr>
+  </thead>
   <% @competitions.each do |competition| %>
-    <%= content_tag_for :li, competition do %>
-      <%= link_to competition.title, competition %>
-    <% end %>
-  <% end %>
-</ul>
+    <%= content_tag_for :tr, competition do %>
+      <td><%= link_to truncate(competition.title, :separator=>'...', :length=>40), competition %></td>
+      <td><%= competition.start_on %></td>
+      <td><%= competition.end_on %></td>
+      <td><%= truncate(competition.description, :separator=>'...', :length=>40) %></td>
+    <% end %>    
+  <% end %>  
+</table>
