@@ -79,7 +79,9 @@
           <tr>
             <th class="span3">Name</th>
             <th>Description</th>
-            <th class="span3 hidden-phone">Actions</th>
+            <% if can? :manage, @team %>
+              <th class="span3 hidden-phone">Actions</th>
+            <% end %>
           </tr>
         </thead>
 
@@ -87,15 +89,14 @@
           <%= content_tag_for :tr, competitor do %>
             <td><%= competitor.competition.title %></td>
             <td><%= simple_format competitor.competition.description.truncate(200) %></td>
-
-            <td class="hidden-phone">
-              <% if can? :manage, competitor %>
+            <% if can? :manage, @team %>
+              <td class="hidden-phone">
                 <%= link_to delete_competition_competitor_path(competitor.competition, competitor) do %>
                   <i class="icon-trash"></i>
                   <%= t("competitor.delete.action") %>
                 <% end %>
-              <% end %>
-            </td>
+              </td>
+            <% end %>
           <% end %>
         <% end %>
       </table>
