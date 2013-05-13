@@ -19,6 +19,10 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :production, :staging do
+  gem 'unicorn'
+end
+
 group :development, :test do
   gem 'shoulda-matchers', '~> 1.5'
   gem 'rspec-rails', '~> 2.13'
