@@ -27,7 +27,7 @@
   </div>
 
   <% unless @competition.competitors.empty? %>
-  <h3>Teams</h3>
+  <h3>Teams (<%= @competition.competitors_count %>)</h3>
     <table class="competitors table table-striped table-bordered table-hover">
       <thead>
         <tr>

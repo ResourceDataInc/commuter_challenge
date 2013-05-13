@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130506054043) do
+ActiveRecord::Schema.define(:version => 20130512193622) do
 
   create_table "brackets", :force => true do |t|
     t.string   "name"
@@ -28,8 +28,9 @@ ActiveRecord::Schema.define(:version => 20130506054043) do
     t.date     "start_on"
     t.date     "end_on"
     t.integer  "owner_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+    t.integer  "competitors_count", :default => 0
   end
 
   add_index "competitions", ["owner_id"], :name => "index_competitions_on_owner_id"
@@ -71,9 +72,10 @@ ActiveRecord::Schema.define(:version => 20130506054043) do
     t.string   "name"
     t.text     "description"
     t.integer  "captain_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
     t.integer  "business_size"
+    t.integer  "memberships_count", :default => 0
   end
 
   add_index "teams", ["captain_id"], :name => "index_teams_on_captain_id"

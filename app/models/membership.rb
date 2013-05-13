@@ -1,5 +1,5 @@
 class Membership < ActiveRecord::Base
-  belongs_to :team, inverse_of: :memberships
+  belongs_to :team, inverse_of: :memberships, :counter_cache => true
   belongs_to :user, inverse_of: :memberships
 
   validates :team, associated: true, presence: true
