@@ -1,5 +1,5 @@
 class Competitor < ActiveRecord::Base
-  belongs_to :competition, inverse_of: :competitors
+  belongs_to :competition, inverse_of: :competitors, :counter_cache => true
   belongs_to :team, inverse_of: :competitors
 
   validates :competition, associated: true, presence: true
