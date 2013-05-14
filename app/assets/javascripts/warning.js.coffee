@@ -1,6 +1,6 @@
 jQuery ->
   warned = $.cookie("warned")
-  if(warned==null || warned=="")
+  if(!warned)
     $("#ie-warning").modal()
 
   $("#ie-warning .btn-primary").click ->
