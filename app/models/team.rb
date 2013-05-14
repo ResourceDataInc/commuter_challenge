@@ -14,4 +14,8 @@ class Team < ActiveRecord::Base
   def available_competitions
     Competition.joinable_by_team(self)
   end
+
+  def to_param
+    "#{id}-#{name.parameterize}"
+  end
 end
