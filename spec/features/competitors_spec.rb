@@ -66,7 +66,7 @@ describe "competitors" do
   it "can be deleted by owner" do
     competitor = FactoryGirl.create(:competitor, competition: competition, team: team, approved: true)
     login_as owner
-    visit team_url(team)
+    visit competition_url(competition)
     within selector_for(competitor) do
       click_on I18n.t("competitor.delete.action")
     end
