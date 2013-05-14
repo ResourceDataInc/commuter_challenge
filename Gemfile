@@ -10,6 +10,7 @@ gem 'simple_form', '~> 2.1'
 gem 'cancan', '~> 1.6'
 gem 'bootstrap-datepicker-rails', '~> 1.0'
 gem 'newrelic_rpm'
+gem 'jquery-cookie-rails'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
