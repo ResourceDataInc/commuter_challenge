@@ -83,7 +83,7 @@ en:
       title: "Confirm Delete"
     edit:
       action: "Edit"
-      success: "Team deleted"  
+      success: "Team updated"  
       title: "Edit Team"
     index:
       action: "Teams"
@@ -93,7 +93,7 @@ en:
       request_confirmation: "Request sent. Start logging rides!"
       request_already_member: "You are already a member of this team"
       approve_action: "Approve"
-      approve_confirmation: "Team approved"
+      approve_confirmation: "Team member approved"
       approve_failure: "Unable to approve team :("
 
   user:
