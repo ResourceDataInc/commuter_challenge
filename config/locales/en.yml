@@ -85,7 +85,7 @@ en:
       none: "No teams!"
     join:
       action: "Join Team"
-      request_confirmation: "Request sent"
+      request_confirmation: "Request sent. Start logging rides!"
       request_already_member: "You are already a member of this team"
       approve_action: "Approve"
       approve_confirmation: "Team approved"
