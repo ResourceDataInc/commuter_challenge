@@ -95,3 +95,7 @@ en:
       approve_action: "Approve"
       approve_confirmation: "Team approved"
       approve_failure: "Unable to approve team :("
+
+  user:
+    rides:
+      empty: "No rides logged!"

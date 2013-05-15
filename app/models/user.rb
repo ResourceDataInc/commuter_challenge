@@ -12,6 +12,11 @@ class User < ActiveRecord::Base
 
   has_many :memberships, inverse_of: :user
   has_many :teams, through: :memberships
+  has_many :rides, foreign_key: :rider_id
 
   validates :username, presence: true, uniqueness: true
+
+  def to_param
+    "#{id}-#{username.parameterize}"
+  end
 end

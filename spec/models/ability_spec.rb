@@ -35,6 +35,10 @@ describe Ability do
     it "cannot create a competitor" do
       ability.should_not be_able_to :create, Competitor
     end
+
+    it "should be able to read user" do
+      ability.should be_able_to :read, User
+    end
   end
 
   context "for authenticated user" do
