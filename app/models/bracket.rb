@@ -1,4 +1,5 @@
 class Bracket < ActiveRecord::Base
+  default_scope order('lower_limit ASC')
   belongs_to :competition
   
   validates :name, presence: true

@@ -45,7 +45,7 @@
       </tr>
     </thead>
 
-    <% @team.memberships.each do |membership| %>
+    <% @team.memberships.sort_by{ |m| m.user.username }.each do |membership| %>
       <%= content_tag_for :tr, membership, class: ("warning" unless membership.approved?) do %>
         <td class="span3"><%= membership.user.username %></td>
         <td class="muted">Coming soon</td>

@@ -1,4 +1,5 @@
 class Competition < ActiveRecord::Base
+  default_scope order('start_on DESC')
   attr_accessible :description, :end_on, :owner_id, :start_on, :title, :brackets_attributes
 
   belongs_to :owner, class_name: "User"
