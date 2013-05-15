@@ -40,7 +40,7 @@
           <% end %>
         </tr>
       </thead>
-      <% @competition.competitors.sort{|x,y| x.team.name <=> y.team.name}.each do |competitor| %>
+      <% @competition.competitors.sort_by{ |c| c.team.name }.each do |competitor| %>
         <%= content_tag_for :tr, competitor, class: ("warning" unless competitor.approved?) do %>
           <td><%= truncate(competitor.team.name, :separator=>'...', :length =>30) %></td>
           <td><%= competitor.team.business_size %></td>
