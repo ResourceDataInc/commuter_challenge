@@ -6,6 +6,7 @@ class Ability
     can :read, Team
     can :read, Ride
     can :read, Bracket
+    can :read, User
 
     if user.present?
       can :manage, Competition, owner_id: user.id

@@ -21,5 +21,7 @@ BikeCommuteChallenge::Application.routes.draw do
     get :delete, on: :member
   end
 
+  resources :users, only: %i{show}
+
   root to: "home#index"
 end

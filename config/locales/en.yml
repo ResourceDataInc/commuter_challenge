@@ -14,6 +14,7 @@ en:
       action: "Edit"
       success: "Category updated"
     submit: "Save"
+
   competition:
     add:
       action: "Start Competition"
@@ -37,16 +38,19 @@ en:
       approve_action: "Approve"
       approve_confirmation: "Team approved"
       approve_failure: "Unable to approve team :("
+
   competitor:
     delete:
       action: "Remove"
       success: "Team removed from competition"
       title: "Leave Competition"
+
   membership:
     delete:
       action: "Remove"
       success: "Member removed"
       title: "Remove Member"
+
   ride:
     add:
       action: "Log a Ride"
@@ -67,6 +71,7 @@ en:
       one: "One Way"
       round: "Round Trip"
     submit: "Log Ride"
+
   team:
     add:
       action: "Create Team"
@@ -90,3 +95,7 @@ en:
       approve_action: "Approve"
       approve_confirmation: "Team approved"
       approve_failure: "Unable to approve team :("
+
+  user:
+    rides:
+      empty: "No rides logged!"
