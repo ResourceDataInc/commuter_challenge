@@ -13,23 +13,21 @@
 
 <% if @rides.blank? %>
   <p><%= t("ride.index.none") %></p>
-<% end %>
-
-
-
-<table class="rides table table-striped table-bordered table-hover">
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Rider</th>
-      <th>Distance</th>
-    </tr>
-  </thead>
-  <% @rides.each do |ride| %>
-    <%= content_tag_for :tr, ride do %>
-      <td><%= link_to ride.date, ride %></td>
-      <td><%= ride.rider.username %></td>
-      <td><%= ride.distance%></td>
+<% else %>
+  <table class="rides table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Rider</th>
+        <th>Distance</th>
+      </tr>
+    </thead>
+    <% @rides.each do |ride| %>
+      <%= content_tag_for :tr, ride do %>
+        <td><%= link_to ride.date, ride %></td>
+        <td><%= ride.rider.username %></td>
+        <td><%= ride.distance%></td>
+      <% end %>
     <% end %>
-  <% end %>
-</table>
+  </table>
+<% end %>
