@@ -1,4 +1,5 @@
 class Ride < ActiveRecord::Base
+  default_scope order('date DESC')
   belongs_to :rider, class_name: "User"
 
   validates :date, presence: true
