@@ -12,23 +12,23 @@
 
 <% if @competitions.blank? %>
   <p><%= t("competition.index.none") %></p>
+<% else %>
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Start</th>
+        <th>End</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <% @competitions.each do |competition| %>
+      <%= content_tag_for :tr, competition do %>
+        <td><%= link_to truncate(competition.title, :separator=>'...', :length=>40), competition %></td>
+        <td><%= competition.start_on %></td>
+        <td><%= competition.end_on %></td>
+        <td><%= truncate(competition.description, :separator=>'...', :length=>40) %></td>
+      <% end %>    
+    <% end %>  
+  </table>
 <% end %>
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Start</th>
-      <th>End</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <% @competitions.each do |competition| %>
-    <%= content_tag_for :tr, competition do %>
-      <td><%= link_to truncate(competition.title, :separator=>'...', :length=>40), competition %></td>
-      <td><%= competition.start_on %></td>
-      <td><%= competition.end_on %></td>
-      <td><%= truncate(competition.description, :separator=>'...', :length=>40) %></td>
-    <% end %>    
-  <% end %>  
-</table>
