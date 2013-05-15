@@ -22,7 +22,7 @@
 
   <p>
     <%# user a presenter for this %>
-    Created by: <%= mail_to @team.captain.email, @team.captain.username %>
+    Created by: <%= link_to @team.captain.username, @team.captain %>
   </p>
   <p>
     Business Size: <%= @team.business_size %>
