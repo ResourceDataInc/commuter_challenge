@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :ride do
-    date "2013-05-02"
-    distance "9.99"
-    description "MyText"
+    date Date.today
+    distance 9001
+    description "Epic Ride"
     rider factory: :user
     is_round_trip false
   end

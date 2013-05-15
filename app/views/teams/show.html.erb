@@ -22,7 +22,7 @@
 
   <p>
     <%# user a presenter for this %>
-    Created by: <%= mail_to @team.captain.email, @team.captain.username %>
+    Created by: <%= link_to @team.captain.username, @team.captain %>
   </p>
   <p>
     Business Size: <%= @team.business_size %>
@@ -47,7 +47,7 @@
 
     <% @team.memberships.sort_by{ |m| m.user.username }.each do |membership| %>
       <%= content_tag_for :tr, membership, class: ("warning" unless membership.approved?) do %>
-        <td class="span3"><%= membership.user.username %></td>
+        <td class="span3"><%= link_to membership.user.username, membership.user %></td>
         <td class="muted">Coming soon</td>
         <td class="muted">Coming soon</td>
 
