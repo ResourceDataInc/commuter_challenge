@@ -6,8 +6,10 @@
       <h1><%= @competition.title %></h1>
     </div>
     <div class="pull-right">
-      <% if can? :manage, @competition %>
+      <% if can? :edit, @competition %>
         <%= link_to t("competition.edit.action"), edit_competition_path(@competition), class: "btn header-btn" %>
+      <% end %>
+      <% if can? :delete, @competition %>
         <%= link_to t("competition.delete.action"), delete_competition_path(@competition), class: "btn header-btn" %>
       <% end %>
     </div>

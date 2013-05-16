@@ -3,23 +3,11 @@ require "spec_helper"
 describe "competitions" do
   let(:user) { FactoryGirl.create(:user) }
 
-  it "can be created by signed in user" do
+  it "can not be created by signed in user" do
     login_as user
     visit competitions_url
 
-    click_on I18n.t("competition.add.action")
-    fill_in "competition_title", with: "Awesome Competition"
-    fill_in "competition_description", with: "This compeition will rock the world"
-    fill_in "competition_start_on", with: 1.week.from_now.strftime("%Y-%m-%d")
-    fill_in "competition_end_on", with: 2.months.from_now.strftime("%Y-%m-%d")
-    click_button "Create Competition"
-
-    within(".alert") { page.should have_content I18n.t("competition.add.success")}
-    within ".competition" do
-      page.should have_content "Awesome Competition"
-      page.should have_content "This compeition will rock the world"
-      page.should have_content user.username
-    end
+    page.should_not have_link I18n.t("competition.add.action")
   end
 
   it "can be edited by owner" do

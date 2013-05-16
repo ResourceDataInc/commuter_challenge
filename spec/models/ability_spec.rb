@@ -45,8 +45,8 @@ describe Ability do
     let(:user) { FactoryGirl.create(:user) }
     subject(:ability) { Ability.new(user) }
 
-    it "can create a competition" do
-      ability.should be_able_to :create, Competition
+    it "cannot create a competition" do
+      ability.should_not be_able_to :create, Competition
     end
 
     it "can manage own competition" do
