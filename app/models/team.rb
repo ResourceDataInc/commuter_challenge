@@ -3,7 +3,7 @@ class Team < ActiveRecord::Base
   belongs_to :captain, class_name: "User"
   has_many :memberships, inverse_of: :team, :dependent => :destroy
   has_many :members, through: :memberships, source: :user
-  has_many :competitors, inverse_of: :team
+  has_many :competitors, inverse_of: :team, :dependent => :destroy
   has_many :competitions, through: :competitors
 
   validates :name, presence: true
