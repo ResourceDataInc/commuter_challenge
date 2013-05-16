@@ -1,7 +1,7 @@
 class Team < ActiveRecord::Base
   default_scope order('name ASC')
   belongs_to :captain, class_name: "User"
-  has_many :memberships, inverse_of: :team
+  has_many :memberships, inverse_of: :team, :dependent => :destroy
   has_many :members, through: :memberships, source: :user
   has_many :competitors, inverse_of: :team
   has_many :competitions, through: :competitors

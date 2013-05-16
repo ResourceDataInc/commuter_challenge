@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
   has_many :memberships, inverse_of: :user
   has_many :teams, through: :memberships
-  has_many :rides, foreign_key: :rider_id
+  has_many :rides, foreign_key: :rider_id, :dependent => :destroy
 
   validates :username, presence: true, uniqueness: true
 

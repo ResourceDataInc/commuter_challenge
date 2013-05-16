@@ -5,7 +5,7 @@ class Competition < ActiveRecord::Base
   belongs_to :owner, class_name: "User"
   has_many :brackets, :dependent => :destroy
   accepts_nested_attributes_for :brackets
-  has_many :competitors, inverse_of: :competition
+  has_many :competitors, inverse_of: :competition, :dependent => :destroy
   
   validates :title, presence: true
   validates :description, presence: true
