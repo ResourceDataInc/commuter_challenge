@@ -28,4 +28,7 @@
     <div class="span12"><%= simple_format @competition.description %></div>
   </div>
 
+  <% unless @competition.brackets.empty? %>
+    <%= render "leaderboard" %>
+  <% end %>
 <% end %>
