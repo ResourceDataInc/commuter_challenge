@@ -13,6 +13,8 @@ en:
     edit:
       action: "Edit"
       success: "Category updated"
+    index:
+      action: "Categories"
     submit: "Save"
 
   competition:
