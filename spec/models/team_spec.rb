@@ -5,6 +5,16 @@ describe Team do
     it { should belong_to :captain }
     it { should have_many :memberships }
     it { should have_many :members }
+
+    it "should delete memberships when deleted" do
+      team = FactoryGirl.create(:team)
+      id = team.id
+      team.memberships.create(user: FactoryGirl.create(:user))
+
+      team.destroy
+      membership = Membership.find_by_team_id(id)
+      membership.should be_nil
+    end
   end
 
   context "validation" do
