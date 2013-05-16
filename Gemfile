@@ -11,6 +11,7 @@ gem 'cancan', '~> 1.6'
 gem 'bootstrap-datepicker-rails', '~> 1.0'
 gem 'newrelic_rpm'
 gem 'jquery-cookie-rails'
+gem 'google-analytics-rails'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

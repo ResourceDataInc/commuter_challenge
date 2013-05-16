@@ -5,7 +5,7 @@
     <% if content_for? :title %>
       <%= yield :title %> |
     <% end %>
-    BikeCommuteChallenge
+    Bike Commute Challenge
   </title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -13,6 +13,7 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>  
+  <%= analytics_init if Rails.env.production? %>
 </head>
 <body>
 
