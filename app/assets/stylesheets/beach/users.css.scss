@@ -1,0 +1,16 @@
+.edit_user, .new_user{
+  background: $beach-f;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  color: darken($beach-d, 15);
+
+  a{
+    color: $black;
+  }
+
+  .form-actions{
+    background: none;
+  }
+}

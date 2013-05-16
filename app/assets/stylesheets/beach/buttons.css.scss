@@ -1,0 +1,3 @@
+.btn-orange{
+  @include buttonBackground($beach-b, lighten($beach-b, 5));
+}

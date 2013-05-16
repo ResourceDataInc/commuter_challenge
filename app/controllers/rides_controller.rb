@@ -2,6 +2,8 @@ class RidesController < ApplicationController
   load_and_authorize_resource
 
   def index
+    @ride = Ride.new
+    @ride.is_round_trip = true
   end
 
   def new

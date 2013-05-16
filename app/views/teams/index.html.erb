@@ -3,10 +3,11 @@
   <div class="span8">
     <h1><%= t("team.index.action") %></h1>
   </div>
-  <div class="pull-right">
+  <div class="span4">
     <% if can? :create, Team %>
-      <%= link_to t("team.add.action"), new_team_path, class: "btn header-btn" %>
+      <%= link_to t("team.add.action"), new_team_path, class: "btn btn-orange pull-right" %>
     <% end %>
+    <div class="clearfix"></div>
   </div>
 </div>
 

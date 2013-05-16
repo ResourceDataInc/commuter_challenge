@@ -1,8 +1,8 @@
 
 <%= title @team.name %>
 
-<%= content_tag_for :div, @team, class: "row" do %>
-  <div class="row">
+<%= content_tag_for :div, @team  do %>
+  <div class="row team-controls">
     <div class="span8">
       <h1><%= @team.name %></h1>
     </div>
@@ -20,14 +20,20 @@
     </div>
   </div>
 
-  <p>
-    <%# user a presenter for this %>
-    Created by: <%= link_to @team.captain.username, @team.captain %>
-  </p>
-  <p>
-    Business Size: <%= @team.business_size %>
-  </p>
-  <%= simple_format @team.description %>
+  <div class="row">
+    <div class="span4 team-info">
+
+    <p>
+      <%# user a presenter for this %>
+      Created by: <%= link_to @team.captain.username, @team.captain %>
+    </p>
+    <p>
+      Business Size: <%= @team.business_size %>
+    </p>
+    <%= simple_format @team.description %>
+
+    </div>
+  </div>
 
   <h2>Members (<%= @team.memberships_count %>)</h2>
 
