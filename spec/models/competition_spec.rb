@@ -41,19 +41,4 @@ describe Competition do
       competition.should be_valid
     end
   end
-
-  it "should find competitions team has not joined" do
-    joined = FactoryGirl.create(:competition)
-    us = FactoryGirl.create(:team)
-    joined.competitors.create(team_id: us.id, approved: true)
-
-    them = FactoryGirl.create(:team)
-    joined.competitors.create(team_id: them.id, approved: true)
-
-    not_joined = FactoryGirl.create(:competition)
-
-    joinable_competitions = Competition.joinable_by_team(us)
-    joinable_competitions.should include not_joined
-    joinable_competitions.should_not include joined
-  end
 end
