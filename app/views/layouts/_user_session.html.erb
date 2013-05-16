@@ -1,14 +1,9 @@
-<ul class="nav pull-right">
+<ul id="session" class="nav pull-right">
   <% if user_signed_in? %>
-    <li class="visible-desktop">
-      <p class="navbar-text">
-        Logged in as
-        <%= link_to current_user.username, edit_user_registration_path, class: "navbar-link", title: "edit user info" %>.
-      </p>
+    <li class="navbar-text hidden-phone">
+      <%= current_user.email %>
     </li>
-    <li class="hidden-desktop">
-      <%= link_to "Edit User Info", edit_user_registration_path %>
-    </li>
+    <li><%= link_to t("user.edit.action"), edit_user_registration_path %></li>
     <li><%= link_to "Sign out", destroy_user_session_path, data: { method: :delete } %></li>
   <% else %>
     <li><%= link_to "Sign in", new_user_session_path %></li>
