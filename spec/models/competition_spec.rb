@@ -1,6 +1,18 @@
 require 'spec_helper'
 
 describe Competition do
+  context "associations" do
+    it "should delete competitors when deleted" do
+      competition = FactoryGirl.create(:competition)
+      id = competition.id
+      competition.competitors.create(team: FactoryGirl.create(:team))
+
+      competition.destroy
+      competitor = Competitor.find_by_competition_id(id)
+      competitor.should be_nil
+    end
+  end
+
   context "validation" do
     it { should validate_presence_of :title }
     it { should validate_presence_of :description }
