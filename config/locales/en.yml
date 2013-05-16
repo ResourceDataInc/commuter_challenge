@@ -99,3 +99,5 @@ en:
   user:
     rides:
       empty: "No rides logged!"
+    edit:
+      action: "Edit Account"
