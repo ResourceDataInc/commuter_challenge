@@ -5,7 +5,7 @@ class Competitor < ActiveRecord::Base
   validates :competition, associated: true, presence: true
   validates :team, associated: true, presence: true
 
-  attr_accessible :approved, :approved_at, :team_id
+  attr_accessible :approved, :approved_at, :team_id, :team
 
   before_save :update_approved_at
 
