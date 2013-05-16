@@ -36,7 +36,7 @@ describe "competitions" do
     click_on I18n.t("competition.delete.action")
     page.should have_content "Are you sure"
     click_on I18n.t("competition.delete.action")
-    within(".alert") { page.should have_content I18n.t("competition.delete.success") }
+    page.should have_content I18n.t("competition.delete.success")
   end
 
   it "cannot be created by anonymous user" do

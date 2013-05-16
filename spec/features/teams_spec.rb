@@ -59,10 +59,10 @@ describe "teams" do
     visit root_url
     click_on "Teams"
     click_on team.name
-    within(".team") { click_on I18n.t("team.delete.action") }
+    click_on I18n.t("team.delete.action")
 
     page.should have_content "Are you sure"
     click_on I18n.t("team.delete.action")
-    within(".alert") { page.should have_content I18n.t("team.delete.success") }
+    page.should have_content I18n.t("team.delete.success")
   end
 end
