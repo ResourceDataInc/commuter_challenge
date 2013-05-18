@@ -51,6 +51,21 @@ BikeCommuteChallenge::Application.configure do
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
 
+  ActionMailer::Base.smtp_settings = {
+    port: '587',
+    address: 'smtp.mandrillapp.com',
+    user_name: ENV['MANDRILL_USERNAME'],
+    password: ENV['MANDRILL_APIKEY'],
+    domain: 'heroku.com',
+    authentication: :plain
+  }
+
+  ActionMailer::Base.delivery_method = :smtp
+
+  config.action_mailer.default_url_options = {
+    host: 'testcommuterchallenge.bicycleanchorage.org'
+  }
+
   # Enable threaded mode
   # config.threadsafe!
 
