@@ -22,12 +22,19 @@ class Team < ActiveRecord::Base
   end
 
   def participation_percent
-    100.0 * actual_rides / possible_rides
+    @participation_percent ||= 100.0 * actual_rides / possible_rides
   end
 
   private
   def actual_rides
-    rides.pluck(:is_round_trip).inject(0) {|total, r| total + (r ? 2 : 1)}
+    # here be dragons
+    user_rides = rides.group_by(&:rider_id)
+    user_rides.inject(0) do |total, (_, rides)|
+      dated_rides = rides.group_by(&:date)
+      total + dated_rides.inject(0) do |total, (_, rides)|
+        total + [2, rides.inject(0) {|total, r| total + (r.is_round_trip ? 2 : 1)}].min
+      end
+    end
   end
 
   def possible_rides

@@ -6,6 +6,7 @@ class Competition < ActiveRecord::Base
   has_many :brackets, :dependent => :destroy
   accepts_nested_attributes_for :brackets
   has_many :competitors, inverse_of: :competition, :dependent => :destroy
+  has_many :teams, through: :competitors
   
   validates :title, presence: true
   validates :description, presence: true
