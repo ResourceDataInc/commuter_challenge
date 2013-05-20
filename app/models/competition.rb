@@ -16,10 +16,6 @@ class Competition < ActiveRecord::Base
   validate :validate_start_on_before_end_on
   validate :validate_start_on_not_in_past
 
-  def self.joinable_by_team(team)
-    where(Competitor.where("team_id = ? AND competition_id = competitions.id", team.id).exists.not)
-  end
-
   def to_param
     "#{id}-#{title.parameterize}"
   end

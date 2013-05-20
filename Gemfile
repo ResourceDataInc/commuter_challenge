@@ -37,4 +37,5 @@ end
 
 group :development do
   gem 'better_errors', '~> 0.7'
+  gem 'letter_opener'
 end
