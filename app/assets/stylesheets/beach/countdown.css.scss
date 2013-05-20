@@ -1,0 +1,17 @@
+.countdown{
+  text-align: center;
+  h1{
+    font-size: 200px;
+    line-height: 150px;
+  }
+
+  h2{
+    font-size: 3em;
+  }
+}
+
+@media (max-width: 979px){
+  .countdown{
+    display: none;
+  }
+}

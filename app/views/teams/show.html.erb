@@ -1,71 +1,79 @@
 <%= title @team.name %>
 
-<%= content_tag_for :div, @team, class: "row" do %>
-  <div class="span8">
-    <h1><%= @team.name %></h1>
-  </div>
-  <div class="pull-right">
-    <% if can? :join, @team %>
-      <%= simple_form_for [@team, @membership] do |f| %>
-        <%= f.submit t("team.join.action"), class: "btn header-btn" %>
-      <% end %>
-    <% end %>
-
-    <% if can? :manage, @team %>
-      <%= link_to t("team.edit.action"), edit_team_path(@team), class: "btn header-btn" %>
-      <%= link_to t("team.delete.action"), delete_team_path(@team), class: "btn header-btn" %>
-    <% end %>
-  </div>
-
-  <div class="span10">
-    <p>
-      <%# user a presenter for this %>
-      Created by: <%= link_to @team.captain.username, @team.captain %>
-  </p>
-  <p>
-    Business Size: <%= @team.business_size %>
-</p>
-<%= simple_format @team.description %>
-
-<h2>Members (<%= @team.memberships_count %>)</h2>
-
-<table class="memberships table table-striped table-bordered table-hover">
-  <thead>
-    <tr>
-      <th>Username</th>
-      <th>Trips</th>
-      <th>Miles</th>
-
-      <% if can? :manage, @team %>
-        <th class="span2 hidden-phone">Status</th>
-        <th class="span3 hidden-phone">Actions</th>
-      <% end %>
-    </tr>
-  </thead>
-
-  <% @team.memberships.sort_by{ |m| m.user.username }.each do |membership| %>
-    <%= content_tag_for :tr, membership, class: ("warning" unless membership.approved?) do %>
-      <td class="span3"><%= link_to membership.user.username, membership.user %></td>
-      <td class="muted">Coming soon</td>
-      <td class="muted">Coming soon</td>
-
-      <% if can? :manage, @team %>
-        <td class="hidden-phone"><%= membership.approved? ? "Approved" : "Pending" %></td>
-
-        <td class="hidden-phone">
-          <% unless membership.approved? %>
-            <i class="icon-plus"></i>
-            <%= link_to t("team.join.approve_action"), team_membership_path(@team, membership, membership: { approved: true }), data: { method: :put } %>
+<%= content_tag_for :div, @team do %>
+  <div class="row team-controls">
+    <div class="span8">
+      <h1><%= @team.name %></h1>
+    </div>
+    <div class="span4">
+      <div class="pull-right">
+        <% if can? :join, @team %>
+          <%= simple_form_for [@team, @membership] do |f| %>
+            <%= f.submit t("team.join.action"), class: "btn header-btn" %>
           <% end %>
+        <% end %>
 
-          <%= link_to delete_team_membership_path(@team, membership) do %>
-            <i class="icon-trash"></i>
-            <%= t("membership.delete.action") %>
-          <% end %>
-        </td>
+        <% if can? :manage, @team %>
+          <%= link_to t("team.edit.action"), edit_team_path(@team), class: "btn btn-orange" %>
+          <%= link_to t("team.delete.action"), delete_team_path(@team), class: "btn btn-orange" %>
+        <% end %>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="span4 team-info">
+      <p>
+          <%# user a presenter for this %>
+          Created by: <%= link_to @team.captain.username, @team.captain %>
+      </p>
+      <p>
+        Business Size: <%= @team.business_size %>
+      </p>
+      <%= simple_format @team.description %>
+    </div>
+  </div>
+
+
+  <h2>Members (<%= @team.memberships_count %>)</h2>
+
+  <table class="memberships table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Trips</th>
+        <th>Miles</th>
+
+        <% if can? :manage, @team %>
+          <th class="span2 hidden-phone">Status</th>
+          <th class="span3 hidden-phone">Actions</th>
+        <% end %>
+      </tr>
+    </thead>
+
+    <% @team.memberships.sort_by{ |m| m.user.username }.each do |membership| %>
+      <%= content_tag_for :tr, membership, class: ("warning" unless membership.approved?) do %>
+        <td class="span3"><%= link_to membership.user.username, membership.user %></td>
+        <td class="muted">Coming soon</td>
+        <td class="muted">Coming soon</td>
+
+        <% if can? :manage, @team %>
+          <td class="hidden-phone"><%= membership.approved? ? "Approved" : "Pending" %></td>
+
+          <td class="hidden-phone">
+            <% unless membership.approved? %>
+              <i class="icon-plus"></i>
+              <%= link_to t("team.join.approve_action"), team_membership_path(@team, membership, membership: { approved: true }), data: { method: :put } %>
+            <% end %>
+
+            <%= link_to delete_team_membership_path(@team, membership) do %>
+              <i class="icon-trash"></i>
+              <%= t("membership.delete.action") %>
+            <% end %>
+          </td>
+        <% end %>
       <% end %>
     <% end %>
-  <% end %>
-</table>
-  </div>
+  </table>
 <% end %>

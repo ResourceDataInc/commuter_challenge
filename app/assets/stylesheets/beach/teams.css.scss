@@ -1,0 +1,54 @@
+.teams{
+  td{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px){
+  .teams{
+
+    td:last-child, th:last-child{
+      display: none;
+    }
+
+    th:nth-child(2), td:nth-child(2){
+      text-align:center;
+      width: 45px;
+    }
+  }
+}
+
+.team{
+  .team-info{
+    font-size: 1.2em;
+    background: $beach-f;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    color: darken($beach-d, 15);
+
+    a{
+      color: darken($beach-d, 15)
+    }
+  }
+}
+
+.new_team, .edit_team{
+  background: $beach-f;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  color: darken($beach-d, 15);
+
+  a{
+    color: $black;
+  }
+
+  .form-actions{
+    background: none;
+  }
+}

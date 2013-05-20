@@ -24,12 +24,12 @@
     <%= render "layouts/warning" %>
   <![endif]-->   
 
-  <div class="container-fluid main">
+  <div class="container main">
     <%= render "layouts/alerts", messages: flash %>
     <%= yield %>
   </div>
 
-  <div class="navbar navbar-fixed-bottom footer">
+  <div class="navbar navbar footer">
     <%= render "layouts/footer" %>
   </div>
 </body>
