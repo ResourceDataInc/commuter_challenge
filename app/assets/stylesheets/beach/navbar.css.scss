@@ -53,6 +53,7 @@
     background: none;
     @include box-shadow(none);
     border-bottom: 2px solid $beach-b;
+    margin-bottom: 8px;
 
     &:hover{
       color: $white;
