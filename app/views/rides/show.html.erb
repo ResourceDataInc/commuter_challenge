@@ -6,7 +6,7 @@
     <div class="span4 ride-info">      
       <p>
         <%# use a presenter for this %>
-        Created by: <%= mail_to @ride.rider.email, @ride.rider.username %>
+        Created by: <%= link_to @ride.rider.username, @ride.rider %>
       </p>
 
       <%= simple_format @ride.description %>

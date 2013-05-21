@@ -16,7 +16,7 @@
   </div>
 
   <div class="row">
-    <div class="span12">Owner: <%= mail_to @competition.owner.email, @competition.owner.username %></div>
+    <div class="span12">Owner: <%= link_to @competition.owner.username, @competition.owner %></div>
   </div>
 
   <div class="row">
