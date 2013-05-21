@@ -1,0 +1,78 @@
+.dashboard{
+  .row{
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    & > * {
+      border-radius: 2px;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+  }
+
+  .rides{
+    .form{
+      background-color: $beach-f;
+      color: $black;
+
+      & > form > button {
+        margin-top: 20px;
+      }
+
+      & > form > * {
+       display: block;
+      }
+
+      label{
+        width: 100px;
+      }
+    }
+
+  }
+
+  .stats{
+    h2{
+      font-size: 1.2em;
+      line-height: 1.3em;
+      padding: 3px;
+      margin: 0px;
+    }
+
+    & > div{
+
+
+      & > .number{
+        font-size: 4em;
+        line-height: 50px;
+      }
+
+      & > .positive:after{
+        content: " ";
+        color: $white;
+        width: 0px;
+        line-height: 0px;
+        display: inline-block;
+        margin-left: 10px;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-bottom: 30px solid $beach-g;
+      }
+    }
+
+    & > div:nth-child(1){
+      background-color: $beach-e;
+    }
+
+    & > div:nth-child(2){
+      background-color: $beach-h;
+    }
+
+    & > div:nth-child(3){
+      background-color: $beach-k;
+    }
+
+    & > div:nth-child(4){
+      background-color: $beach-c;
+    }
+  }
+}
