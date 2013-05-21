@@ -2,17 +2,22 @@
 
 <%= content_tag_for :div, @ride do %>
   <h1><%= @ride.date %></h1>
-  <p>
-    <%# use a presenter for this %>
-    Created by: <%= mail_to @ride.rider.email, @ride.rider.username %>
-  </p>
+  <div class="row">
+    <div class="span4 ride-info">      
+      <p>
+        <%# use a presenter for this %>
+        Created by: <%= mail_to @ride.rider.email, @ride.rider.username %>
+      </p>
 
-  <%= simple_format @ride.description %>
-  <%= simple_format @ride.distance.to_s %>
-  <%= simple_format (@ride.is_round_trip)? t("ride.options.round") : t("ride.options.one") %>
+      <%= simple_format @ride.description %>
+      <%= simple_format @ride.distance.to_s %>
+      <%= simple_format (@ride.is_round_trip)? t("ride.options.round") : t("ride.options.one") %>
 
-  <% if can? :manage, @ride %>
-    <%= link_to t("ride.edit.action"), edit_ride_path(@ride), class: "btn" %>
-    <%= link_to t("ride.delete.action"), delete_ride_path(@ride), class: "btn" %>
-  <% end %>
+      <% if can? :manage, @ride %>
+        <%= link_to t("ride.edit.action"), edit_ride_path(@ride), class: "btn" %>
+        <%= link_to t("ride.delete.action"), delete_ride_path(@ride), class: "btn" %>
+      <% end %>
+
+    </div>
+  </div>
 <% end %>

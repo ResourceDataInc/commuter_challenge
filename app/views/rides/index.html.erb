@@ -4,10 +4,11 @@
   <div class="span8">
     <h1><%= t("ride.index.action") %></h1>
   </div>
-  <div class="pull-right">
+  <div class="span4">
     <% if can? :create, Ride %>
-      <%= link_to t("ride.add.action"), new_ride_path, class: "btn header-btn" %>
+      <%= link_to t("ride.add.action"), new_ride_path, class: "btn btn-orange pull-right" %>
     <% end %>
+    <div class="clearfix"></div>
   </div>
 </div>
 
@@ -20,13 +21,17 @@
         <th>Date</th>
         <th>Rider</th>
         <th>Distance</th>
+        <th>Total Miles</th>
+        <th>Total Trips</th>
       </tr>
     </thead>
     <% @rides.each do |ride| %>
       <%= content_tag_for :tr, ride do %>
-        <td><%= link_to ride.date, ride %></td>
+        <td><%= link_to ride.date.strftime("%b #{ride.date.day.ordinalize}"), ride %></td>
         <td><%= ride.rider.username %></td>
         <td><%= ride.distance%></td>
+        <td>Coming Soon</td>
+        <td>Coming Soon</td>
       <% end %>
     <% end %>
   </table>

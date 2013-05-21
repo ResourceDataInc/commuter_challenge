@@ -76,6 +76,9 @@ GEM
       factory_girl (~> 3.6.0)
       railties (>= 3.0.0)
     ffi (1.6.0)
+    font-awesome-sass-rails (3.0.2.2)
+      railties (>= 3.1.1)
+      sass-rails (>= 3.1.1)
     google-analytics-rails (0.0.4)
     hike (1.2.1)
     i18n (0.6.1)
@@ -205,6 +208,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise (~> 2.2)
   factory_girl_rails
+  font-awesome-sass-rails (~> 3.0)
   google-analytics-rails
   jquery-cookie-rails
   jquery-rails (~> 2.2)

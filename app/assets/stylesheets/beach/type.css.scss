@@ -1,0 +1,19 @@
+h1{
+  color: $white;
+  letter-spacing: 1px;
+  text-shadow:
+    2px 2px 0 $beach-b,
+    -1px -1px 0 $beach-b,
+    1px -1px 0 $beach-b,
+    -1px 1px 0 $beach-b,
+    1px 1px 0 $beach-b;
+}
+
+h2{
+  color: $white;
+}
+
+a{
+  color: $white;
+  text-decoration: underline;
+}

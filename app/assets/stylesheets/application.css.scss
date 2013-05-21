@@ -9,11 +9,12 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require _font-awesome
  */
+
 
 @import "bootstrap";
 @import "bootstrap-responsive";
 @import "bootstrap-datepicker";
-@import "layout";
-@import "alerts";
-@import "forms";
+@import "beach/beach";
+

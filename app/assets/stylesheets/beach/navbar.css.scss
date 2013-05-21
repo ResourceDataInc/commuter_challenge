@@ -1,0 +1,132 @@
+.navbar{
+  .navbar-inner{
+    background: none;
+    border: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    @include box-shadow(none);
+  }
+
+  .navbar-text{
+    color: $white;
+  }
+
+
+  .brand{
+    padding: 10px;
+    margin: 0px;
+    color: $white;
+    text-shadow: none;
+    background: $beach-b;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    @include box-shadow(0 0 3px rgba(0,0,0,.9));
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .nav > li > a {
+    color: $white;
+    text-shadow: none;
+    padding: 0px 5px;
+    margin: 10px 5px;
+    line-height: 20px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    font-size:1.2em;
+
+    &:first-child{
+      margin-left: 20px;
+    }
+
+    &:hover{
+      color: $white;
+      background: none;
+      @include box-shadow(none);
+      border-bottom: 2px solid $beach-b;
+      margin-bottom: 8px;
+    }
+  }
+
+  .nav > li.active > a {
+    color: $white;
+    background: none;
+    @include box-shadow(none);
+    border-bottom: 2px solid $beach-b;
+    margin-bottom: 8px;
+
+    &:hover{
+      color: $white;
+      background: none;
+      @include box-shadow(none);
+      border-bottom: 2px solid $beach-b;
+    }
+  }
+}
+
+@media (max-width: 979px){
+  .navbar{
+    position: relative;
+
+    .btn-navbar, .brand {
+      @include box-shadow(none);
+      margin: 0px;
+      background: $beach-b;
+      border: 0px;
+      text-decoration: none;
+      padding: 10px 0px;
+    }
+
+    .btn-navbar{
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      padding: 10px;
+
+      &:hover{
+        background: $beach-b;
+      }
+    }
+
+    .brand{
+      padding-left: 5px
+    }
+
+    .navbar-inner{
+      padding: 0px;
+      margin: 0px;
+      color: $white;
+      text-shadow: none;
+      background: $beach-b;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      @include box-shadow(0 0 3px rgba(0,0,0,.9));
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .nav-collapse{
+
+      background: $beach-b;
+      font-weight: bold;
+
+      li a{
+        padding: 5px;
+      }
+    }
+
+    .nav > li > a {
+      &:hover{
+        color: $gray;
+        border-bottom: 0px;
+      }
+    }
+
+    .nav > li.active > a {
+      &:hover{
+        color: $gray;
+        border-bottom: 0px;
+      }
+    }
+  }
+}
+

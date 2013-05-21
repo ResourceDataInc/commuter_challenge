@@ -1,0 +1,90 @@
+@import "bootstrap";
+@import "bootstrap-responsive";
+
+//base
+@import "variables";
+@import "forms";
+@import "type";
+@import "navbar";
+@import "tables";
+@import "buttons";
+
+//widgets
+@import "instructions";
+@import "countdown";
+
+//pages
+@import "teams";
+@import "rides";
+@import "users";
+
+@import 'font-awesome';
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,700);
+
+body, html{
+  height: 100%;
+  font-family: 'Roboto Slab', serif;
+}
+
+body{
+  @include gradient_vertical($beach-n, darken($beach-n, 5));
+  background-image: url(city.svg);
+  background-attachment:fixed;
+  background-position:bottom;
+  color: $white;
+  min-width: 280px;
+}
+
+.well, .table{
+  color: $black;
+}
+
+.footer {
+  vertical-align: bottom;
+  padding-top: 5px;
+  background: none;
+}
+
+.welcome{
+  margin: 10px 0px 40px 0px;
+  text-align: center;
+  font-size: 34pt;
+}
+
+.header-controls{
+  & > div {
+    .btn{
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 0px;
+    }
+  }
+}
+
+.header-form{
+  form{
+    margin: 0px;
+
+    & > div{
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+
+    .btn{
+      display: block;
+    }
+
+    .round-trip{
+      width: 100%;
+      margin-bottom: 2px;
+    }
+  }
+}
+
+@media (max-width: 979px){
+  .welcome{
+    font-size: 2.2em;
+    margin: 0px 0px 20px 0px;
+  }
+}

@@ -1,8 +1,10 @@
-
-<h2>Get Started</h2>
-<div class="table">
 <div class="row">  
-  <div class="span4 well equal-height">
+  <div class="span4 countdown">
+    <h1><%= (Date.new(2013, 10, 16) - Date.today).to_i %></h1>
+    <h2>Days Left</h2>
+  </div> 
+
+  <div class="span4 instructions">
       <h3>All Riders</h3>
       <ol>
         <li><%= link_to "Create a user account.", new_user_registration_path %></li>
@@ -10,12 +12,12 @@
         <li><%= link_to "Log rides!",  new_ride_path %></li>
       </ol>
   </div>
-  <div class="span4 well equal-height">
+  <div class="span4 instructions">
       <h3>Team Captains</h3>
       <ol>
         <li><%= link_to "Create a user account.", new_user_registration_path %></li>
         <li><%= link_to "Create a team", new_team_path %></li>
-        <li>Approve riders that join your team.</li>
+        <li>Approve your teams riders.</li>
       </ol>
   </div>
 </div>

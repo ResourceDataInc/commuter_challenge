@@ -1,0 +1,71 @@
+.rides{
+  td{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  th:nth-child(1), td:nth-child(1), th:nth-child(n + 3), td:nth-child(n + 3){
+    text-align:center;
+    width: 100px;
+  }
+}
+
+
+@media (max-width: 768px){
+  .rides{
+
+    th:nth-child(n + 4), td:nth-child(n + 4){
+      display: none;
+    }
+
+    th:nth-child(1), td:nth-child(1){
+      text-align:center;
+      width: 45px;
+    }
+
+  }
+}
+
+@media (max-width: 480px){
+  .rides{
+
+    th:nth-child(n + 3), td:nth-child(n + 3){
+      display: none;
+    }
+  }
+}
+
+.ride{
+  .ride-info{
+    font-size: 1.2em;
+    background: $beach-f;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    color: darken($beach-d, 15);
+
+    a{
+      color: darken($beach-d, 15)
+    }
+
+  }
+}
+
+.new_ride, .edit_ride{
+  background: $beach-f;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  color: darken($beach-d, 15);
+
+  a{
+    color: $black;
+  }
+
+  .form-actions{
+    background: none;
+  }
+}
