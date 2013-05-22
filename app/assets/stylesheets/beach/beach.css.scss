@@ -24,10 +24,13 @@ body, html{
 }
 
 body{
-  @include gradient_vertical($beach-n, darken($beach-n, 5));
-  background-image: url(city.svg);
+  background-color: $beach-n;
+  background-image: url('city.jpeg');
+  background-image: none, url('city.svg');
   background-attachment:fixed;
-  background-position:bottom;
+  background-position:bottom left;
+  background-repeat:no-repeat;
+
   color: $white;
   min-width: 280px;
 }
