@@ -61,7 +61,7 @@ describe Team do
       user.rides.create!(date: Date.today, is_round_trip: true, distance: 1)
       captain.rides.create!(date: Date.today, is_round_trip: false, distance: 2)
 
-      team.participation_percent.should equal(7.5)
+      team.participation_percent.should be_within(0.01).of(7.5)
     end
 
     it "should use max of two trips per day" do
@@ -82,7 +82,7 @@ describe Team do
       user.rides.create!(date: Date.today, is_round_trip: false, distance: 20)
       captain.rides.create!(date: Date.today, is_round_trip: false, distance: 2)
 
-      team.participation_percent.should equal(7.5)
+      team.participation_percent.should be_within(0.01).of(7.5)
     end
   end
 end
