@@ -12,6 +12,14 @@ class Bracket < ActiveRecord::Base
 
   attr_accessible :competition_id, :lower_limit, :name, :upper_limit
 
+  def teams
+    competition.teams.where("business_size between ? AND ?", lower_limit, upper_limit)
+  end
+
+  def teams_by_participation
+    teams.sort_by(&:participation_percent)
+  end
+
   private
 
   def validate_upper_limit_after_lower_limit
