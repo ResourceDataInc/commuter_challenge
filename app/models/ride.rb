@@ -13,7 +13,7 @@ class Ride < ActiveRecord::Base
   private
 
   def validate_date_not_in_future
-    if date? && date > Date.today
+    if date? && date.to_date > Date.today
       errors.add :date, "can't be in the future"
     end
   end
