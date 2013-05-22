@@ -7,6 +7,8 @@
       border-radius: 2px;
       padding: 10px;
       box-sizing: border-box;
+
+
     }
   }
 
@@ -31,31 +33,19 @@
   }
 
   .stats{
+    text-shadow: 1px 1px 1px $grayLight;
+
     h2{
-      font-size: 1.2em;
+      font-size: 1.1em;
       line-height: 1.3em;
       padding: 3px;
       margin: 0px;
     }
 
     & > div{
-
-
       & > .number{
-        font-size: 4em;
+        font-size: 3em;
         line-height: 50px;
-      }
-
-      & > .positive:after{
-        content: " ";
-        color: $white;
-        width: 0px;
-        line-height: 0px;
-        display: inline-block;
-        margin-left: 10px;
-        border-left: 15px solid transparent;
-        border-right: 15px solid transparent;
-        border-bottom: 30px solid $beach-g;
       }
     }
 
@@ -72,7 +62,15 @@
     }
 
     & > div:nth-child(4){
-      background-color: $beach-c;
+      background-color: $beach-j;
+    }
+
+    & > div:nth-child(5){
+      background-color: $beach-d;
+    }
+
+    & > div:nth-child(6){
+      background-color: $beach-g;
     }
   }
 }

@@ -1,23 +1,43 @@
-<h1>Dashboard</h1>
+<h1>Hey There, <%= current_user.username %></h1>
 
 <div class="dashboard">
   <div class="row stats">
-    <div class="span3">
+    <div class="span2">
       <h2>Your Mileage</h2>
-      <div class="number positive">12</div>
+      <div class="number"><%= current_user.rides.sum(:distance) %></div>
     </div>
-    <div class="span3">
+    <div class="span2">
+      <h2>Your Rides</h2>
+      <div class="number"><%= current_user.rides.count %></div>
+    </div>    
+    <div class="span2">
       <h2>Your Position</h2>
-      <div class="number positive">1st</div>
+      <div class="number positive">--</div>
     </div>
-    <div class="span3">
+    <div class="span2">
       <h2>Teams Mileage</h2>
-      <div class="number positive">104</div>
+      <div class="number positive">
+        <% if current_user.teams.exists %>
+          <%= current_user.teams.first.rides.sum(:distance) %>
+        <% else %>
+          --
+        <% end %>
+      </div>
     </div>
-    <div class="span3">
+    <div class="span2">
+      <h2>Teams Rides</h2>
+      <div class="number positive">
+        <% if current_user.teams.exists %>
+          <%= current_user.teams.first.rides.count %>
+        <% else %>
+          --
+        <% end %>
+      </div>
+    </div>
+    <div class="span2">
       <h2>Teams Position</h2>
-      <div class="number positive">3rd</div>
-    </div>
+      <div class="number positive">--</div>
+    </div>    
   </div>
 
   <div class="row rides">
