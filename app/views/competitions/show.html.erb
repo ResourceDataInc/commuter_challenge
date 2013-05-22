@@ -28,58 +28,7 @@
     <div class="span12"><%= simple_format @competition.description %></div>
   </div>
 
-  <% unless @competition.competitors.empty? %>
-  <h3>Teams (<%= @competition.competitors_count %>)</h3>
-    <table class="competitors table table-striped table-bordered table-hover">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Size</th>
-          <th>Description</th>
-          <% if can? :manage, @competition %>
-            <th class="span2 hidden-phone">Status</th>
-            <th class="span3 hidden-phone">Actions</th>
-          <% end %>
-        </tr>
-      </thead>
-      <% @competition.competitors.sort_by{ |c| c.team.name }.each do |competitor| %>
-        <%= content_tag_for :tr, competitor, class: ("warning" unless competitor.approved?) do %>
-          <td><%= truncate(competitor.team.name, :separator=>'...', :length =>30) %></td>
-          <td><%= competitor.team.business_size %></td>
-          <td><%= truncate(competitor.team.description, :separator=>'...', :length =>40) %></td>
-
-          <% if can? :manage, @competition %>        
-            <td class="hidden-phone"><%= competitor.approved? ? "Approved" : "Pending" %></td>
-            <td class="hidden-phone">
-              <% unless competitor.approved? %>
-                <i class="icon-plus"></i>
-                <%= link_to t("competition.join.approve_action"), competition_competitor_path(@competition, competitor, competitor: { approved: true }), data: { method: :put } %>
-              <% end %>
-              <%= link_to delete_competition_competitor_path(@competition, competitor) do %>
-                <i class="icon-trash"></i>
-                <%= t("competitor.delete.action") %>
-              <% end %>
-            </td>
-          <% end %>
-        <% end %>
-      <% end %>
-    </table>
-  <% end %>
-
   <% unless @competition.brackets.empty? %>
-    <h3>Categories</h3>
-    <table class="table table-striped table-bordered table-hover">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Lower</th>
-          <th>Upper</th>
-          <% if can? :manage, @competition %>
-            <th>Actions</th>
-          <% end %>
-        </tr>
-      </thead>
-      <%= render @competition.brackets %>
-    </table>
+    <%= render "leaderboard" %>
   <% end %>
 <% end %>
