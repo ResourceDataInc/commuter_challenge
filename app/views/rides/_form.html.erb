@@ -7,7 +7,7 @@
   </div>
 
   <div class="row">
-    <div class="span5"><%= f.input :date, as: :string, input_html: { class: "datepicker" } %></div>
+    <div class="span5"><%= f.input :date, as: :string, input_html: { class: "datepicker", data: { end_date: Date.today.to_s } } %></div>
     <div class="span5"><%= f.input :distance, :input_html => { :min => 0 } %></div>
   </div>
 
