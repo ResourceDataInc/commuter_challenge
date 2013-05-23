@@ -1,55 +1,74 @@
-  <svg width="100%" height="500"  xmlns="http://www.w3.org/2000/svg" version="1.1">
-   <defs>
-    <pattern id="PatternA" width="800" height="500" patternUnits="userSpaceOnUse">
-    <path stroke="#000000" id="svg_1" d="m-8,160.886993c0,-17.862 99.334602,-21.583984 168.947998,-65.839996c69.613998,-44.256012 129.506989,-86.046997 166.623016,-86.046997c37.115997,0 81.473999,56.479004 151.551971,90.423004c70.078003,33.945007 165.877014,41.354004 165.877014,59.216003l-653,2.247986z" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#9AC07E"/>
-  </pattern>
-    <pattern id="PatternB" x="200" width="800"  y="15"  height="500" patternUnits="userSpaceOnUse">
-    <path stroke="#000000" id="svg_2" d="m82.499985,156.443481c0,-17.862 79.711075,-21.583954 135.572357,-65.839966c55.861771,-44.256027 104.725357,-70.047012 134.50914,-70.047012c29.783722,0 62.169037,57.479019 120.810455,74.423019c58.641449,16.944 133.108063,41.354004 133.108063,59.215973l-524.000015,2.247986z" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#608641"/>
-  </pattern>
-    <pattern id="PatternC" x="-500"  width="1000" height="500" patternUnits="userSpaceOnUse">
-    <path id="svg_3" stroke="#000000" d="m310.5,186.443481c0,-17.862 99.334595,-21.583954 168.947998,-65.839966c69.614014,-44.256012 130.506958,-70.046997 167.623047,-70.046997c37.115967,0 77.473999,57.479004 150.551941,74.423004c73.077942,16.944 165.877014,41.354004 165.877014,59.215973l-653,2.247986z" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#D1E2A9"/>
-  </pattern>
+<svg width="100%" height="500"  xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <defs>
+    <radialGradient id="mountain" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:#56aaff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#368adf;stop-opacity:1" />
+    </radialGradient >
 
-    <pattern id="PatternD" x="100"  width="1000" height="500" patternUnits="userSpaceOnUse">
-    <path id="svg_3" stroke="#000000" d="m310.5,186.443481c0,-17.862 99.334595,-21.583954 168.947998,-65.839966c69.614014,-44.256012 130.506958,-70.046997 167.623047,-70.046997c37.115967,0 77.473999,57.479004 150.551941,74.423004c73.077942,16.944 165.877014,41.354004 165.877014,59.215973l-653,2.247986z" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#D1E2A9"/>
-  </pattern>
+    <linearGradient id="snow" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#F7F3E7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:1" />
+    </linearGradient>
 
-    <pattern id="Window" width="11" height="11" patternUnits="userSpaceOnUse">
-        <rect height="11" width="11" y="0" x="0"  fill="#007790" />
-        <rect height="4" width="4" y="4" x="4"  fill="#00A3D3" />
+    <linearGradient id="building" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#007790;stop-opacity:1" />
+    </linearGradient>
+
+    <radialGradient id="window" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:#00A3D3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00A3D3;stop-opacity:1" />
+    </radialGradient >
+
+    <pattern id="HillsA" width="800" height="500" patternUnits="userSpaceOnUse">
+      <path d="m-8,160.886993c0,-17.862 99.334602,-21.583984 168.947998,-65.839996c69.613998,-44.256012 129.506989,-86.046997 166.623016,-86.046997c37.115997,0 81.473999,56.479004 151.551971,90.423004c70.078003,33.945007 165.877014,41.354004 165.877014,59.216003l-653,2.247986z" fill="#9AC07E"/>
     </pattern>
 
-   </defs>
+    <pattern id="HillsB" x="200" width="800" y="15" height="500" patternUnits="userSpaceOnUse">
+      <path d="m82.499985,156.443481c0,-17.862 79.711075,-21.583954 135.572357,-65.839966c55.861771,-44.256027 104.725357,-70.047012 134.50914,-70.047012c29.783722,0 62.169037,57.479019 120.810455,74.423019c58.641449,16.944 133.108063,41.354004 133.108063,59.215973l-524.000015,2.247986z"  fill="#608641"/>
+    </pattern>
 
- <g transform="translate(-300, -400) scale(2, 2)">
-    <path  id="svg_3" d="m55,476c0,0 130,-133 130,-133c0,0 48,50 48,50c0,0 85,-138 85,-138c0,0 80,141 81,142c1,1 45,-33 45,-33c0,0 132,111 132,111c0,0 -521,1 -521,1z" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" stroke="#000000" fill="#56aaff"/>
-    <path id="svg_5" d="m150.2,377.80002c0,0 14,9 14,9c0,0 9,-10 8.8,-10.80002c-0.2,-0.80002 8.2,9.80002 8.2,9.80002c0,0 10,-11 9.8,-11.80002c-0.2,-0.80002 14.2,10.80002 14,10c-0.2,-0.80002 11.2,-9.19998 11.2,-9.19998c0,0 -30,-33 -30,-33c0,0 -36,36 -36,36z" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" stroke="#000000" fill="#ffffff"/>
-    <path stroke="#000000" id="svg_6" d="m296.20001,290.20001c0,0 8.48486,9 8.48486,9c0,0 5.45453,-10 5.33331,-10.80002c-0.12122,-0.80002 4.96973,9.80002 4.96973,9.80002c0,0 6.06058,-11 5.93936,-11.80002c-0.12122,-0.80002 8.60605,10.80002 8.48483,10c-0.12122,-0.80002 6.7879,-9.19998 6.7879,-9.19998c0,0 -18.18182,-33 -18.18182,-33c0,0 -21.81818,36 -21.81818,36z" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#ffffff"/>
-    <path stroke="#000000" id="svg_7" d="m403.20001,392.80002c0,0 15.69699,7.39999 15.69699,7.39999c0,0 10.09091,-8.22223 9.86661,-8.88004c-0.22424,-0.65778 9.194,8.05783 9.194,8.05783c0,0 11.21207,-9.04446 10.98782,-9.70227c-0.22424,-0.65778 15.9212,8.88004 15.69696,8.2222c-0.22427,-0.65775 12.55762,-7.56439 12.55762,-7.56439c0,0 -33.63635,-27.13333 -33.63635,-27.13333c0,0 -40.36365,29.60001 -40.36365,29.60001z" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#ffffff"/>
- </g>
+    <pattern id="HillsC" x="-500"  width="1000" height="500" patternUnits="userSpaceOnUse">
+      <path d="m310.5,186.443481c0,-17.862 99.334595,-21.583954 168.947998,-65.839966c69.614014,-44.256012 130.506958,-70.046997 167.623047,-70.046997c37.115967,0 77.473999,57.479004 150.551941,74.423004c73.077942,16.944 165.877014,41.354004 165.877014,59.215973l-653,2.247986z" fill="#D1E2A9"/>
+    </pattern>
+
+    <pattern id="HillsD" x="100"  width="1000" height="500" patternUnits="userSpaceOnUse">
+      <path d="m310.5,186.443481c0,-17.862 99.334595,-21.583954 168.947998,-65.839966c69.614014,-44.256012 130.506958,-70.046997 167.623047,-70.046997c37.115967,0 77.473999,57.479004 150.551941,74.423004c73.077942,16.944 165.877014,41.354004 165.877014,59.215973l-653,2.247986z" fill="#D1E2A9"/>
+    </pattern>
+
+    <pattern id="Windows" width="11" height="11" patternUnits="userSpaceOnUse">
+        <rect height="11" width="11" y="0" x="0"  fill="url(#building)" />
+        <rect height="4" width="4" y="4" x="4"  fill="url(#window)" />
+    </pattern>
+  </defs>
+
+
+
+  <g transform="translate(-300, -600) scale(2, 2.5)">
+    <path fill="url(#mountain)" d="m55,476c0,0 130,-133 130,-133c0,0 48,50 48,50c0,0 85,-138 85,-138c0,0 80,141 81,142c1,1 45,-33 45,-33c0,0 132,111 132,111c0,0 -521,1 -521,1z" />
+    <path fill="url(#snow)" d="m150.2,377.80002c0,0 14,9 14,9c0,0 9,-10 8.8,-10.80002c-0.2,-0.80002 8.2,9.80002 8.2,9.80002c0,0 10,-11 9.8,-11.80002c-0.2,-0.80002 14.2,10.80002 14,10c-0.2,-0.80002 11.2,-9.19998 11.2,-9.19998c0,0 -30,-33 -30,-33c0,0 -36,36 -36,36z" />
+    <path fill="url(#snow)" d="m296.20001,290.20001c0,0 8.48486,9 8.48486,9c0,0 5.45453,-10 5.33331,-10.80002c-0.12122,-0.80002 4.96973,9.80002 4.96973,9.80002c0,0 6.06058,-11 5.93936,-11.80002c-0.12122,-0.80002 8.60605,10.80002 8.48483,10c-0.12122,-0.80002 6.7879,-9.19998 6.7879,-9.19998c0,0 -18.18182,-33 -18.18182,-33c0,0 -21.81818,36 -21.81818,36z" />
+    <path fill="url(#snow)" d="m403.20001,392.80002c0,0 15.69699,7.39999 15.69699,7.39999c0,0 10.09091,-8.22223 9.86661,-8.88004c-0.22424,-0.65778 9.194,8.05783 9.194,8.05783c0,0 11.21207,-9.04446 10.98782,-9.70227c-0.22424,-0.65778 15.9212,8.88004 15.69696,8.2222c-0.22427,-0.65775 12.55762,-7.56439 12.55762,-7.56439c0,0 -33.63635,-27.13333 -33.63635,-27.13333c0,0 -40.36365,29.60001 -40.36365,29.60001z"/>
+  </g>
 
   <g transform="scale(1, 2) translate(0, -120)">
-    <rect id="svg_17" height="14" width="32" y="281" x="209"  fill="#007790" />
-    <rect id="svg_19" height="57" width="20" y="296" x="467"  fill="#007790" />
-    <rect id="svg_15" height="19" width="24" y="234" x="324"  fill="#007790" />
-    <rect id="svg_14" height="23" width="29" y="201" x="401"  fill="#007790" />
-    <rect id="svg_2" height="133" width="88" y="220" x="387"  fill="url(#Window)" />
-    <rect id="svg_3" height="110" width="74" y="247" x="300"  fill="url(#Window)" />
+    <rect height="14" width="32" y="281" x="209" fill="url(#building)" />
+    <rect height="57" width="20" y="296" x="467" fill="url(#building)" />
+    <rect height="19" width="24" y="232" x="324" fill="url(#building)" />
+    <rect height="23" width="29" y="201" x="401" fill="url(#building)" />
+    <rect height="14" width="23" y="262" x="154" fill="url(#building)" />
 
-    <rect id="svg_6" height="14" width="23" y="262" x="154"  fill="#007790" />
-    <rect id="svg_4" height="71" width="127" y="289" x="147"  fill="url(#Window)" />
-    <rect id="svg_5" height="17" width="56" y="272" x="146"  fill="url(#Window)" />
-
-    <rect id="svg_10" height="34" width="48" y="254" x="511"  fill="url(#Window)" />
-    <rect id="svg_11" height="61" width="68" y="288" x="496"  fill="url(#Window)" />
+    <rect height="133" width="88" y="220" x="387" fill="url(#Windows)" />
+    <rect height="115" width="76" y="240" x="298" fill="url(#Windows)" />
+    <rect height="72" width="131" y="287" x="144" fill="url(#Windows)" />
+    <rect height="17" width="56" y="272" x="144" fill="url(#Windows)" />
+    <rect height="40" width="44" y="254" x="507" fill="url(#Windows)" />
+    <rect height="61" width="68" y="288" x="496" fill="url(#Windows)" />
   </g>
 
    <g transform="translate(0, 390) scale(1, 0.6)">
-     <rect fill="url(#PatternA)" width="100%" height="500"/>
-     <rect fill="url(#PatternB)" width="100%" height="500"/>
-     <rect fill="url(#PatternC)" width="100%" height="500"/>
-     <rect fill="url(#PatternD)" width="100%" height="500"/>
+     <rect fill="url(#HillsA)" width="100%" height="500"/>
+     <rect fill="url(#HillsB)" width="100%" height="500"/>
+     <rect fill="url(#HillsC)" width="100%" height="500"/>
+     <rect fill="url(#HillsD)" width="100%" height="500"/>
    </g>
-
-
-  </svg>
+</svg>
