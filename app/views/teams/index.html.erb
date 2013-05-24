@@ -11,23 +11,4 @@
   </div>
 </div>
 
-<% if @teams.blank? %>
-  <p><%= t("team.index.none") %></p>
-<% else %>
-  <table class="teams table table-striped table-bordered table-hover">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Size</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <% @teams.each do |team| %>
-      <%= content_tag_for :tr, team do %>
-        <td><%= link_to truncate(team.name, :separator=>'...', :length=>40), team %></td>
-        <td><%= team.business_size %></td>
-        <td><%= truncate(team.description, :separator=>'...', :length =>90) %></td>
-      <% end %>
-    <% end %>
-  </table>
-<% end %>
+<%= render "teams/table", :teams=>@teams%>

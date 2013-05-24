@@ -1,7 +1,9 @@
 jQuery ->
-  $("input.datepicker").datepicker
-    format: "yyyy-mm-dd"
-    autoclose: true
+  $("input.datepicker").each ->
+    $(this).datepicker
+      endDate: $(this).data("end-date")
+      format: "yyyy-mm-dd"
+      autoclose: true
 
   maxHeight=0;
   $('.equal-height').each ->

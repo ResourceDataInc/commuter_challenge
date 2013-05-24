@@ -43,7 +43,7 @@
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 10px;
-    box-sizing: border-box;
+    @include box-sizing(border-box);
     color: darken($beach-d, 15);
 
     a{
@@ -58,7 +58,7 @@
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 10px;
-  box-sizing: border-box;
+  @include box-sizing(border-box);
   color: darken($beach-d, 15);
 
   a{

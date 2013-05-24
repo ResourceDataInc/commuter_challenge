@@ -41,4 +41,29 @@ describe Competition do
       competition.should be_valid
     end
   end
+
+  context "helpers" do
+    it "should count the total number of weekdays in the competition" do
+      competition = FactoryGirl.build(:competition,
+        start_on: Date.new(2013, 02, 01),
+        end_on: Date.new(2013, 02, 15))
+      competition.total_work_days.should equal(11)
+    end
+
+    it "should count the weekdays in the competition so far" do
+      Date.stub(today: Date.new(2013, 02, 05))
+      competition = FactoryGirl.build(:competition,
+        start_on: Date.new(2013, 02, 04),
+        end_on: Date.new(2013, 02, 10))
+      competition.work_days.should equal(2)
+
+      competition.start_on = Date.new(2013, 02, 05)
+      competition.end_on = Date.new(2013, 02, 05)
+      competition.work_days.should equal(1)
+
+      competition.start_on = Date.new(2013, 02, 07)
+      competition.end_on = Date.new(2013, 02, 10)
+      competition.work_days.should equal(0)
+    end
+  end
 end

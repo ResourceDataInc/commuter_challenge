@@ -30,7 +30,7 @@ describe "teams" do
   it "can be edited by a captain" do
     login_as user
 
-    team = FactoryGirl.create(:team, captain: user, name: "Foo", description: "bar", business_size: 10)
+    team = FactoryGirl.create(:team, captain: user, name: "Foo", description: "bar", business_size: 1000)
     visit root_url
     click_on "Teams"
     click_on team.name
@@ -48,7 +48,7 @@ describe "teams" do
       page.should have_content 5
       page.should_not have_content "Foo"
       page.should_not have_content "bar"
-      page.should_not have_content 10
+      page.should_not have_content 1000
     end
   end
 

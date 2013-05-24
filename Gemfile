@@ -23,7 +23,7 @@ group :assets do
 end
 
 group :production, :staging do
-  gem 'unicorn'
+  gem 'unicorn', :platforms => :ruby
 end
 
 group :development, :test do

@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="tabbable span12">
+    <ul class="nav nav-tabs">
+      <% @competition.brackets.each.with_index do |bracket, index| %>
+        <li <%= "class=active" if index==0 %>><a href="#<%= index %>" data-toggle="tab"><%= bracket.name %></a></li>
+      <% end %>
+    </ul>
+
+    <div class="tab-content">
+      <% @competition.brackets.each.with_index do |bracket, index| %>
+        <div class="tab-pane <%= 'active' if index==0%>" id='<%= index %>'>
+          <%= render "teams/table", :teams=>bracket.teams%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
