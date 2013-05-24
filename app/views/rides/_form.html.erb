@@ -1,37 +1,9 @@
-<!--
-<%= simple_form_for @ride do |f| %>
-
-  <div class="row">
-    <div class="span12">
-      <%= f.input :is_round_trip, :collection => [[t("ride.options.round"), "true"], [t("ride.options.one"), "false"]], :as => :radio_buttons, :label=> false %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="span5"><%= f.input :date, as: :string, input_html: { class: "datepicker", data: { end_date: Date.today.to_s } } %></div>
-    <div class="span5"><%= f.input :distance, :input_html => { :min => 0 } %></div>
-  </div>
-
-  <div class="row">
-    <div class="span12"><%= f.input :description, :input_html => { :class=>"wide-input"} %></div>
-  </div>
-
-  <div class="actions pull-right">
-    <%= f.button :submit, t("ride.submit"), class: "btn btn-success" %>
-    <%= link_to "Cancel", :back, class: "btn" %>
-  </div>
-
-  <div class="clearfix"></div>
-<% end %>
-
--->
-
 <%= form_for @ride, :url => { :action => "create", :controller => "rides" }, :method => "post" do |f| %>
-  <label>Date</label>
+  <%= f.label :date %>
   <%= f.text_field :date, class: "datepicker" %>
-  <label>Distance</label>
+  <%= f.label :distance %>
   <%= f.number_field :distance %>
-  <label>Description</label>
+  <%= f.label :description %>
   <%= f.text_area :description, :rows => 2 %>
 
   <%= f.hidden_field :is_round_trip %>
