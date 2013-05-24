@@ -45,7 +45,7 @@ describe Team do
     end
 
     it "should calculate team parcticipation" do
-      Date.stub(today: Date.new(2013, 1, 2))
+      Date.stub(today: Date.new(2013, 1, 2)) # Need past date, competitions can only be created for the future
       competition = FactoryGirl.create(:competition,
         start_on: Date.new(2013, 2, 1),
         end_on: Date.new(2013, 2, 15))

@@ -1,31 +1,20 @@
 <%= title @competition.title %>
 
 <%= content_tag_for :div, @competition do %>
-  <div class="row">
-    <div class="span8">
-      <h1><%= @competition.title %></h1>
-    </div>
-    <div class="pull-right">
-      <% if can? :edit, @competition %>
-        <%= link_to t("competition.edit.action"), edit_competition_path(@competition), class: "btn header-btn" %>
-      <% end %>
-      <% if can? :delete, @competition %>
-        <%= link_to t("competition.delete.action"), delete_competition_path(@competition), class: "btn header-btn" %>
-      <% end %>
-    </div>
+  <div class="pull-right">
+    <% if can? :edit, @competition %>
+      <%= link_to t("competition.edit.action"), edit_competition_path(@competition), class: "btn header-btn" %>
+    <% end %>
+    <% if can? :delete, @competition %>
+      <%= link_to t("competition.delete.action"), delete_competition_path(@competition), class: "btn header-btn" %>
+    <% end %>
   </div>
-
   <div class="row">
-    <div class="span12">Owner: <%= link_to @competition.owner.username, @competition.owner %></div>
+    <div class="span12"><h1><%= @competition.title %></h1></div>
   </div>
-
   <div class="row">
-    <div class="span5">Starts: <%= @competition.start_on %></div>
-    <div class="span5">Ends: <%= @competition.end_on %></div>
-  </div>
-
-  <div class="row">
-    <div class="span12"><%= simple_format @competition.description %></div>
+    <div class="span2">Start: <%= @competition.start_on %></div>
+    <div class="span2">Finish: <%= @competition.end_on %></div>
   </div>
 
   <% unless @competition.brackets.empty? %>

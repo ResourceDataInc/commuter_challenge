@@ -103,3 +103,5 @@ en:
       empty: "No rides logged!"
     edit:
       action: "Edit Account"
+    index:
+      none: "No riders!"
