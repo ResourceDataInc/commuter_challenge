@@ -1,6 +1,14 @@
 @import "bootstrap";
 @import "bootstrap-responsive";
 
+// span fix
+@for $i from 1 through 12 {
+  .span#{$i} {
+    @extend [class^="span"];
+    @extend [class*="span"];
+  }
+}
+
 //base
 @import "variables";
 @import "forms";

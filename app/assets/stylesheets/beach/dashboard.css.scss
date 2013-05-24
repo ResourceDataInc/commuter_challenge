@@ -7,22 +7,22 @@
       border-radius: 2px;
       padding: 10px;
       box-sizing: border-box;
-
-
     }
   }
 
   .rides{
     .form{
+
       background-color: $beach-f;
       color: $black;
 
-      & > form > button {
-        margin-top: 20px;
+      input, textarea, label{
+        width: 100%;
+        display: block;
       }
 
-      & > form > * {
-       display: block;
+      & > form > button {
+        margin-top: 20px;
       }
 
       label{
@@ -72,6 +72,33 @@
 
     & > div:nth-child(6){
       background-color: $beach-g;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+  .dashboard{
+    .stats{
+       & > div{
+          h2{
+            height: 40px;
+            font-size: 1.0em;
+          }
+
+          .number{
+            font-size: 2em;
+          }
+       }
+    }
+
+    .rides{
+      .form{
+         @extend .span4;
+      }
+
+      .table{
+         @extend .span8;
+      }
     }
   }
 }

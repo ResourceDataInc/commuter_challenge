@@ -13,8 +13,7 @@ class RidesController < ApplicationController
 
   def create
     if @ride.save
-      flash[:success] = t("ride.add.success")
-      redirect_to @ride
+      redirect_to dashboard_path
     else
       render :new
     end
