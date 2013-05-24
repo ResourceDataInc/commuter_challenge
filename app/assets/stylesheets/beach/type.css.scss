@@ -17,3 +17,9 @@ a{
   color: $white;
   text-decoration: underline;
 }
+
+@media (max-width: 480px){
+  h1{
+    font-size: 2em;
+  }
+}

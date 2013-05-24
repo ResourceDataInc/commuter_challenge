@@ -3,19 +3,19 @@
 <div class="dashboard">
   <div class="row stats">
     <div class="span2">
-      <h2>Your Mileage</h2>
+      <div class="stat-header">Your Mileage</div>
       <div class="number"><%= current_user.rides.sum(:distance) %></div>
     </div>
     <div class="span2">
-      <h2>Your Rides</h2>
+      <div class="stat-header">Your Rides</div>
       <div class="number"><%= current_user.rides.count %></div>
     </div>
     <div class="span2">
-      <h2>Your Position</h2>
+      <div class="stat-header">Your Position</div>
       <div class="number positive">--</div>
     </div>
     <div class="span2">
-      <h2>Teams Mileage</h2>
+      <div class="stat-header">Teams Mileage</div>
       <div class="number positive">
         <% if current_user.teams.exists %>
           <%= current_user.teams.first.rides.sum(:distance) %>
@@ -25,7 +25,7 @@
       </div>
     </div>
     <div class="span2">
-      <h2>Teams Rides</h2>
+      <div class="stat-header">Teams Rides</div>
       <div class="number positive">
         <% if current_user.teams.exists %>
           <%= current_user.teams.first.rides.count %>
@@ -35,7 +35,7 @@
       </div>
     </div>
     <div class="span2">
-      <h2>Teams Position</h2>
+      <div class="stat-header">Teams Position</div>
       <div class="number positive">--</div>
     </div>
   </div>
@@ -46,28 +46,29 @@
       <%= render "rides/form" %>
     </div>
 
-    <% rides = current_user.rides.first(8) %>
-    <% if rides.blank? %>
-      <div class="span9 table">
+    <% rides = current_user.rides.first(9) %>
+    <div class="span9 rides-list">
+      <% if rides.blank? %>
         <p><%= t("ride.index.none") %></p>
-      </div>
-    <% else %>
-      <table class="span9 table table-striped table-bordered table-hover">
-        <thead>
-          <tr>
-            <th>Ride Date</th>
-            <th>Ride Distance</th>
-          </tr>
-        </thead>
-        <% rides.each do |ride| %>
-          <%= content_tag_for :tr, ride do %>
-            <td><%= link_to ride.date.strftime("%b #{ride.date.day.ordinalize}"), ride %></td>
-            <td><%= ride.distance%></td>
+      <% else %>
+        <table class="table table-striped table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>Ride Date</th>
+              <th>Ride Distance</th>
+            </tr>
+          </thead>
+          <% rides.each do |ride| %>
+            <%= content_tag_for :tr, ride do %>
+              <td><%= link_to ride.date.strftime("%b #{ride.date.day.ordinalize}"), ride %></td>
+              <td><%= ride.distance%></td>
+            <% end %>
           <% end %>
-        <% end %>
-      </table>
-    <% end %>
-
+        </table>
+        <a class="pull-right btn" href="rides">More Rides...</a>
+        <div class="clearfix"></div>
+      <% end %>
+    </div>
   </div>
 
 </div>

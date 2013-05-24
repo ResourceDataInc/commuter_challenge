@@ -6,19 +6,26 @@
     & > * {
       border-radius: 2px;
       padding: 10px;
-      box-sizing: border-box;
+      @include box-sizing(border-box);
     }
   }
 
   .rides{
-    .form{
+    .rides-list{
+      padding: 0px;
+    }
 
+    .form{
       background-color: $beach-f;
       color: $black;
 
       input, textarea, label{
         width: 100%;
         display: block;
+      }
+
+      & > form{
+        padding-left: 0px;
       }
 
       & > form > button {
@@ -35,15 +42,17 @@
   .stats{
     text-shadow: 1px 1px 1px $grayLight;
 
-    h2{
-      font-size: 1.1em;
+    .stat-header{
+      font-size: 1em;
       line-height: 1.3em;
-      padding: 3px;
+      padding: 0px;
       margin: 0px;
+      font-weight: bold;
     }
 
     & > div{
       padding: 5px 10px;
+      background-color: $beach-e;
       & > .number{
         font-size: 3em;
         line-height: 40px;
@@ -80,7 +89,7 @@
   .dashboard{
     .stats{
        & > div{
-          h2{
+          .stat-header{
             height: 40px;
             font-size: 1.0em;
           }
@@ -96,9 +105,48 @@
          @extend .span4;
       }
 
-      .table{
+      .rides-list{
          @extend .span8;
       }
     }
   }
+}
+
+@media (max-width: 796px){
+  .dashboard{
+    .rides{
+      .rides-list{
+        padding-top: 10px;
+      }
+    }
+
+    .stats{
+
+      .stat-header{
+        font-size: 1em;
+        line-height: 1em;
+      }
+
+      & > div{
+        padding: 5px 10px;
+
+        & > * {
+          display: inline-block;
+        }
+
+        & > .number{
+          float:right;
+          font-size: 1em;
+          line-height: 1em;
+        }
+
+        & > .number:after{
+          clear:both;
+        }
+
+      }
+    }
+
+  }
+
 }
