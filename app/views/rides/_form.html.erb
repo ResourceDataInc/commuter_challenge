@@ -1,5 +1,5 @@
 <%= simple_form_for @ride, builder: EmbeddedFormBuilder do |f| %>
-  <%= f.input :date, as: :string, input_html: { class: "datepicker" } %>
+  <%= f.input :date, as: :datepicker %>
   <%= f.input :distance %>
   <%= f.input :description, input_html: { rows: 2 } %>
 
