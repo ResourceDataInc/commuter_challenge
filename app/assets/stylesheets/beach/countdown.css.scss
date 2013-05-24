@@ -1,5 +1,6 @@
 .countdown{
   text-align: center;
+  @include box-sizing(border-box);
   h1{
     font-size: 200px;
     line-height: 150px;
