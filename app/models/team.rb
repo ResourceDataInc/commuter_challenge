@@ -22,7 +22,7 @@ class Team < ActiveRecord::Base
   end
 
   def participation_percent
-    @participation_percent ||= 100.0 * actual_rides / possible_rides
+    @participation_percent ||= (100.0 * actual_rides / possible_rides).round(1)
   end
 
   private
