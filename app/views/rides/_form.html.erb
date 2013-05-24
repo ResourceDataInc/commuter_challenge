@@ -1,19 +1,15 @@
-<%= form_for @ride, :url => { :action => "create", :controller => "rides" }, :method => "post" do |f| %>
-  <%= f.label :date %>
-  <%= f.text_field :date, class: "datepicker" %>
-  <%= f.label :distance %>
-  <%= f.number_field :distance %>
-  <%= f.label :description %>
-  <%= f.text_area :description, :rows => 2 %>
+<%= simple_form_for @ride, builder: EmbeddedFormBuilder do |f| %>
+  <%= f.input :date, as: :datepicker %>
+  <%= f.input :distance %>
+  <%= f.input :description, input_html: { rows: 2 } %>
 
   <%= f.hidden_field :is_round_trip %>
-  <div id="is_round_trip" class="btn-group" data-toggle="buttons-radio">
-    <button type="button" class="btn active" data-value="true">Round Trip</button>
-    <button type="button" class="btn" data-value="false">One Way</button>
-  </div>
+  <%= f.button_group :is_round_trip do %>
+    <%= f.toggle_button t("ride.options.round"), true, active: true %>
+    <%= f.toggle_button t("ride.options.one"), false %>
+  <% end %>
 
-  <button type="submit" class="btn btn-orange pull-right">Submit</button>
-
+  <%= f.button :button, "Submit", class: "btn btn-orange pull-right" %>
   <div class="clearfix"></div>
 <% end %>
 
