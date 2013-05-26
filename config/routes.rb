@@ -1,5 +1,7 @@
 BikeCommuteChallenge::Application.routes.draw do
-  devise_for :users
+  get "dashboard" => "dashboard#index"
+
+  devise_for :users, controllers: { registrations: :registrations }
 
   resources :competitions do
     get :delete, on: :member

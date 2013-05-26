@@ -9,6 +9,7 @@ class Ability
     can :read, User
 
     if user.present?
+      can :index, :dashboard
       can :manage, Competition, owner_id: user.id
       cannot :create, Competition 
       can :manage, Team, captain_id: user.id

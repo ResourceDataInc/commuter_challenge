@@ -1,24 +1,20 @@
-<%= simple_form_for @ride do |f| %>
+<%= simple_form_for @ride, builder: EmbeddedFormBuilder do |f| %>
+  <%= f.input :date, as: :datepicker %>
+  <%= f.input :distance %>
+  <%= f.input :description, input_html: { rows: 2 } %>
 
-  <div class="row">
-    <div class="span12">
-      <%= f.input :is_round_trip, :collection => [[t("ride.options.round"), "true"], [t("ride.options.one"), "false"]], :as => :radio_buttons, :label=> false %>
-    </div>
-  </div>
+  <%= f.hidden_field :is_round_trip %>
+  <%= f.button_group :is_round_trip do %>
+    <%= f.toggle_button t("ride.options.round"), true, active: true %>
+    <%= f.toggle_button t("ride.options.one"), false %>
+  <% end %>
 
-  <div class="row">
-    <div class="span5"><%= f.input :date, as: :string, input_html: { class: "datepicker", data: { end_date: Date.today.to_s } } %></div>
-    <div class="span5"><%= f.input :distance, :input_html => { :min => 0 } %></div>
-  </div>
-
-  <div class="row">
-    <div class="span12"><%= f.input :description, :input_html => { :class=>"wide-input" } %></div>
-  </div>
-
-  <div class="actions pull-right">
-    <%= f.button :submit, t("ride.submit"), class: "btn-success" %>
-    <%= link_to "Cancel", :back, class: "btn" %>
-  </div>
-
+  <%= f.button :button, t("ride.submit"), class: "btn btn-orange pull-right" %>
   <div class="clearfix"></div>
 <% end %>
+
+<script type="text/javascript">
+  $("#is_round_trip button").click(function(){
+    $("#ride_is_round_trip").val($(this).data("value"));
+  });
+</script>

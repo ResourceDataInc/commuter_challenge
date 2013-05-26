@@ -1,0 +1,151 @@
+.dashboard{
+  .row{
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    & > * {
+      border-radius: 2px;
+      padding: 10px;
+      @include box-sizing(border-box);
+    }
+  }
+
+  .rides{
+    .rides-list{
+      padding: 0px;
+    }
+
+    .form{
+      background-color: $beach-f;
+      color: $black;
+
+      input, textarea, label{
+        width: 100%;
+        display: block;
+      }
+
+      & > form{
+        padding-left: 0px;
+      }
+
+      & > form > button {
+        margin-top: 20px;
+      }
+
+      label{
+        width: 100px;
+      }
+    }
+
+  }
+
+  .stats{
+    text-shadow: 1px 1px 1px $grayLight;
+
+    .stat-header{
+      font-size: 1em;
+      line-height: 1.3em;
+      padding: 0px;
+      margin: 0px;
+      font-weight: bold;
+    }
+
+    & > div{
+      padding: 5px 10px;
+      background-color: $beach-e;
+      & > .number{
+        font-size: 3em;
+        line-height: 40px;
+      }
+    }
+
+    & > div:nth-child(1){
+      background-color: $beach-e;
+    }
+
+    & > div:nth-child(2){
+      background-color: $beach-h;
+    }
+
+    & > div:nth-child(3){
+      background-color: $beach-k;
+    }
+
+    & > div:nth-child(4){
+      background-color: $beach-j;
+    }
+
+    & > div:nth-child(5){
+      background-color: $beach-d;
+    }
+
+    & > div:nth-child(6){
+      background-color: $beach-g;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+  .dashboard{
+    .stats{
+       & > div{
+          .stat-header{
+            height: 40px;
+            font-size: 1.0em;
+          }
+
+          .number{
+            font-size: 2em;
+          }
+       }
+    }
+
+    .rides{
+      .form{
+         @include makeColumn(4);
+      }
+
+      .rides-list{
+         @include makeColumn(8);
+      }
+    }
+  }
+}
+
+@media (max-width: 796px){
+  .dashboard{
+    .rides{
+      .rides-list{
+        padding-top: 10px;
+      }
+    }
+
+    .stats{
+
+      .stat-header{
+        font-size: 1em;
+        line-height: 1em;
+      }
+
+      & > div{
+        padding: 5px 10px;
+
+        & > * {
+          display: inline-block;
+        }
+
+        & > .number{
+          float:right;
+          font-size: 1em;
+          line-height: 1em;
+        }
+
+        & > .number:after{
+          clear:both;
+        }
+
+      }
+    }
+
+  }
+}

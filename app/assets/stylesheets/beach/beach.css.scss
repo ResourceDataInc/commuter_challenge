@@ -1,3 +1,11 @@
+// span fix
+@for $i from 1 through 12 {
+  .span#{$i} {
+    @extend [class^="span"];
+    @extend [class*="span"];
+  }
+}
+
 //base
 @import "variables";
 @import "forms";
@@ -14,8 +22,8 @@
 @import "teams";
 @import "rides";
 @import "users";
+@import "dashboard";
 
-@import 'font-awesome';
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,700);
 
 body, html{
@@ -24,6 +32,7 @@ body, html{
 }
 
 body{
+
   background-color: $beach-n;
   background-image: url('city.jpeg');
   background-image: none, url('city.svg');
@@ -34,7 +43,6 @@ body{
   color: $white;
   min-width: 280px;
 }
-
 .well, .table, .modal{
   color: $black;
 }
