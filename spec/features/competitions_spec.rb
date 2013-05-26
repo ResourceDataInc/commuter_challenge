@@ -25,7 +25,6 @@ describe "competitions" do
     within(".alert") { page.should have_content I18n.t("competition.edit.success") }
     within ".competition" do
       page.should have_content "Lol Comp"
-      page.should have_content "lolwut"
     end
   end
 
