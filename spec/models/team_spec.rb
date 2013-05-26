@@ -35,7 +35,7 @@ describe Team do
     end
   end
 
-  context "helpers" do
+  context "parcticipation" do
     it "should count the number of approved users" do
       team = FactoryGirl.create(:team)
       team.memberships.create(user: FactoryGirl.create(:user), approved: true)
