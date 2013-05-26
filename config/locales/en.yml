@@ -60,11 +60,11 @@ en:
       title: "Log Ride"
     delete:
       action: "Delete"
-      success: "Ride updated"
+      success: "Ride deleted"
       title: "Confirm Delete"
     edit:
       action: "Edit"
-      success: "Ride deleted"  
+      success: "Ride updated"  
       title: "Edit Ride"
     index:
       action: "Rides"
@@ -81,7 +81,7 @@ en:
       title: "Create a Team"
     delete:
       action: "Delete"
-      success: "Team updated"
+      success: "Team deleted"
       title: "Confirm Delete"
     edit:
       action: "Edit"
@@ -96,7 +96,7 @@ en:
       request_already_member: "You are already a member of this team"
       approve_action: "Approve"
       approve_confirmation: "Team member approved"
-      approve_failure: "Unable to approve team :("
+      approve_failure: "Unable to approve team member :("
 
   user:
     rides:
