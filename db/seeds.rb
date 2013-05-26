@@ -73,6 +73,9 @@ team2mate2 = User.where(email: "team2mate2@example.com").first_or_create!(
 Membership.where(user_id: team2mate2.id, team_id: team2.id).first_or_create!(
   approved: true)
 
+Competitor.where(team_id: team1.id, competition_id: competition.id).first_or_create!(approved: true)
+Competitor.where(team_id: team2.id, competition_id: competition.id).first_or_create!(approved: true)
+
 (1..20).each do |i| 
   Ride.create!(
     rider_id: team1mate3.id,
