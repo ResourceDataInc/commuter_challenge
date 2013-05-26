@@ -12,7 +12,7 @@ class Membership < ActiveRecord::Base
   before_save :update_approved_at
 
   def participation_percent
-    @participation_percent ||= (100.0 * actual_rides / possible_rides).round(1)
+    @participation_percent ||= (possible_rides == 0)? 0.0 : (100.0 * actual_rides / possible_rides).round(1)
   end
 
   private
