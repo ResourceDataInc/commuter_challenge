@@ -16,8 +16,16 @@ class Bracket < ActiveRecord::Base
     competition.teams.where("business_size between ? AND ?", lower_limit, upper_limit)
   end
 
+  def memberships
+    teams.flat_map(&:memberships)
+  end
+
   def teams_by_participation
-    teams.sort_by(&:participation_percent)
+    teams.sort_by(&:participation_percent).reverse.first(3)
+  end
+
+  def memberships_by_participation
+    memberships.sort_by(&:participation_percent).reverse.first(3)
   end
 
   private
