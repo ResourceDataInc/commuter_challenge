@@ -17,7 +17,7 @@
     <div class="span2">
       <div class="stat-header">Team Mileage</div>
       <div class="number positive">
-        <% if current_user.teams.exists %>
+        <% if current_user.teams.any? %>
           <%= current_user.teams.first.rides.sum(:distance) %>
         <% else %>
           --
@@ -27,7 +27,7 @@
     <div class="span2">
       <div class="stat-header">Team Rides</div>
       <div class="number positive">
-        <% if current_user.teams.exists %>
+        <% if current_user.teams.any? %>
           <%= current_user.teams.first.rides.count %>
         <% else %>
           --
@@ -55,12 +55,14 @@
             <tr>
               <th>Ride Date</th>
               <th>Ride Distance</th>
+              <th>Description</th>
             </tr>
           </thead>
           <% @rides.each do |ride| %>
             <%= content_tag_for :tr, ride do %>
               <td><%= link_to ride.date.strftime("%b #{ride.date.day.ordinalize}"), ride %></td>
-              <td><%= ride.distance%></td>
+              <td><%= ride.distance %></td>
+              <td><%= ride.description.truncate(80) %></td>
             <% end %>
           <% end %>
         </table>

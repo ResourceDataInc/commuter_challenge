@@ -7,12 +7,10 @@ describe "rides" do
     login_as user
 
     visit root_url
-    click_on "Rides"
-    click_on I18n.t("ride.add.action")
+    click_on "Dashboard"
     fill_in "ride_date", with: 1.day.ago.strftime("%Y-%m-%d")
     fill_in "ride_description", with: "To Work"
     fill_in "ride_distance", with: 2.5
-    choose('ride_is_round_trip_false')
 
     click_on I18n.t("ride.submit")
 
@@ -20,8 +18,6 @@ describe "rides" do
     within ".ride" do
       page.should have_content "To Work"
       page.should have_content 2.5
-      page.should have_content user.username
-      page.should have_content 1.day.ago.strftime("%Y-%m-%d")
     end
   end
 
@@ -34,7 +30,6 @@ describe "rides" do
     fill_in "ride_date", with: 1.day.ago.strftime("%Y-%m-%d")
     fill_in "ride_description", with: "To Work"
     fill_in "ride_distance", with: 2.5
-    choose('ride_is_round_trip_false')
     click_button I18n.t("ride.submit")
 
     within(".alert") { page.should have_content I18n.t("ride.edit.success") }

@@ -72,7 +72,7 @@ en:
     options:
       one: "One Way"
       round: "Round Trip"
-    submit: "Log Ride"
+    submit: "Submit"
 
   team:
     add:
