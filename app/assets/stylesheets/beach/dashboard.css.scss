@@ -102,11 +102,11 @@
 
     .rides{
       .form{
-         @extend .span4;
+         @include makeColumn(4);
       }
 
       .rides-list{
-         @extend .span8;
+         @include makeColumn(8);
       }
     }
   }
@@ -148,5 +148,4 @@
     }
 
   }
-
 }
