@@ -24,7 +24,7 @@ en:
       title: "New Competition"
     delete:
       action: "Delete"
-      confirm: "Are you sure you wish to delete the competition? Deleting it will delete all data associated with it, including teams and logged rides."
+      confirm: "Are you sure you wish to delete the competition? Deleting it will delete all data associated with it, including teams and logged commutes."
       success: "Competition removed"
       title: "Confirm Delete"
     edit:
@@ -40,12 +40,40 @@ en:
       approve_action: "Approve"
       approve_confirmation: "Team approved"
       approve_failure: "Unable to approve team :("
+    leaderboard:
+      teams: "Top Teams"
+      riders: "Top Commuters"
 
   competitor:
     delete:
       action: "Remove"
       success: "Team removed from competition"
       title: "Leave Competition"
+
+  dashboard:
+    greeting: "Hey There"
+    team:
+      mileage: "Team Mileage"
+      commutes: "Team Commutes"
+      position: "Team Position"
+    user:
+      mileage: "Your Mileage"
+      commutes: "Your Commutes"
+      position: "Your Position"
+
+  help:
+    title: "Welcome to the BCA's Commuter Challenge!"
+    start:
+      captain:
+        title: "Team Captains"
+        one: "Create an account."
+        two: "Create a team."
+        three: "Approve your team's commuters."
+      rider:
+        title: "All Commuters"
+        one: "Create an account."
+        two: "Join a team."
+        three: "Log commutes!"
 
   membership:
     delete:
@@ -55,20 +83,20 @@ en:
 
   ride:
     add:
-      action: "Log A Ride"
-      success: "Ride logged"
-      title: "Log Ride"
+      action: "Log a Commute"
+      success: "Commute logged"
+      title: "Log Commute"
     delete:
       action: "Delete"
-      success: "Ride deleted"
+      success: "Commute deleted"
       title: "Confirm Delete"
     edit:
       action: "Edit"
-      success: "Ride updated"  
-      title: "Edit Ride"
+      success: "Commute updated"  
+      title: "Edit Commute"
     index:
-      action: "Rides"
-      none: "No rides logged."
+      action: "Commutes"
+      none: "No commutes logged."
     options:
       one: "One Way"
       round: "Round Trip"
@@ -92,7 +120,7 @@ en:
       none: "No teams!"
     join:
       action: "Join Team"
-      request_confirmation: "Request sent. Start logging rides!"
+      request_confirmation: "Request sent. Start logging commutes!"
       request_already_member: "You are already a member of this team"
       approve_action: "Approve"
       approve_confirmation: "Team member approved"
@@ -100,11 +128,11 @@ en:
 
   user:
     rides:
-      empty: "No rides logged!"
+      empty: "No commutes logged!"
     edit:
       action: "Edit Account"
     index:
-      none: "No riders!"
+      none: "No commuters!"
 
   simple_form:
     labels:
