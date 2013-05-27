@@ -10,11 +10,11 @@
       <% @competition.brackets.each.with_index do |bracket, index| %>
         <div class="tab-pane <%= 'active' if index==0%>" id='<%= index %>'>
           <div class="span5 instructions">
-            <h3>Top Teams</h3>
+            <h3><%= t("competition.leaderboard.teams") %></h3>
             <%= render "teams/ranking", :teams=>bracket.teams_by_participation %>
           </div>
           <div class="span5 instructions">
-            <h3>Top Riders</h3>
+            <h3><%= t("competition.leaderboard.riders") %></h3>
             <%= render "memberships/ranking", :memberships=>bracket.memberships_by_participation %>
           </div>
         </div>

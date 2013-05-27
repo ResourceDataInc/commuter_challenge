@@ -40,12 +40,29 @@ en:
       approve_action: "Approve"
       approve_confirmation: "Team approved"
       approve_failure: "Unable to approve team :("
+    leaderboard:
+      teams: "Top Teams"
+      riders: "Top Commuters"
 
   competitor:
     delete:
       action: "Remove"
       success: "Team removed from competition"
       title: "Leave Competition"
+
+  help:
+    title: "Welcome to the BCA's Commuter Challenge!"
+    start:
+      captain:
+        title: "Team Captains"
+        one: "Create an account."
+        two: "Create a team."
+        three: "Approve your team's commuters."
+      rider:
+        title: "All Commuters"
+        one: "Create an account."
+        two: "Join a team."
+        three: "Log commutes!"
 
   membership:
     delete:
