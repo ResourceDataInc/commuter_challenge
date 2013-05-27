@@ -22,7 +22,7 @@ class Team < ActiveRecord::Base
   end
 
   def participation_percent
-      @participation_percent ||= (possible_rides == 0)? 0.0 : (100.0 * actual_rides / possible_rides).round(1)
+    competition.calculations.team_participation_percent(business_size, rides)
   end
 
   private
@@ -35,9 +35,5 @@ class Team < ActiveRecord::Base
         total + [2, rides.inject(0) {|total, r| total + (r.is_round_trip ? 2 : 1)}].min
       end
     end
-  end
-
-  def possible_rides
-    2 * business_size * competition.work_days
-  end
+  end 
 end
