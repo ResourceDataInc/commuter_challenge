@@ -15,10 +15,14 @@ class DashboardController < ApplicationController
     else
       attrs = {}
     end
-    Ride.new(attrs.merge(date: Date.today))
+    Ride.new(default_ride_attrs.merge(attrs))
   end
 
   def copyable_ride_attrs
     %w{bike_distance bus_distance walk_distance description is_round_trip}
+  end
+
+  def default_ride_attrs
+    { date: Date.today, is_round_trip: true }
   end
 end
