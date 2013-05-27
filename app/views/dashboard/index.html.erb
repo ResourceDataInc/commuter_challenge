@@ -1,21 +1,21 @@
-<h1>Hey There, <%= current_user.username %></h1>
+<h1><%= t("dashboard.greeting") %>, <%= current_user.username %></h1>
 
 <div class="dashboard">
   <div class="row stats">
     <div class="span2">
-      <div class="stat-header">Your Mileage</div>
+      <div class="stat-header"><%= t("dashboard.user.mileage") %></div>
       <div class="number"><%= current_user.total_distance %></div>
     </div>
     <div class="span2">
-      <div class="stat-header">Your Rides</div>
+      <div class="stat-header"><%= t("dashboard.user.commutes") %></div>
       <div class="number"><%= current_user.rides.count %></div>
     </div>
     <div class="span2">
-      <div class="stat-header">Your Position</div>
+      <div class="stat-header"><%= t("dashboard.user.position") %></div>
       <div class="number positive">--</div>
     </div>
     <div class="span2">
-      <div class="stat-header">Team Mileage</div>
+      <div class="stat-header"><%= t("dashboard.team.mileage") %></div>
       <div class="number positive">
         <% if current_user.teams.any? %>
           <%= current_user.total_distance %>
@@ -25,7 +25,7 @@
       </div>
     </div>
     <div class="span2">
-      <div class="stat-header">Team Rides</div>
+      <div class="stat-header"><%= t("dashboard.team.commutes") %></div>
       <div class="number positive">
         <% if current_user.teams.any? %>
           <%= current_user.teams.first.rides.count %>
@@ -35,14 +35,14 @@
       </div>
     </div>
     <div class="span2">
-      <div class="stat-header">Team Position</div>
+      <div class="stat-header"><%= t("dashboard.team.position") %></div>
       <div class="number positive">--</div>
     </div>
   </div>
 
   <div class="row rides">
     <div class="span3 form">
-      <h3>Log A Ride</h3>
+      <h3><%= t("ride.add.action") %></h3>
       <%= render "rides/form" %>
     </div>
 
