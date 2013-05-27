@@ -14,7 +14,7 @@ describe "a user" do
       fill_in "user_password_confirmation", with: "pwd4test"
       click_button "Sign up"
 
-      page.should have_content "Dashboard"
+      page.should have_content I18n.t("ride.add.action")
       page.should have_link "Sign out"
       page.should_not have_link "Sign up"
       page.should_not have_link "Sign in"
@@ -30,7 +30,7 @@ describe "a user" do
       fill_in "user_email", with: "test@example.com"
       fill_in "user_password", with: "pwd4test"
       click_button "Sign in"
-      page.should have_content "Dashboard"
+      page.should have_content I18n.t("ride.add.action")
       page.should have_link "Sign out"
       page.should_not have_link "Sign in"
       page.should_not have_link "Sign up"

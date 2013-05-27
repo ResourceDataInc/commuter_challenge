@@ -7,7 +7,6 @@ describe "rides" do
     login_as user
 
     visit root_url
-    click_on "Dashboard"
     fill_in "ride_date", with: 1.day.ago.strftime("%Y-%m-%d")
     fill_in "ride_description", with: "To Work"
     fill_in "ride_bike_distance", with: 2.5
