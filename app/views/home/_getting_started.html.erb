@@ -5,19 +5,19 @@
   </div> 
 
   <div class="span4 instructions">
-      <h3>All Riders</h3>
+      <h3><%= t("help.start.rider.title") %></h3>
       <ol>
-        <li><%= link_to "Create a user account.", new_user_registration_path %></li>
-        <li><%= link_to "Join a team.", teams_path %></li>
-        <li><%= link_to "Log rides!",  new_ride_path %></li>
+        <li><%= link_to t("help.start.rider.one"), new_user_registration_path %></li>
+        <li><%= link_to t("help.start.rider.two"), teams_path %></li>
+        <li><%= link_to t("help.start.rider.three"),  new_ride_path %></li>
       </ol>
   </div>
   <div class="span4 instructions">
-      <h3>Team Captains</h3>
+      <h3><%= t("help.start.captain.title") %></h3>
       <ol>
-        <li><%= link_to "Create a user account.", new_user_registration_path %></li>
-        <li><%= link_to "Create a team", new_team_path %></li>
-        <li>Approve your teams riders.</li>
+        <li><%= link_to t("help.start.captain.one"), new_user_registration_path %></li>
+        <li><%= link_to t("help.start.captain.two"), new_team_path %></li>
+        <li><%= t("help.start.captain.three") %></li>
       </ol>
   </div>
 </div>
