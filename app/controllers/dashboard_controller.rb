@@ -11,10 +11,14 @@ class DashboardController < ApplicationController
   def build_ride
     if current_user.rides.any?
       last_ride = current_user.rides.first
-      attrs = last_ride.attributes.slice(*%w{distance description is_round_trip})
+      attrs = last_ride.attributes.slice(*copyable_ride_attrs)
     else
       attrs = {}
     end
     Ride.new(attrs.merge(date: Date.today))
+  end
+
+  def copyable_ride_attrs
+    %w{bike_distance bus_distance walk_distance description is_round_trip}
   end
 end
