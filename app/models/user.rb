@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, uniqueness: true
 
+  def total_distance
+    rides.map(&:total_distance).sum
+  end
+
   def to_param
     "#{id}-#{username.parameterize}"
   end

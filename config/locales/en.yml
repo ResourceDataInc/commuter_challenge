@@ -105,3 +105,10 @@ en:
       action: "Edit Account"
     index:
       none: "No riders!"
+
+  simple_form:
+    labels:
+      ride:
+        bike_distance: "Bike Miles"
+        bus_distance: "Bus Miles"
+        walk_distance: "Walk Miles"

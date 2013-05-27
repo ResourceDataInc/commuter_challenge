@@ -10,7 +10,7 @@ describe "rides" do
     click_on "Dashboard"
     fill_in "ride_date", with: 1.day.ago.strftime("%Y-%m-%d")
     fill_in "ride_description", with: "To Work"
-    fill_in "ride_distance", with: 2.5
+    fill_in "ride_bike_distance", with: 2.5
 
     click_on I18n.t("ride.submit")
 
@@ -29,7 +29,7 @@ describe "rides" do
 
     fill_in "ride_date", with: 1.day.ago.strftime("%Y-%m-%d")
     fill_in "ride_description", with: "To Work"
-    fill_in "ride_distance", with: 2.5
+    fill_in "ride_bike_distance", with: 2.5
     click_button I18n.t("ride.submit")
 
     within(".alert") { page.should have_content I18n.t("ride.edit.success") }

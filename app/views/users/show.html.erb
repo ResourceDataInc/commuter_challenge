@@ -17,7 +17,7 @@
     <% @user.rides.each do |ride| %>
       <%= content_tag_for :tr, ride do %>
         <td><%= ride.date %></td>
-        <td><%= ride.distance %></td>
+        <td><%= ride.bike_distance %></td>
         <td><%= ride.description %></td>
       <% end %>
     <% end %>
