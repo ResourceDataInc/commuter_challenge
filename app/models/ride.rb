@@ -13,6 +13,10 @@ class Ride < ActiveRecord::Base
 
   attr_accessible :date, :description, :bike_distance, :bus_distance, :walk_distance, :rider_id, :is_round_trip
 
+  def total_distance
+    [bike_distance, bus_distance, walk_distance].compact.sum
+  end
+
   private
 
   def validate_distance

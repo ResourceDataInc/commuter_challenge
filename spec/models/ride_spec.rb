@@ -35,4 +35,16 @@ describe Ride do
       ride.should be_valid
     end
   end
+
+  describe "#total_distance" do
+    it "sums all distance fields" do
+      ride = FactoryGirl.build(:ride, bike_distance: 2.5, bus_distance: 7)
+      ride.total_distance.should be_within(0.001).of(9.5)
+    end
+
+    it "returns zero when no distance values" do
+      ride = FactoryGirl.build(:ride, bike_distance: nil, bus_distance: nil, walk_distance: nil)
+      ride.total_distance.should == 0
+    end
+  end
 end

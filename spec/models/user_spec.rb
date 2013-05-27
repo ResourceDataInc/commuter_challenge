@@ -23,4 +23,14 @@ describe User do
     it { should validate_presence_of :username }
     it { should validate_uniqueness_of :username }
   end
+
+  describe "#total_distance" do
+    it "sums all distance" do
+      user = FactoryGirl.create(:user)
+      user.rides.create(bike_distance: 3)
+      user.rides.create(bus_distance: 7)
+      user.rides.create(walk_distance: 0.5)
+      user.total_distance.should be_within(0.001).of(3 + 7 + 0.5)
+    end
+  end
 end
