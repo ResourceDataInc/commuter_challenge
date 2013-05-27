@@ -1,6 +1,8 @@
 <%= simple_form_for @ride, builder: EmbeddedFormBuilder do |f| %>
   <%= f.input :date, as: :datepicker %>
-  <%= f.input :distance %>
+  <%= f.input :bike_distance %>
+  <%= f.input :bus_distance %>
+  <%= f.input :walk_distance %>
   <%= f.input :description, input_html: { rows: 2 } %>
 
   <%= f.hidden_field :is_round_trip %>

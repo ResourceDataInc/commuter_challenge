@@ -80,6 +80,8 @@ Competitor.where(team_id: team2.id, competition_id: competition.id).first_or_cre
   Ride.create!(
     rider_id: team1mate3.id,
     date: i.day.ago,
-    distance: i,
+    bike_distance: rand(1..10),
+    bus_distance: rand(0..10),
+    walk_distance: rand(0..2),
     description: i)
 end

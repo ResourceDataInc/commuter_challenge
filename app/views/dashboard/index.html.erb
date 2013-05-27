@@ -4,7 +4,7 @@
   <div class="row stats">
     <div class="span2">
       <div class="stat-header">Your Mileage</div>
-      <div class="number"><%= current_user.rides.sum(:distance) %></div>
+      <div class="number"><%= current_user.total_distance %></div>
     </div>
     <div class="span2">
       <div class="stat-header">Your Rides</div>
@@ -18,7 +18,7 @@
       <div class="stat-header">Team Mileage</div>
       <div class="number positive">
         <% if current_user.teams.any? %>
-          <%= current_user.teams.first.rides.sum(:distance) %>
+          <%= current_user.total_distance %>
         <% else %>
           --
         <% end %>
@@ -61,7 +61,7 @@
           <% @rides.each do |ride| %>
             <%= content_tag_for :tr, ride do %>
               <td><%= link_to ride.date.strftime("%b #{ride.date.day.ordinalize}"), ride %></td>
-              <td><%= ride.distance %></td>
+              <td><%= ride.total_distance %></td>
               <td><%= ride.description.truncate(80) %></td>
             <% end %>
           <% end %>
