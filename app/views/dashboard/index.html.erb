@@ -55,6 +55,7 @@
             <tr>
               <th>Ride Date</th>
               <th>Ride Distance</th>
+              <th>Trip Type</th>
               <th>Description</th>
             </tr>
           </thead>
@@ -62,6 +63,7 @@
             <%= content_tag_for :tr, ride do %>
               <td><%= link_to ride.date.strftime("%b #{ride.date.day.ordinalize}"), ride %></td>
               <td><%= ride.total_distance %></td>
+              <td><%= ride.trip_type %></td>
               <td><%= ride.description.truncate(80) %></td>
             <% end %>
           <% end %>
