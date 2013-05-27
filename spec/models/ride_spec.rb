@@ -20,6 +20,14 @@ describe Ride do
       ride.should have(1).error_on(:walk_distance)
     end
 
+    it "allows for zero values if total value is > 0" do
+      ride = FactoryGirl.build :ride,
+        bike_distance: 0,
+        bus_distance: 4,
+        walk_distance: 0
+      ride.should be_valid
+    end
+
     it "requires at least one distance" do
       ride = FactoryGirl.build(:ride, bike_distance: nil, bus_distance: nil, walk_distance: nil)
       ride.should_not be_valid
