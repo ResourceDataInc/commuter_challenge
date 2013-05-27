@@ -1,6 +1,6 @@
 BikeCommuteChallenge::Application.routes.draw do
   get "dashboard" => "dashboard#index"
-
+  get "help" => "home#index"
   devise_for :users, controllers: { registrations: :registrations }
 
   resources :competitions do
@@ -24,6 +24,10 @@ BikeCommuteChallenge::Application.routes.draw do
   end
 
   resources :users, only: %i{show}
+
+  authenticated :user do
+    root :to =>"dashboard#index"
+  end
 
   root to: "home#index"
 end
