@@ -55,7 +55,7 @@ en:
 
   ride:
     add:
-      action: "Log a Ride"
+      action: "Log A Ride"
       success: "Ride logged"
       title: "Log Ride"
     delete:
