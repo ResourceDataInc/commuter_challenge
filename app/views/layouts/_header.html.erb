@@ -14,7 +14,6 @@
             <li class="<%= 'active' if params[:controller] == 'competitions' %>"><%= link_to "Leaderboard", competition_path(Competition.first) %></li>
           <% end %>
           <li class="<%= 'active' if params[:controller] == 'teams' %>"><%= link_to "Teams", teams_path %></li>
-          <li><%= mail_to "commuterchallenge@resdat.com", "Report a Problem", title: "Email the developers" %></li>
         </ul>
 
         <%= render "layouts/user_session" %>
