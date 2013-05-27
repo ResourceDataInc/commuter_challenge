@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130512193622) do
+ActiveRecord::Schema.define(:version => 20130527180244) do
 
   create_table "brackets", :force => true do |t|
     t.string   "name"
@@ -60,12 +60,14 @@ ActiveRecord::Schema.define(:version => 20130512193622) do
 
   create_table "rides", :force => true do |t|
     t.date     "date"
-    t.decimal  "distance"
+    t.decimal  "bike_distance"
     t.text     "description"
     t.boolean  "is_round_trip"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.integer  "rider_id"
+    t.decimal  "bus_distance"
+    t.decimal  "walk_distance"
   end
 
   create_table "teams", :force => true do |t|

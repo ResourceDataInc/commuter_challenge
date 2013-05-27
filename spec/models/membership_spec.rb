@@ -34,8 +34,8 @@ describe Membership do
         business_size: 10)
       competition.competitors.create(team: team)
       team.memberships.create(user: user, approved: true)
-      user.rides.create!(date: Date.today, is_round_trip: true, distance: 1)
-      user.rides.create!(date: Date.new(2013, 2, 1), is_round_trip: false, distance: 2)
+      user.rides.create!(date: Date.today, is_round_trip: true, bike_distance: 1)
+      user.rides.create!(date: Date.new(2013, 2, 1), is_round_trip: false, bike_distance: 2)
 
       team.memberships.first.participation_percent.should be_within(0.01).of(75.0)
     end
@@ -51,9 +51,9 @@ describe Membership do
         business_size: 10)
       competition.competitors.create(team: team)
       team.memberships.create(user: user, approved: true)
-      user.rides.create!(date: Date.today, is_round_trip: true, distance: 1)
-      user.rides.create!(date: Date.today, is_round_trip: false, distance: 2)
-      user.rides.create!(date: Date.new(2013, 2, 1), is_round_trip: false, distance: 2)
+      user.rides.create!(date: Date.today, is_round_trip: true, bike_distance: 1)
+      user.rides.create!(date: Date.today, is_round_trip: false, bike_distance: 2)
+      user.rides.create!(date: Date.new(2013, 2, 1), is_round_trip: false, bike_distance: 2)
 
       team.memberships.first.participation_percent.should be_within(0.01).of(75.0)
     end

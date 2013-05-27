@@ -10,7 +10,7 @@
       </p>
 
       <%= simple_format @ride.description %>
-      <%= simple_format @ride.distance.to_s %>
+      <%= simple_format @ride.bike_distance.to_s %>
       <%= simple_format (@ride.is_round_trip)? t("ride.options.round") : t("ride.options.one") %>
 
       <% if can? :manage, @ride %>

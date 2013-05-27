@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :ride do
     date Date.today
-    distance 9001
+    bike_distance 9001
     description "Epic Ride"
     rider factory: :user
     is_round_trip false
