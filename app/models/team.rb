@@ -22,6 +22,10 @@ class Team < ActiveRecord::Base
   end
 
   def participation_percent
-    competition.calculations.team_participation_percent(business_size, rides)
-  end  
+    @participation_percent ||= competition.calculations.team_participation_percent(business_size, rides)
+  end
+
+  def team_rides
+    @team_rides ||= competition.calculations.team_actual_rides(rides)
+  end
 end

@@ -19,10 +19,6 @@ class Membership < ActiveRecord::Base
     @competition_rides ||= competition.calculations.member_actual_rides(rides)
   end
 
-  def ride_mileage
-    @ride_mileage ||= competition.calculations.member_ride_mileage(rides)
-  end
-
   private
   def update_approved_at
     if approved_changed? && approved?
