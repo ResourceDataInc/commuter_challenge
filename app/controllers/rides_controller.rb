@@ -29,7 +29,7 @@ class RidesController < ApplicationController
   def update
     if @ride.update_attributes(params[:ride])
       flash[:success] = t("ride.edit.success")
-      redirect_to @ride
+      redirect_to dashboard_path
     else
       render :edit
     end
@@ -41,6 +41,6 @@ class RidesController < ApplicationController
   def destroy
     @ride.destroy
     flash[:success] = t("ride.delete.success")
-    redirect_to rides_url
+    redirect_to dashboard_path
   end
 end
