@@ -80,9 +80,9 @@ describe Bracket do
       competition.competitors.create(team: team1)
       team1.memberships.create(user: captain1, approved: true)
       team1.memberships.create(user: team1mate, approved: true)
-      team1mate.rides.create!(date: Date.today, is_round_trip: true, bike_distance: 1)
-      team1mate.rides.create!(date: Date.new(2013, 2, 1), is_round_trip: true, bike_distance: 1)
-      captain1.rides.create!(date: Date.today, is_round_trip: true, bike_distance: 2)
+      team1mate.rides.create!(date: Date.today, is_round_trip: true, work_trip: true, bike_distance: 1)
+      team1mate.rides.create!(date: Date.new(2013, 2, 1), is_round_trip: true, work_trip: true, bike_distance: 1)
+      captain1.rides.create!(date: Date.today, is_round_trip: true, work_trip: true, bike_distance: 2)
 
       # Team2 data
       captain2 = FactoryGirl.create(:user)
@@ -93,9 +93,9 @@ describe Bracket do
       competition.competitors.create(team: team2)
       team2.memberships.create(user: captain2, approved: true)
       team2.memberships.create(user: team2mate, approved: true)
-      team2mate.rides.create!(date: Date.today, is_round_trip: true, bike_distance: 2)
-      team2mate.rides.create!(date: Date.new(2013, 2, 1), is_round_trip: false, bike_distance: 2)
-      captain2.rides.create!(date: Date.today, is_round_trip: false, bike_distance: 3)
+      team2mate.rides.create!(date: Date.today, is_round_trip: true, work_trip: true, bike_distance: 2)
+      team2mate.rides.create!(date: Date.new(2013, 2, 1), is_round_trip: false, work_trip: true, bike_distance: 2)
+      captain2.rides.create!(date: Date.today, is_round_trip: false, work_trip: true, bike_distance: 3)
 
       # Check top 3 teams
       bracket.teams_by_participation[0].name.should == team1.name
