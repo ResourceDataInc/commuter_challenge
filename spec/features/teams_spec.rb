@@ -4,6 +4,7 @@ describe "teams" do
   let(:user) { FactoryGirl.create(:user) }
 
   it "can be created by a signed in user" do
+    FactoryGirl.create(:competition)
     login_as user
 
     visit root_url

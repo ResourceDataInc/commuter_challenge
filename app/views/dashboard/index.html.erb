@@ -15,10 +15,10 @@
       <div class="number positive">--</div>
     </div>
     <div class="span2">
-      <div class="stat-header"><%= t("dashboard.team.mileage") %></div>
+      <div class="stat-header"><%= t("dashboard.team.participation") %></div>
       <div class="number positive">
         <% if current_user.teams.any? %>
-          <%= current_user.total_distance %>
+          <%= current_user.teams.first.participation_percent %> %
         <% else %>
           --
         <% end %>
@@ -28,7 +28,7 @@
       <div class="stat-header"><%= t("dashboard.team.commutes") %></div>
       <div class="number positive">
         <% if current_user.teams.any? %>
-          <%= current_user.teams.first.rides.count %>
+          <%= current_user.teams.first.team_rides %>
         <% else %>
           --
         <% end %>

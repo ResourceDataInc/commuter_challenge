@@ -1,9 +1,11 @@
 require "spec_helper"
 
 describe "memberships" do
+  let(:competition) { FactoryGirl.create(:competition) }
   let(:captain) { FactoryGirl.create(:user) }
   let(:user) { FactoryGirl.create(:user) }
   let(:team) { FactoryGirl.create(:team, captain: captain) }
+  let!(:competitior) { FactoryGirl.create(:competitor, competition_id: competition.id, team_id: team.id)}
 
   it "can request to join" do
     login_as user

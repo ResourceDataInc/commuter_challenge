@@ -20,12 +20,12 @@ describe Calculations do
 
     before :each do
       team.captain = captain
-    end
-
-    it "should calculate parcticipation" do
       competition.competitors.create(team: team)
       team.memberships.create(user: captain, approved: true)
       team.memberships.create(user: user, approved: true)
+    end
+
+    it "should calculate parcticipation" do
       user.rides.create!(date: Date.today, is_round_trip: true, work_trip: true, bike_distance: 1)
       captain.rides.create!(date: Date.today, is_round_trip: false, work_trip: true, bike_distance: 2)
 
@@ -33,9 +33,6 @@ describe Calculations do
     end
 
     it "should use max of two trips per day" do
-      competition.competitors.create(team: team)
-      team.memberships.create(user: captain, approved: true)
-      team.memberships.create(user: user, approved: true)
       user.rides.create!(date: Date.today, is_round_trip: true, work_trip: true, bike_distance: 1)
       user.rides.create!(date: Date.today, is_round_trip: false, work_trip: true, bike_distance: 20)
       captain.rides.create!(date: Date.today, is_round_trip: false, work_trip: true, bike_distance: 2)

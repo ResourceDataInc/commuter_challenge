@@ -54,6 +54,7 @@ en:
     greeting: "Hey There"
     team:
       mileage: "Team Mileage"
+      participation: "Team Participation"
       commutes: "Team Commutes"
       position: "Team Position"
     user:
