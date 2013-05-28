@@ -7,5 +7,6 @@ FactoryGirl.define do
     description "Epic Ride"
     rider factory: :user
     is_round_trip false
+    work_trip true
   end
 end
