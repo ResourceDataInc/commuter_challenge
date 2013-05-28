@@ -43,7 +43,7 @@
       <tr>
         <th>Username</th>
         <th>Trips</th>
-        <th>Miles</th>
+        <th>%</th>
 
         <% if can? :manage, @team %>
           <th class="span2 hidden-phone">Status</th>
@@ -55,8 +55,8 @@
     <% @team.memberships.sort_by{ |m| m.user.username }.each do |membership| %>
       <%= content_tag_for :tr, membership, class: ("warning" unless membership.approved?) do %>
         <td class="span3"><%= link_to membership.user.username, membership.user %></td>
-        <td class="muted">Coming soon</td>
-        <td class="muted">Coming soon</td>
+        <td><%= membership.ride_count %></td>
+        <td class="muted"><%= membership.participation_percent %></td>
 
         <% if can? :manage, @team %>
           <td class="hidden-phone"><%= membership.approved? ? "Approved" : "Pending" %></td>

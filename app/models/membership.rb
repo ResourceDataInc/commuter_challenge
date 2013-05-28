@@ -12,7 +12,11 @@ class Membership < ActiveRecord::Base
   before_save :update_approved_at
 
   def participation_percent
-    competition.calculations.member_participation_percent(rides)
+    @participation_percent ||= competition.calculations.member_participation_percent(rides)
+  end
+
+  def ride_count
+    @competition_rides ||= competition.calculations.member_actual_rides(rides)
   end
 
   private

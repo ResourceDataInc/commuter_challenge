@@ -19,9 +19,28 @@ class Calculations
     (member_possible_rides == 0)? 0.0 : (100.0 * member_actual_rides(rides) / member_possible_rides).round(1)
   end
 
+  def member_actual_rides(rides)
+    # here be dragons
+    dated_rides = competition_rides(rides).group_by(&:date)
+    dated_rides.inject(0) do |total, (_, rides)|
+      total + [2, rides.inject(0) {|total, r| total + (r.is_round_trip ? 2 : 1)}].min
+    end
+  end
+
   def team_participation_percent(business_size, rides)
     possible_rides = team_possible_rides(business_size)
     (possible_rides == 0)? 0.0 : (100.0 * team_actual_rides(rides) / possible_rides).round(1)
+  end
+
+  def team_actual_rides(rides)
+    # here be dragons
+    user_rides = competition_rides(rides).group_by(&:rider_id)
+    user_rides.inject(0) do |total, (_, rides)|
+      dated_rides = rides.group_by(&:date)
+      total + dated_rides.inject(0) do |total, (_, rides)|
+        total + [2, rides.inject(0) {|total, r| total + (r.is_round_trip ? 2 : 1)}].min
+      end
+    end
   end
 
   private
@@ -29,27 +48,8 @@ class Calculations
       2 * work_days
     end
 
-    def member_actual_rides(rides)
-      # here be dragons    
-      dated_rides = competition_rides(rides).group_by(&:date)
-      dated_rides.inject(0) do |total, (_, rides)|
-        total + [2, rides.inject(0) {|total, r| total + (r.is_round_trip ? 2 : 1)}].min
-      end
-    end
-
     def team_possible_rides(business_size)
-      2 * business_size * work_days
-    end
-
-    def team_actual_rides(rides)
-      # here be dragons
-      user_rides = competition_rides(rides).group_by(&:rider_id)
-      user_rides.inject(0) do |total, (_, rides)|
-        dated_rides = rides.group_by(&:date)
-        total + dated_rides.inject(0) do |total, (_, rides)|
-          total + [2, rides.inject(0) {|total, r| total + (r.is_round_trip ? 2 : 1)}].min
-        end
-      end
+      business_size * member_possible_rides
     end
 
     def work_days_between(date1, date2)
