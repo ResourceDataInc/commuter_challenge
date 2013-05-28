@@ -23,17 +23,5 @@ class Team < ActiveRecord::Base
 
   def participation_percent
     competition.calculations.team_participation_percent(business_size, rides)
-  end
-
-  private
-  def actual_rides
-    # here be dragons
-    user_rides = rides.group_by(&:rider_id)
-    user_rides.inject(0) do |total, (_, rides)|
-      dated_rides = rides.group_by(&:date)
-      total + dated_rides.inject(0) do |total, (_, rides)|
-        total + [2, rides.inject(0) {|total, r| total + (r.is_round_trip ? 2 : 1)}].min
-      end
-    end
-  end 
+  end  
 end

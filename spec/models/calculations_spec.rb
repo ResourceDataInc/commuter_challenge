@@ -79,5 +79,22 @@ describe Calculations do
 
       team.memberships.first.participation_percent.should be_within(0.01).of(75.0)
     end
+
+    it "should not include rides logged outside of competition dates" do
+      Date.stub(today: Date.new(2013, 1, 2))
+      competition = FactoryGirl.create(:competition,
+        start_on: Date.new(2013, 2, 1),
+        end_on: Date.new(2013, 2, 15))
+      Date.stub(today: Date.new(2013, 2, 4))
+      user = FactoryGirl.create(:user)
+      team = FactoryGirl.create(:team,
+        business_size: 10)
+      competition.competitors.create(team: team)
+      team.memberships.create(user: user, approved: true)
+      user.rides.create!(date: Date.new(2013, 1, 31), is_round_trip: true, bike_distance: 1)
+      user.rides.create!(date: Date.new(2013, 2, 2), is_round_trip: false, bike_distance: 2)
+
+      team.memberships.first.participation_percent.should be_within(0.01).of(0.0)
+    end
   end
 end

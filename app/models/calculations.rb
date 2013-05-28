@@ -31,7 +31,7 @@ class Calculations
 
     def member_actual_rides(rides)
       # here be dragons    
-      dated_rides = rides.group_by(&:date)
+      dated_rides = competition_rides(rides).group_by(&:date)
       dated_rides.inject(0) do |total, (_, rides)|
         total + [2, rides.inject(0) {|total, r| total + (r.is_round_trip ? 2 : 1)}].min
       end
@@ -43,7 +43,7 @@ class Calculations
 
     def team_actual_rides(rides)
       # here be dragons
-      user_rides = rides.group_by(&:rider_id)
+      user_rides = competition_rides(rides).group_by(&:rider_id)
       user_rides.inject(0) do |total, (_, rides)|
         dated_rides = rides.group_by(&:date)
         total + dated_rides.inject(0) do |total, (_, rides)|
@@ -54,5 +54,10 @@ class Calculations
 
     def work_days_between(date1, date2)
       (date1 <= date2 && date2 <= end_on) ? (date1..date2).select { |d| (1..5).include?(d.wday) }.size : 0
+    end
+
+    def competition_rides(rides)
+      from_date = (Date.today <= end_on) ? Date.today : end_on
+      (start_on <= Date.today) ? rides.where(:date => start_on..from_date).select { |r| (1..5).include?(r.date.wday) } : []
     end
 end
