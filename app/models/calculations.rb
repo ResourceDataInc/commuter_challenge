@@ -58,6 +58,6 @@ class Calculations
 
     def competition_rides(rides)
       from_date = (Date.today <= end_on) ? Date.today : end_on
-      (start_on <= Date.today) ? rides.where(:date => start_on..from_date).select { |r| (1..5).include?(r.date.wday) } : []
+      (start_on <= Date.today) ? rides.where(:date => start_on..from_date, :work_trip => true).select { |r| (1..5).include?(r.date.wday) } : []
     end
 end
