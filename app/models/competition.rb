@@ -22,14 +22,17 @@ class Competition < ActiveRecord::Base
   end
 
   def total_work_days
-    @total_work_days ||= work_days_between(start_on, end_on)
+    calculations.total_work_days
   end
 
   def work_days
-    work_days_between(start_on, Date.today)
+    calculations.work_days
   end
 
-  
+  def calculations
+    @calculations ||= Calculations.new(start_on, end_on)
+  end
+
   private
 
   def validate_start_on_before_end_on
@@ -44,9 +47,5 @@ class Competition < ActiveRecord::Base
     if start_on_changed? && start_on < Date.today
       errors.add :start_on, "cannot be in the past"
     end
-  end
-
-  def work_days_between(date1, date2)
-    (date1 <= date2 && date2 <= end_on) ? (date1..date2).select { |d| (1..5).include?(d.wday) }.size : 0
   end
 end

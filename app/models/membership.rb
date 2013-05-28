@@ -12,7 +12,7 @@ class Membership < ActiveRecord::Base
   before_save :update_approved_at
 
   def participation_percent
-    @participation_percent ||= (possible_rides == 0)? 0.0 : (100.0 * actual_rides / possible_rides).round(1)
+    competition.calculations.member_participation_percent(rides)
   end
 
   private
@@ -20,17 +20,5 @@ class Membership < ActiveRecord::Base
     if approved_changed? && approved?
       self.approved_at = Time.now
     end
-  end
-
-  def actual_rides
-    # here be dragons
-    dated_rides = rides.group_by(&:date)
-    dated_rides.inject(0) do |total, (_, rides)|
-      total + [2, rides.inject(0) {|total, r| total + (r.is_round_trip ? 2 : 1)}].min
-    end
-  end
-
-  def possible_rides
-    2 * competition.work_days
   end
 end
