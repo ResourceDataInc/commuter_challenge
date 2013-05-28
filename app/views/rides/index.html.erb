@@ -19,19 +19,15 @@
     <thead>
       <tr>
         <th>Date</th>
-        <th>Rider</th>
-        <th>Distance</th>
-        <th>Total Miles</th>
-        <th>Total Trips</th>
+        <th>Commuter</th>
+        <th>Total Distance</th>
       </tr>
     </thead>
     <% @rides.each do |ride| %>
       <%= content_tag_for :tr, ride do %>
         <td><%= link_to ride.date.strftime("%b #{ride.date.day.ordinalize}"), ride %></td>
         <td><%= ride.rider.username %></td>
-        <td><%= ride.distance%></td>
-        <td>Coming Soon</td>
-        <td>Coming Soon</td>
+        <td><%= ride.total_distance %></td>
       <% end %>
     <% end %>
   </table>
