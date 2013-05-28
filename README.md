@@ -42,5 +42,5 @@ An application for setting up and tracking bicycle competitions.
 * Once everyone agrees the feature is good to go, merge your branch.
 
 ### Jenkins
-[Staging](http://kaiubuntu:8080/job/Bike%20Commute%20Challenge-Staging/)
-[Production](http://kaiubuntu:8080/job/Bike%20Commute%20Challenge-Production/)
+
+TODO: Set up Travis CI
