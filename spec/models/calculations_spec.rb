@@ -1,18 +1,28 @@
 require 'spec_helper'
 
 describe Calculations do
-  context "for team" do
-    it "should calculate parcticipation" do
+
+  let!(:competition) { 
       Date.stub(today: Date.new(2013, 1, 2))
       competition = FactoryGirl.create(:competition,
         start_on: Date.new(2013, 2, 1),
         end_on: Date.new(2013, 2, 15))
-      Date.stub(today: Date.new(2013, 2, 4))
-      captain = FactoryGirl.create(:user)
-      user = FactoryGirl.create(:user)
-      team = FactoryGirl.create(:team,
-        captain: captain,
-        business_size: 10)
+  }
+  let(:user) {FactoryGirl.create(:user)}
+  let(:team) {team = FactoryGirl.create(:team, business_size: 10)}
+
+  before :each do
+    Date.stub(today: Date.new(2013, 2, 4))
+  end
+
+  context "for team" do
+    let(:captain) {FactoryGirl.create(:user)}
+
+    before :each do
+      team.captain = captain
+    end
+
+    it "should calculate parcticipation" do
       competition.competitors.create(team: team)
       team.memberships.create(user: captain, approved: true)
       team.memberships.create(user: user, approved: true)
@@ -23,16 +33,6 @@ describe Calculations do
     end
 
     it "should use max of two trips per day" do
-      Date.stub(today: Date.new(2013, 1, 2))
-      competition = FactoryGirl.create(:competition,
-        start_on: Date.new(2013, 2, 1),
-        end_on: Date.new(2013, 2, 15))
-      Date.stub(today: Date.new(2013, 2, 4))
-      captain = FactoryGirl.create(:user)
-      user = FactoryGirl.create(:user)
-      team = FactoryGirl.create(:team,
-        captain: captain,
-        business_size: 10)
       competition.competitors.create(team: team)
       team.memberships.create(user: captain, approved: true)
       team.memberships.create(user: user, approved: true)
@@ -45,15 +45,7 @@ describe Calculations do
   end
 
   context "for membership" do
-    it "should calculate participation" do
-      Date.stub(today: Date.new(2013, 1, 2))
-      competition = FactoryGirl.create(:competition,
-        start_on: Date.new(2013, 2, 1),
-        end_on: Date.new(2013, 2, 15))
-      Date.stub(today: Date.new(2013, 2, 4))
-      user = FactoryGirl.create(:user)
-      team = FactoryGirl.create(:team,
-        business_size: 10)
+    it "should calculate participation" do      
       competition.competitors.create(team: team)
       team.memberships.create(user: user, approved: true)
       user.rides.create!(date: Date.today, is_round_trip: true, work_trip: true, bike_distance: 1)
@@ -63,14 +55,6 @@ describe Calculations do
     end
 
     it "should use max of two trips per day" do
-      Date.stub(today: Date.new(2013, 1, 2))
-      competition = FactoryGirl.create(:competition,
-        start_on: Date.new(2013, 2, 1),
-        end_on: Date.new(2013, 2, 15))
-      Date.stub(today: Date.new(2013, 2, 4))
-      user = FactoryGirl.create(:user)
-      team = FactoryGirl.create(:team,
-        business_size: 10)
       competition.competitors.create(team: team)
       team.memberships.create(user: user, approved: true)
       user.rides.create!(date: Date.today, is_round_trip: true, work_trip: true, bike_distance: 1)
@@ -81,14 +65,6 @@ describe Calculations do
     end
 
     it "should not include rides logged outside of competition dates" do
-      Date.stub(today: Date.new(2013, 1, 2))
-      competition = FactoryGirl.create(:competition,
-        start_on: Date.new(2013, 2, 1),
-        end_on: Date.new(2013, 2, 15))
-      Date.stub(today: Date.new(2013, 2, 4))
-      user = FactoryGirl.create(:user)
-      team = FactoryGirl.create(:team,
-        business_size: 10)
       competition.competitors.create(team: team)
       team.memberships.create(user: user, approved: true)
       user.rides.create!(date: Date.new(2013, 1, 31), is_round_trip: true, bike_distance: 1)
@@ -98,14 +74,6 @@ describe Calculations do
     end
 
     it "should not include personal rides" do
-      Date.stub(today: Date.new(2013, 1, 2))
-      competition = FactoryGirl.create(:competition,
-        start_on: Date.new(2013, 2, 1),
-        end_on: Date.new(2013, 2, 15))
-      Date.stub(today: Date.new(2013, 2, 4))
-      user = FactoryGirl.create(:user)
-      team = FactoryGirl.create(:team,
-        business_size: 10)
       competition.competitors.create(team: team)
       team.memberships.create(user: user, approved: true)
       user.rides.create!(date: Date.new(2013, 2, 1), is_round_trip: true, work_trip: false, bike_distance: 1)
