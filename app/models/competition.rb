@@ -3,10 +3,11 @@ class Competition < ActiveRecord::Base
   attr_accessible :description, :end_on, :owner_id, :start_on, :title, :brackets_attributes
 
   belongs_to :owner, class_name: "User"
-  has_many :brackets, :dependent => :destroy
+  has_many :brackets, :dependent => :destroy, inverse_of: :competition
   accepts_nested_attributes_for :brackets
   has_many :competitors, inverse_of: :competition, :dependent => :destroy
-  has_many :teams, through: :competitors
+  has_many :teams, through: :competitors, inverse_of: :competition
+  has_many :members, through: :teams
   
   validates :title, presence: true
   validates :description, presence: true
