@@ -59,7 +59,9 @@ describe ParticipationCalculator do
       user.rides.create!(date: Date.today, is_round_trip: true, work_trip: true, bike_distance: 1)
       user.rides.create!(date: Date.new(2013, 2, 1), is_round_trip: false, work_trip: true, bike_distance: 2)
 
-      calculator.member_participation_percent(team.memberships.first.rides).should be_within(0.01).of(75.0)
+      member_participations = calculator.member_participations
+      member_participations.first.member.should eq(user)
+      member_participations.first.participation_percent.should be_within(0.01).of(75.0)
     end
 
     it "should use max of two trips per day" do
@@ -69,7 +71,9 @@ describe ParticipationCalculator do
       user.rides.create!(date: Date.today, is_round_trip: false, work_trip: true, bike_distance: 2)
       user.rides.create!(date: Date.new(2013, 2, 1), is_round_trip: false, work_trip: true, bike_distance: 2)
 
-      calculator.member_participation_percent(team.memberships.first.rides).should be_within(0.01).of(75.0)
+      member_participations = calculator.member_participations
+      member_participations.first.member.should eq(user)
+      member_participations.first.participation_percent.should be_within(0.01).of(75.0)
     end
 
     it "should not include rides logged outside of competition dates" do
@@ -78,7 +82,9 @@ describe ParticipationCalculator do
       user.rides.create!(date: Date.new(2013, 1, 31), is_round_trip: true, bike_distance: 1, work_trip: true)
       user.rides.create!(date: Date.new(2013, 2, 2), is_round_trip: false, bike_distance: 2, work_trip: true)
 
-      calculator.member_participation_percent(team.memberships.first.rides).should be_within(0.01).of(0.0)
+      member_participations = calculator.member_participations
+      member_participations.first.member.should eq(user)
+      member_participations.first.participation_percent.should be_within(0.01).of(0.0)
     end
 
     it "should not include personal rides" do
@@ -87,7 +93,9 @@ describe ParticipationCalculator do
       user.rides.create!(date: Date.new(2013, 2, 1), is_round_trip: true, work_trip: false, bike_distance: 1)
       user.rides.create!(date: Date.new(2013, 2, 4), is_round_trip: false, work_trip: false, bike_distance: 2)
 
-      calculator.member_participation_percent(team.memberships.first.rides).should be_within(0.01).of(0.0)
+      member_participations = calculator.member_participations
+      member_participations.first.member.should eq(user)
+      member_participations.first.participation_percent.should be_within(0.01).of(0.0)
     end
   end
 end

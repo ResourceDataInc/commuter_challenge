@@ -21,8 +21,16 @@ class ParticipationCalculator
     @work_days ||= work_days_between(start_on, Date.today)
   end
 
-  def member_participation_percent(rides)
-    (member_possible_rides == 0)? 0.0 : (100.0 * member_actual_rides(rides) / member_possible_rides).round(1)
+  def member_participations
+    # wat
+    competition.teams.flat_map { |team|
+      team.members.map { |member| member_participation(member, team) }
+    }
+  end
+
+  def member_participation(member, team)
+    participation = (member_possible_rides == 0)? 0.0 : (100.0 * member_actual_rides(member.rides) / member_possible_rides).round(1)
+    MemberParticipation.new(member, team, participation)
   end
 
   def member_actual_rides(rides)
@@ -82,3 +90,4 @@ class ParticipationCalculator
 end
 
 TeamParticipation = Struct.new(:team, :participation_percent)
+MemberParticipation = Struct.new(:member, :team, :participation_percent)

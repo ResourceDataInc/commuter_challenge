@@ -7,16 +7,16 @@
     </ul>
 
     <div class="tab-content">
-      <% brackets.each.with_index do |(bracket, team_participations), index| %>
+      <% brackets.each.with_index do |(bracket, participations), index| %>
         <div class="tab-pane <%= 'active' if index==0%>" id='<%= index %>'>
           <div class="span5 instructions">
             <h3><%= t("competition.leaderboard.teams") %></h3>
-            <%= render "teams/ranking", team_participations: team_participations %>
+            <%= render "teams/ranking", team_participations: participations[:teams] %>
           </div>
-          <%# <div class="span5 instructions"> %>
-          <%#   <h3><%= t("competition.leaderboard.riders") %1></h3> %>
-          <%#   <%= render "memberships/ranking", :memberships=>bracket.memberships_by_participation %1> %>
-          <%# </div> %>
+          <div class="span5 instructions">
+            <h3><%= t("competition.leaderboard.riders") %></h3>
+            <%= render "memberships/ranking", member_participations: participations[:members] %>
+          </div>
         </div>
       <% end %>
     </div>
