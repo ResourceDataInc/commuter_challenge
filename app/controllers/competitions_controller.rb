@@ -29,7 +29,7 @@ class CompetitionsController < ApplicationController
         bracket,
         {
           teams: tps.sort_by { |tp| -tp.participation_percent },
-          members: mps.sort_by { |mp| -mp.participation_percent }
+          members: mps.sort_by { |mp| -mp.participation_percent }.first(10)
         }
       ]
     }]

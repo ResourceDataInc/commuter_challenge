@@ -4,7 +4,7 @@
   <table class="teams table table-striped table-bordered table-hover">
     <thead>
       <tr>
-        <th>Rank</th>
+        <th>#</th>
         <th>Username</th>
         <th>Team</th>
         <th>%</th>
@@ -13,8 +13,8 @@
     <% member_participations.each_with_index do |participation, index| %>
       <%= content_tag_for :tr, participation.member do %>
         <td><%= index + 1 %></td>
-        <td><%= link_to truncate(participation.member.username, :separator=>'...', :length=>20), participation.member %></td>
-        <td><%= link_to truncate(participation.team.name, :separator=>'...', :length=>20), participation.team %></td>
+        <td><%= link_to participation.member.username.truncate(20), participation.member %></td>
+        <td><%= link_to participation.team.name.truncate(16), participation.team %></td>
         <td><%= participation.participation_percent %></td>
       <% end %>
     <% end %>

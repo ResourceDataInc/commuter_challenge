@@ -41,7 +41,7 @@ en:
       approve_confirmation: "Team approved"
       approve_failure: "Unable to approve team :("
     leaderboard:
-      teams: "Top Teams"
+      teams: "Teams"
       riders: "Top Commuters"
 
   competitor:
