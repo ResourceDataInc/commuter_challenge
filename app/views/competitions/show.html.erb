@@ -17,7 +17,7 @@
     <div class="span2">Finish: <%= @competition.end_on %></div>
   </div>
 
-  <% unless @competition.brackets.empty? %>
-    <%= render "leaderboard" %>
+  <% if @brackets.present? %>
+    <%= render "leaderboard", brackets: @brackets %>
   <% end %>
 <% end %>

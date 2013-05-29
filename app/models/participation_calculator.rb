@@ -1,10 +1,16 @@
-class Calculations
+class ParticipationCalculator
+  attr_reader :competition
 
-  attr_reader :start_on, :end_on
+  def initialize(competition)
+    @competition = competition
+  end
 
-  def initialize(start_on, end_on)
-    @start_on = start_on
-    @end_on = end_on
+  def start_on
+    competition.start_on
+  end
+
+  def end_on
+    competition.end_on
   end
 
   def total_work_days
@@ -15,7 +21,7 @@ class Calculations
     @work_days ||= work_days_between(start_on, Date.today)
   end
 
-  def member_participation_percent(rides)    
+  def member_participation_percent(rides)
     (member_possible_rides == 0)? 0.0 : (100.0 * member_actual_rides(rides) / member_possible_rides).round(1)
   end
 
@@ -27,9 +33,14 @@ class Calculations
     end
   end
 
-  def team_participation_percent(business_size, rides)
-    possible_rides = team_possible_rides(business_size)
-    (possible_rides == 0)? 0.0 : (100.0 * team_actual_rides(rides) / possible_rides).round(1)
+  def team_participations
+    competition.teams.map { |team| team_participation(team) }
+  end
+
+  def team_participation(team)
+    possible_rides = team_possible_rides(team.business_size)
+    participation = (possible_rides == 0)? 0.0 : (100.0 * team_actual_rides(team.rides) / possible_rides).round(1)
+    TeamParticipation.new(team, participation)
   end
 
   def team_actual_rides(rides)
@@ -69,3 +80,5 @@ class Calculations
       end
     end
 end
+
+TeamParticipation = Struct.new(:team, :participation_percent)

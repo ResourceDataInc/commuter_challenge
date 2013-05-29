@@ -1,4 +1,4 @@
-<% if teams.blank? %>
+<% if team_participations.blank? %>
   <p><%= t("team.index.none") %></p>
 <% else %>
   <table class="teams table table-striped table-bordered table-hover">
@@ -9,11 +9,12 @@
         <th>%</th>
       </tr>
     </thead>
-    <% teams.each_with_index do |team, index| %>
-      <%= content_tag_for :tr, team do %>
+
+    <% team_participations.each_with_index do |participation, index| %>
+      <%= content_tag_for :tr, participation.team do %>
         <td><%= index + 1 %></td>
-        <td><%= link_to truncate(team.name, :separator=>'...', :length=>40), team %></td>
-        <td><%= team.participation_percent %></td>
+        <td><%= link_to truncate(participation.team.name, :separator=>'...', :length=>40), participation.team %></td>
+        <td><%= participation.participation_percent %></td>
       <% end %>
     <% end %>
   </table>
