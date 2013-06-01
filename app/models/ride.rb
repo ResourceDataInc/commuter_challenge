@@ -20,9 +20,9 @@ class Ride < ActiveRecord::Base
   
   def trip_type
   	if self.is_round_trip
-  		"Round Trip"
+  		I18n.t("ride.options.round")
   	else
-  		"One Way"
+  		I18n.t("ride.options.one")
   	end
   end
 
