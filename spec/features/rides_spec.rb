@@ -35,8 +35,6 @@ describe "rides" do
     within ".ride" do
       page.should have_content "To Work"
       page.should have_content 2.5
-      page.should have_content user.username
-      page.should have_content 1.day.ago.strftime("%Y-%m-%d")
     end
   end
 

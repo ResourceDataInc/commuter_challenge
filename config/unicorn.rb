@@ -1,6 +1,6 @@
 # from https://devcenter.heroku.com/articles/rails-unicorn
 
-worker_processes 3
+worker_processes 4
 timeout 15
 preload_app true
 

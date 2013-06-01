@@ -41,7 +41,7 @@ en:
       approve_confirmation: "Team approved"
       approve_failure: "Unable to approve team :("
     leaderboard:
-      teams: "Top Teams"
+      teams: "Teams"
       riders: "Top Commuters"
 
   competitor:
@@ -54,6 +54,7 @@ en:
     greeting: "Hey There"
     team:
       mileage: "Team Mileage"
+      participation: "Team Participation"
       commutes: "Team Commutes"
       position: "Team Position"
     user:
@@ -101,6 +102,8 @@ en:
     options:
       one: "One Way"
       round: "Round Trip"
+      work_trip: "Work Related"
+      personal_trip: "Personal"
     submit: "Submit"
 
   team:

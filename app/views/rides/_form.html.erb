@@ -5,6 +5,11 @@
   <%= f.input :walk_distance %>
   <%= f.input :description, input_html: { rows: 2 } %>
 
+  <%= f.button_group :work_trip do %>
+    <%= f.toggle_button t("ride.options.work_trip"), true %>
+    <%= f.toggle_button t("ride.options.personal_trip"), false %>
+  <% end %>
+
   <%= f.button_group :is_round_trip do %>
     <%= f.toggle_button t("ride.options.round"), true %>
     <%= f.toggle_button t("ride.options.one"), false %>
@@ -13,9 +18,3 @@
   <%= f.button :button, t("ride.submit"), class: "btn-orange pull-right" %>
   <div class="clearfix"></div>
 <% end %>
-
-<script type="text/javascript">
-  $("#is_round_trip button").click(function(){
-    $("#ride_is_round_trip").val($(this).val());
-  });
-</script>

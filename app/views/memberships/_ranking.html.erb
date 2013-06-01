@@ -1,21 +1,21 @@
-<% if memberships.blank? %>
+<% if member_participations.blank? %>
   <p><%= t("user.index.none") %></p>
 <% else %>
   <table class="teams table table-striped table-bordered table-hover">
     <thead>
       <tr>
-        <th>Rank</th>
+        <th>#</th>
         <th>Username</th>
         <th>Team</th>
         <th>%</th>
       </tr>
     </thead>
-    <% memberships.each_with_index do |membership, index| %>
-      <%= content_tag_for :tr, membership do %>
+    <% member_participations.each_with_index do |participation, index| %>
+      <%= content_tag_for :tr, participation.member do %>
         <td><%= index + 1 %></td>
-        <td><%= link_to truncate(membership.user.username, :separator=>'...', :length=>20), membership.user %></td>
-        <td><%= link_to truncate(membership.team.name, :separator=>'...', :length=>20), membership.team %></td>
-        <td><%= membership.participation_percent %></td>
+        <td><%= link_to participation.member.username.truncate(20), participation.member %></td>
+        <td><%= link_to participation.team.name.truncate(16), participation.team %></td>
+        <td><%= participation.participation_percent %></td>
       <% end %>
     <% end %>
   </table>

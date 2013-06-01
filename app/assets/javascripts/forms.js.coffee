@@ -5,9 +5,14 @@ jQuery ->
       format: "yyyy-mm-dd"
       autoclose: true
 
-  maxHeight=0;
+  $("form .btn-group").each ->
+    field = $("##{$(this).data("field")}")
+    $(this).find("button").click ->
+      field.val($(this).val())
+
+  maxHeight=0
   $('.equal-height').each ->
     if($(this).height()>maxHeight)
         maxHeight=$(this).height()
 
-  $('.equal-height').height(maxHeight);
+  $('.equal-height').height(maxHeight)
