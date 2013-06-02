@@ -11,6 +11,8 @@ class Membership < ActiveRecord::Base
 
   before_save :update_approved_at
 
+  scope :by_username, -> { includes(:user).order("users.username") }
+
   def participation_percent
     @participation_percent ||= competition.calculations.member_participation_percent(rides)
   end

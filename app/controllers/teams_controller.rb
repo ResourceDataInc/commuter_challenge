@@ -20,6 +20,7 @@ class TeamsController < ApplicationController
   end
 
   def show
+    @memberships = @team.memberships.by_username
     @membership = Membership.new
   end
 

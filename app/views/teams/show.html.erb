@@ -52,7 +52,7 @@
       </tr>
     </thead>
 
-    <% @team.memberships.sort_by{ |m| m.user.username }.each do |membership| %>
+    <% @memberships.each do |membership| %>
       <%= content_tag_for :tr, membership, class: ("warning" unless membership.approved?) do %>
         <td class="span3"><%= link_to membership.user.username, membership.user %></td>
         <td><%= membership.ride_count %></td>
