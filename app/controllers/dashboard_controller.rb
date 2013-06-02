@@ -2,7 +2,7 @@ class DashboardController < ApplicationController
   authorize_resource :class => false
 
   def index
-    @rides = current_user.rides.first(9)
+    @rides = current_user.rides.latest.first(16)
     @ride = build_ride
   end
 
@@ -10,7 +10,7 @@ class DashboardController < ApplicationController
 
   def build_ride
     if current_user.rides.any?
-      last_ride = current_user.rides.first
+      last_ride = current_user.rides.latest.first
       attrs = last_ride.attributes.slice(*copyable_ride_attrs)
     else
       attrs = {}

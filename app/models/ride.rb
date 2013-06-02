@@ -1,5 +1,4 @@
 class Ride < ActiveRecord::Base
-  default_scope order('date DESC, created_at DESC')
   belongs_to :rider, class_name: "User"
 
   validates :date, presence: true
@@ -14,6 +13,8 @@ class Ride < ActiveRecord::Base
 
   attr_accessible :date, :description, :bike_distance, :bus_distance,
                   :walk_distance, :rider_id, :is_round_trip, :work_trip
+
+  scope :latest, -> { order('date DESC, created_at DESC') }
 
   def total_distance
     [bike_distance, bus_distance, walk_distance].compact.sum
