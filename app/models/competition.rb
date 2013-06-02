@@ -1,5 +1,4 @@
 class Competition < ActiveRecord::Base
-  default_scope order('start_on DESC')
   attr_accessible :description, :end_on, :owner_id, :start_on, :title, :brackets_attributes
 
   belongs_to :owner, class_name: "User"
@@ -17,6 +16,8 @@ class Competition < ActiveRecord::Base
 
   validate :validate_start_on_before_end_on
   validate :validate_start_on_not_in_past
+
+  scope :by_start_date, -> { order 'start_on desc' }
 
   def to_param
     "#{id}-#{title.parameterize}"

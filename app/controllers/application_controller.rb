@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
     dashboard_path
   end
 
+  helper_method :active_competition
+  def active_competition
+    Competition.by_start_date.first
+  end
+
   rescue_from CanCan::AccessDenied do |exception|
     flash[:error] = exception.message
     redirect_to root_url
