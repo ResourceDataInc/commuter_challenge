@@ -31,8 +31,8 @@
 
       &:before{
         color: $white;
-        width: 30px;
-        line-height: 30px;
+        width: 35px;
+        line-height: 35px;
         content: counter(counter);
         counter-increment: counter;
         display: inline-block;

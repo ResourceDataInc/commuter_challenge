@@ -1,0 +1,115 @@
+.competition{
+
+  .rankings{
+    margin-top: 10px;
+    table-layout: fixed;
+
+    .rank{
+        color: $white;
+        width: 35px;
+        line-height: 35px;
+        content: counter(counter);
+        counter-increment: counter;
+        display: inline-block;
+        font-weight: bold;
+        text-align:center;
+        background: $beach-b;
+        @include box-shadow(0 0 3px rgba(0,0,0,.9));
+        border-radius: 50%;
+        font-size: 0.9em;
+
+        &:after{
+          font-size: 0.8em;
+          font-weight: normal;
+          content: "th";
+        }
+    }
+
+    & > tbody{
+      & > :nth-child(10n + 1){
+        .rank:after{
+            content: "st";
+        }
+      }
+
+      & > :nth-child(10n + 2){
+        .rank:after{
+            content: "nd";
+        }
+      }
+
+      & > :nth-child(10n + 3){
+        .rank:after{
+            content: "rd";
+        }
+      }
+
+      & > :nth-child(11), & > :nth-child(12), & > :nth-child(13){
+        .rank:after{
+            content: "th";
+        }
+      }    
+    }
+
+    tr{
+      height: 55px;
+
+      & > td{
+        vertical-align: middle;
+      }
+
+      & > td:first-child{
+        width: 30px;
+        text-align:center;
+      }
+
+      & > td:last-child{
+        width: 60px;
+        text-align:center;
+      }
+    }
+
+
+    h4, h6{
+      padding:0px;
+      margin: 0px;
+
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+
+    }
+
+  }
+
+  ol{
+    counter-reset: counter;
+    list-style: none;
+    margin: 0px;
+    font-weight: bold;
+
+    li{
+      height: 25px;
+      margin-top: 10px;
+      padding: 3px 0 10px 0px;
+
+      &:before{
+        color: $white;
+        width: 30px;
+        line-height: 30px;
+        content: counter(counter);
+        counter-increment: counter;
+        display: inline-block;
+        font-weight: bold;
+        margin-right: 10px;
+        text-align:center;
+        background: $beach-b;
+        @include box-shadow(0 0 3px rgba(0,0,0,.9));
+        border-radius: 50%;
+      }
+    }
+
+
+  }
+
+}

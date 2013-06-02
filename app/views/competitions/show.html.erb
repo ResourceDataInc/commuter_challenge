@@ -10,11 +10,10 @@
     <% end %>
   </div>
   <div class="row">
-    <div class="span12"><h1><%= @competition.title %></h1></div>
-  </div>
-  <div class="row">
-    <div class="span2">Start: <%= @competition.start_on %></div>
-    <div class="span2">Finish: <%= @competition.end_on %></div>
+    <div class="span12">
+      <h1><%= @competition.title %></h1>
+      <h4><%= @competition.start_on.strftime("%m/%d/%Y") %> - <%= @competition.end_on.strftime("%m/%d/%Y") %></h4>
+    </div>
   </div>
 
   <% if @brackets.present? %>

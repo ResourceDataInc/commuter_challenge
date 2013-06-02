@@ -1,24 +1,24 @@
-<div class="row top-buffer">
-  <div class="tabbable">
-    <ul class="nav nav-pills nav-stacked span2">
+<div class="tabbable">
+  <div class="row">
+    <ul class="span12 nav nav-pills">
       <% brackets.each.with_index do |(bracket, _), index| %>
         <li <%= "class=active" if index==0 %>><a href="#<%= index %>" data-toggle="tab"><%= bracket.name %></a></li>
       <% end %>
     </ul>
+  </div>
 
-    <div class="tab-content">
-      <% brackets.each.with_index do |(bracket, participations), index| %>
-        <div class="tab-pane <%= 'active' if index==0%>" id='<%= index %>'>
-          <div class="span5 instructions">
-            <h3><%= t("competition.leaderboard.teams") %></h3>
-            <%= render "teams/ranking", team_participations: participations[:teams] %>
-          </div>
-          <div class="span5 instructions">
-            <h3><%= t("competition.leaderboard.riders") %></h3>
-            <%= render "memberships/ranking", member_participations: participations[:members] %>
-          </div>
+  <div class="tab-content">
+    <% brackets.each.with_index do |(bracket, participations), index| %>
+      <div class="row tab-pane <%= 'active' if index==0%>" id='<%= index %>'>
+        <div class="span6 instructions">
+          <h3><%= t("competition.leaderboard.teams") %></h3>
+          <%= render "teams/ranking", team_participations: participations[:teams] %>
         </div>
-      <% end %>
-    </div>
+        <div class="span6 instructions">
+          <h3><%= t("competition.leaderboard.riders") %></h3>
+          <%= render "memberships/ranking", member_participations: participations[:members] %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
