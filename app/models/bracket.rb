@@ -1,7 +1,6 @@
 class Bracket < ActiveRecord::Base
-  default_scope order('lower_limit ASC')
   belongs_to :competition
-  
+
   validates :name, presence: true
   validates :lower_limit, presence: true, :numericality => { :greater_than_or_equal_to => 0 }
   validates :upper_limit, presence: true
@@ -27,6 +26,8 @@ class Bracket < ActiveRecord::Base
   def memberships_by_participation
     memberships.sort_by(&:participation_percent).reverse.first(3)
   end
+
+  scope :by_lower_limit, -> { order :lower_limit }
 
   private
 

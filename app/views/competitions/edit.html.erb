@@ -65,7 +65,7 @@
                 <th>Actions</th>
               </tr>
             </thead>
-            <%= render @competition.brackets %>
+            <%= render @competition.brackets.by_lower_limit %>
           </table>
         <% end %>
         <div class="well category">
