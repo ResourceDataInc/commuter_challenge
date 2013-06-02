@@ -17,7 +17,7 @@ class CompetitionsController < ApplicationController
   end
 
   def show
-    @competition = Competition.includes(:brackets, teams: [:rides]).find(params[:id])
+    @competition = Competition.includes(:brackets, teams: [:rides, { members: [:rides] }]).find(params[:id])
     calculator = ParticipationCalculator.new(@competition)
     team_participations = calculator.team_participations
     member_participations = calculator.member_participations
