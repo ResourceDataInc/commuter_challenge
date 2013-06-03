@@ -9,7 +9,7 @@ describe User do
     it "should delete rides when deleted" do
       user = FactoryGirl.create(:user)
       id = user.id
-      user.rides.create(rider_id: user.id, bike_distance: 5, date: Date.today)
+      user.rides.create(rider_id: user.id, bike_distance: 5, date: Calendar.today)
 
       user.destroy
       user = Ride.find_by_rider_id(id)

@@ -36,10 +36,10 @@ describe Ride do
     end
 
     it "cannot be logged for a future date" do
-      ride = FactoryGirl.build :ride, date: Date.tomorrow
+      ride = FactoryGirl.build :ride, date: Calendar.tomorrow
       ride.should_not be_valid
       ride.should have(1).error_on(:date)
-      ride.date = Date.today
+      ride.date = Calendar.today
       ride.should be_valid
     end
   end

@@ -46,7 +46,7 @@ class Competition < ActiveRecord::Base
 
   def validate_start_on_not_in_past
     return if start_on.blank?
-    if start_on_changed? && start_on < Date.today
+    if start_on_changed? && start_on < Calendar.today
       errors.add :start_on, "cannot be in the past"
     end
   end

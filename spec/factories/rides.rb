@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :ride do
-    date Date.today
+    date Calendar.today
     bike_distance 9001
     description "Epic Ride"
     rider factory: :user
