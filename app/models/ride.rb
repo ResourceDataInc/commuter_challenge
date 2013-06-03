@@ -16,6 +16,8 @@ class Ride < ActiveRecord::Base
 
   scope :latest, -> { order('date DESC, created_at DESC') }
 
+  scope :work_trips, -> { where(work_trip: true) }
+
   def total_distance
     [bike_distance, bus_distance, walk_distance].compact.sum
   end
