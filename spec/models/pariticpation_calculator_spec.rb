@@ -6,7 +6,7 @@ describe ParticipationCalculator do
   end
 
   let!(:competition) {
-      Date.stub(today: Date.new(2013, 1, 2))
+      Calendar.stub(today: Date.new(2013, 1, 2))
       competition = FactoryGirl.create(:competition,
         start_on: Date.new(2013, 2, 1),
         end_on: Date.new(2013, 2, 15))
@@ -19,7 +19,7 @@ describe ParticipationCalculator do
   }
 
   before :each do
-    Date.stub(today: Date.new(2013, 2, 4))
+    Calendar.stub(today: Date.new(2013, 2, 4))
   end
 
   context "for team" do
@@ -33,8 +33,8 @@ describe ParticipationCalculator do
     end
 
     it "should calculate participation" do
-      user.rides.create!(date: Date.today, is_round_trip: true, work_trip: true, bike_distance: 1)
-      captain.rides.create!(date: Date.today, is_round_trip: false, work_trip: true, bike_distance: 2)
+      user.rides.create!(date: Calendar.today, is_round_trip: true, work_trip: true, bike_distance: 1)
+      captain.rides.create!(date: Calendar.today, is_round_trip: false, work_trip: true, bike_distance: 2)
 
       team_participations = calculator.team_participations
       team_participations.first.team.should eq(team)
@@ -42,9 +42,9 @@ describe ParticipationCalculator do
     end
 
     it "should use max of two trips per day" do
-      user.rides.create!(date: Date.today, is_round_trip: true, work_trip: true, bike_distance: 1)
-      user.rides.create!(date: Date.today, is_round_trip: false, work_trip: true, bike_distance: 20)
-      captain.rides.create!(date: Date.today, is_round_trip: false, work_trip: true, bike_distance: 2)
+      user.rides.create!(date: Calendar.today, is_round_trip: true, work_trip: true, bike_distance: 1)
+      user.rides.create!(date: Calendar.today, is_round_trip: false, work_trip: true, bike_distance: 20)
+      captain.rides.create!(date: Calendar.today, is_round_trip: false, work_trip: true, bike_distance: 2)
 
       team_participations = calculator.team_participations
       team_participations.first.team.should eq(team)
@@ -56,7 +56,7 @@ describe ParticipationCalculator do
     it "should calculate participation" do
       competition.competitors.create(team: team)
       team.memberships.create(user: user, approved: true)
-      user.rides.create!(date: Date.today, is_round_trip: true, work_trip: true, bike_distance: 1)
+      user.rides.create!(date: Calendar.today, is_round_trip: true, work_trip: true, bike_distance: 1)
       user.rides.create!(date: Date.new(2013, 2, 1), is_round_trip: false, work_trip: true, bike_distance: 2)
 
       member_participations = calculator.member_participations
@@ -67,8 +67,8 @@ describe ParticipationCalculator do
     it "should use max of two trips per day" do
       competition.competitors.create(team: team)
       team.memberships.create(user: user, approved: true)
-      user.rides.create!(date: Date.today, is_round_trip: true, work_trip: true, bike_distance: 1)
-      user.rides.create!(date: Date.today, is_round_trip: false, work_trip: true, bike_distance: 2)
+      user.rides.create!(date: Calendar.today, is_round_trip: true, work_trip: true, bike_distance: 1)
+      user.rides.create!(date: Calendar.today, is_round_trip: false, work_trip: true, bike_distance: 2)
       user.rides.create!(date: Date.new(2013, 2, 1), is_round_trip: false, work_trip: true, bike_distance: 2)
 
       member_participations = calculator.member_participations
