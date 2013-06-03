@@ -18,7 +18,7 @@ class ParticipationCalculator
   end
 
   def work_days
-    @work_days ||= work_days_between(start_on, Date.today)
+    @work_days ||= work_days_between(start_on, Calendar.today)
   end
 
   def member_participations
@@ -76,8 +76,8 @@ class ParticipationCalculator
     end
 
     def competition_rides(rides)
-      from_date = (Date.today <= end_on) ? Date.today : end_on
-      if start_on <= Date.today
+      from_date = (Calendar.today <= end_on) ? Calendar.today : end_on
+      if start_on <= Calendar.today
         dates = start_on..from_date
         week_days = 1..5
         rides.select { |ride|

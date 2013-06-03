@@ -51,7 +51,7 @@ describe Competition do
     end
 
     it "should count the weekdays in the competition so far" do
-      Date.stub(today: Date.new(2013, 02, 05))
+      Calendar.stub(today: Date.new(2013, 02, 05))
       competition = FactoryGirl.build(:competition,
         start_on: Date.new(2013, 02, 04),
         end_on: Date.new(2013, 02, 10))
