@@ -7,7 +7,7 @@ class Ride < ActiveRecord::Base
   validates :walk_distance, :numericality => { :greater_than_or_equal_to => 0, allow_nil: true }
   validates :rider, presence: true
 
-  validate :validate_date_not_in_future
+  # validate :validate_date_not_in_future
   validate :validate_distance_presence
   validate :validate_total_distance
 
