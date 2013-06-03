@@ -9,8 +9,8 @@ class DashboardController < ApplicationController
   private
 
   def build_ride
-    if current_user.rides.any?
-      last_ride = current_user.rides.latest.first
+    last_ride = current_user.rides.where(work_trip: true).latest.first
+    if last_ride.present?
       attrs = last_ride.attributes.slice(*copyable_ride_attrs)
     else
       attrs = {}
@@ -23,6 +23,6 @@ class DashboardController < ApplicationController
   end
 
   def default_ride_attrs
-    { date: Calendar.today, is_round_trip: true, work_trip: true }
+    { date: Calendar.today, is_round_trip: true }
   end
 end
