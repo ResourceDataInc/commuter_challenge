@@ -9,7 +9,7 @@ class DashboardController < ApplicationController
   private
 
   def build_ride
-    last_ride = current_user.rides.where(work_trip: true).latest.first
+    last_ride = current_user.rides.latest.work_trips.first
     if last_ride.present?
       attrs = last_ride.attributes.slice(*copyable_ride_attrs)
     else
