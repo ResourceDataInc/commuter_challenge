@@ -55,4 +55,14 @@ describe Ride do
       ride.total_distance.should == 0
     end
   end
+
+  describe "work_trips" do
+    it "only returns work trips" do
+      work = FactoryGirl.create(:ride, work_trip: true)
+      personal = FactoryGirl.create(:ride, work_trip: false)
+      trips = Ride.work_trips
+      trips.should include work
+      trips.should_not include personal
+    end
+  end
 end
