@@ -2,7 +2,7 @@
 
 <h1><%= @user.username %></h1>
 
-<% if @user.rides.any? %>
+<% if @rides.any? %>
   <h3>Rides</h3>
 
   <table class="table table-striped table-hover table-bordered">
@@ -14,7 +14,7 @@
       </tr>
     </thead>
 
-    <% @user.rides.each do |ride| %>
+    <% @rides.each do |ride| %>
       <%= content_tag_for :tr, ride do %>
         <td><%= ride.date %></td>
         <td><%= ride.bike_distance %></td>
