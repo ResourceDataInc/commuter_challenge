@@ -23,6 +23,6 @@ class DashboardController < ApplicationController
   end
 
   def default_ride_attrs
-    { date: Calendar.today, is_round_trip: true }
+    { date: Calendar.today, is_round_trip: true, work_trip: true }
   end
 end
