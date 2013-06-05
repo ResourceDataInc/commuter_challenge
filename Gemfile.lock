@@ -217,6 +217,7 @@ DEPENDENCIES
   newrelic_rpm
   pg (~> 0.15)
   rails (= 3.2.13)
+  rake (~> 10.0.4)
   rspec-rails (~> 2.13)
   sass-rails (~> 3.2.3)
   shoulda-matchers (~> 1.5)
