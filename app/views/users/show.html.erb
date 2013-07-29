@@ -19,6 +19,9 @@
         <td><%= ride.date %></td>
         <td><%= ride.bike_distance %></td>
         <td><%= ride.description %></td>
+        <% if can? :manage, ride %>
+          <td><%= link_to "Edit", edit_ride_path(ride) %></td>
+        <% end %>
       <% end %>
     <% end %>
   </table>
