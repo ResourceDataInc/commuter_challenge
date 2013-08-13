@@ -7,6 +7,7 @@ class Competition < ActiveRecord::Base
   has_many :competitors, inverse_of: :competition, :dependent => :destroy
   has_many :teams, through: :competitors, inverse_of: :competition
   has_many :members, through: :teams
+  has_many :rides, through: :members
   
   validates :title, presence: true
   validates :description, presence: true
