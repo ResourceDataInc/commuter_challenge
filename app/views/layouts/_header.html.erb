@@ -11,7 +11,7 @@
 
         <ul id="main-menu" class="nav">
           <% if Competition.count > 0 %>
-            <li class="<%= 'active' if params[:controller] == 'competitions' %>"><%= link_to "Leaderboard", competition_path(active_competition) %></li>
+            <li class="<%= 'active' if params[:controller] == 'competitions' %>"><%= link_to "Leaderboard", competition_path(current_competition) %></li>
           <% end %>
           <li class="<%= 'active' if params[:controller] == 'teams' %>"><%= link_to "Teams", teams_path %></li>
         </ul>
