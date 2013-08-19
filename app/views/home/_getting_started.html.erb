@@ -1,7 +1,7 @@
 <div class="row">  
   <div class="span4 countdown">
-    <% if active_competition.present? %>
-      <h1><%= (active_competition.end_on - Calendar.today).to_i + 1 %></h1>
+    <% if current_competition.present? %>
+      <h1><%= (current_competition.end_on - Calendar.today).to_i + 1 %></h1>
       <h2>Days Left</h2>
     <% end %>
   </div> 
