@@ -36,6 +36,10 @@ class Competition < ActiveRecord::Base
     @calculations ||= Calculations.new(start_on, end_on)
   end
 
+  def active?
+    (start_on..end_on).cover? Calendar.today
+  end
+
   private
 
   def validate_start_on_before_end_on
