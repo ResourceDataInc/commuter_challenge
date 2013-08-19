@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
     dashboard_path
   end
 
-  helper_method :active_competition
-  def active_competition
+  helper_method :current_competition
+  def current_competition
     Competition.by_start_date.first
   end
 
