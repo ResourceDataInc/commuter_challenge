@@ -65,6 +65,7 @@ en:
 
   help:
     title: "Welcome to the BCA's Commuter Challenge!"
+    competition_ended: "Time's Up!"
     start:
       captain:
         title: "Team Captains"
