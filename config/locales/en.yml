@@ -145,3 +145,6 @@ en:
         bike_distance: "Bike Miles"
         bus_distance: "Bus Miles"
         walk_distance: "Walk Miles"
+
+  sponsor:
+    message_html: "Design and development by <a href='http://www.resdat.com'>Resource Data, Inc.</a>"
