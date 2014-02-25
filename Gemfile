@@ -1,27 +1,30 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+ruby '2.1.1'
 
-gem 'rake', '~> 10.0.4'
-gem 'rails', '3.2.13'
+gem 'rake', '~> 10.0'
+gem 'rails', '4.0.3'
 gem 'pg', '~> 0.15'
-gem 'jquery-rails', '~> 2.2'
-gem 'devise', '~> 2.2'
-gem 'simple_form', '~> 2.1'
+gem 'jquery-rails'
+gem 'devise', '~> 3.2'
+gem 'simple_form', '~> 3.0'
 gem 'cancan', '~> 1.6'
-gem 'bootstrap-datepicker-rails', '~> 1.0'
 gem 'newrelic_rpm'
 gem 'jquery-cookie-rails'
 gem 'google-analytics-rails'
 
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'bootstrap-sass', '~> 2.3'
-  gem 'font-awesome-sass-rails', "~> 3.0"
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'therubyracer', :platforms => :ruby
-  gem 'uglifier', '>= 1.0.3'
-end
+# gem 'turbolinks'
+gem 'sass-rails',   '~> 4.0.0'
+gem 'bootstrap-sass', '~> 2.3'
+gem 'bootstrap-datepicker-rails', '~> 1.0'
+gem 'font-awesome-sass-rails', "~> 3.0"
+gem 'coffee-rails', '~> 4.0.0'
+gem 'therubyracer', :platforms => :ruby
+gem 'uglifier', '>= 1.3.0'
+
+
+# TODO remove reliance on these
+gem 'protected_attributes'
 
 group :production, :staging do
   gem 'unicorn', :platforms => :ruby
@@ -37,6 +40,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'better_errors', '~> 0.7'
+  gem 'better_errors', '~> 1.0'
   gem 'letter_opener'
 end
