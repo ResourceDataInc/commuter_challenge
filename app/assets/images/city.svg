@@ -29,6 +29,7 @@
 
     <pattern id="HillsC" x="-500"  width="1000" height="500" patternUnits="userSpaceOnUse">
       <path d="m310.5,186.443481c0,-17.862 99.334595,-21.583954 168.947998,-65.839966c69.614014,-44.256012 130.506958,-70.046997 167.623047,-70.046997c37.115967,0 77.473999,57.479004 150.551941,74.423004c73.077942,16.944 165.877014,41.354004 165.877014,59.215973l-653,2.247986z" fill="#D1E2A9"/>
+      <rect width="1000" height="50" y="175" fill="#D1E2A9" />
     </pattern>
 
     <pattern id="HillsD" x="100"  width="1000" height="500" patternUnits="userSpaceOnUse">
@@ -65,7 +66,7 @@
     <rect height="61" width="68" y="288" x="496" fill="url(#Windows)" />
   </g>
 
-   <g transform="translate(0, 390) scale(1, 0.6)">
+   <g transform="translate(0, 375) scale(1, 0.6)">
      <rect fill="url(#HillsA)" width="100%" height="500"/>
      <rect fill="url(#HillsB)" width="100%" height="500"/>
      <rect fill="url(#HillsC)" width="100%" height="500"/>

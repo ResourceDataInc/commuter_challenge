@@ -27,7 +27,7 @@
 
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,700);
 
-body, html{
+html{
   height: 100%;
   font-family: 'Roboto Slab', serif;
 }
@@ -43,15 +43,31 @@ body{
 
   color: $white;
   min-width: 280px;
+  min-height: 100%;
+  padding-bottom: 45px;
+  position: relative;
+  @include box-sizing(border-box);
 }
+
 .well, .table, .modal{
   color: $black;
 }
 
 .footer {
-  vertical-align: bottom;
-  padding-top: 5px;
-  background: none;
+  position: absolute;
+  bottom: 2px;
+  right: 8px;
+  font-size: 1.2em;
+  letter-spacing: 0.5px;
+  font-weight: 800;
+  text-align: center;
+  color: $beach-d;
+  padding-left: 8px;
+
+  a {
+    color: $beach-d;
+    text-decoration: none;
+  }
 }
 
 .welcome{
