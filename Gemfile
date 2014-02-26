@@ -25,10 +25,6 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'therubyracer', :platforms => :ruby
 gem 'uglifier', '>= 1.3.0'
 
-
-# TODO remove reliance on these
-gem 'protected_attributes'
-
 group :production, :staging do
   gem 'unicorn', :platforms => :ruby
   gem 'rails_12factor'
@@ -46,4 +42,5 @@ end
 group :development do
   gem 'better_errors', '~> 1.0'
   gem 'letter_opener'
+  gem 'binding_of_caller'
 end
