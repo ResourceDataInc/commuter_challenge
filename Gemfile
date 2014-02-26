@@ -31,6 +31,7 @@ gem 'protected_attributes'
 
 group :production, :staging do
   gem 'unicorn', :platforms => :ruby
+  gem 'rails_12factor'
 end
 
 group :development, :test do
