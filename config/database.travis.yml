@@ -1,0 +1,7 @@
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: bike_commute_challenge_test
+  host: localhost
+  pool: 5
+  username: postgres
