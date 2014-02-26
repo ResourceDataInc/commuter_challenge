@@ -41,7 +41,7 @@ class CompetitionsController < ApplicationController
   end
 
   def update
-    if @competition.update_attributes(params[:competition])
+    if @competition.update_attributes(competition_params)
       flash[:success] = t("competition.edit.success")
       redirect_to @competition
     else
@@ -56,5 +56,9 @@ class CompetitionsController < ApplicationController
     @competition.destroy
     flash[:success] = t("competition.delete.success")
     redirect_to root_url
+  end
+
+  def competition_params
+    params.require(:competition).permit(:description, :end_on, :owner_id, :start_on, :title, :brackets_attributes)
   end
 end

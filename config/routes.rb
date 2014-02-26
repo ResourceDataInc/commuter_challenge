@@ -26,7 +26,7 @@ BikeCommuteChallenge::Application.routes.draw do
   resources :users, only: %i{show}
 
   authenticated :user do
-    root :to =>"dashboard#index"
+    root :to =>"dashboard#index", as: :user_root
   end
 
   root to: "home#index"

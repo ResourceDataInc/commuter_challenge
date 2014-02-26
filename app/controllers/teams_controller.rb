@@ -29,7 +29,7 @@ class TeamsController < ApplicationController
   end
 
   def update
-    if @team.update_attributes(params[:team])
+    if @team.update_attributes(team_params)
       flash[:success] = t("team.edit.success") 
       redirect_to @team
     else
@@ -53,5 +53,9 @@ class TeamsController < ApplicationController
     unless competition.nil?
       competition.competitors.create(team_id: team.id, approved: true)
     end
+  end
+
+  def team_params
+    params.require(:team).permit(:captain_id, :description, :name, :business_size)
   end
 end

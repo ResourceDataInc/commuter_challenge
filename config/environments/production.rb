@@ -13,6 +13,7 @@ BikeCommuteChallenge::Application.configure do
 
   # Compress JavaScripts and CSS
   config.assets.compress = true
+  config.assets.js_compressor = :uglifier
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
   config.assets.compile = false
@@ -76,9 +77,7 @@ BikeCommuteChallenge::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  # Log the query plan for queries taking more than this (works
-  # with SQLite, MySQL, and PostgreSQL)
-  # config.active_record.auto_explain_threshold_in_seconds = 0.5
-
   GA.tracker = "UA-40964112-1"
+
+  config.eager_load = true
 end

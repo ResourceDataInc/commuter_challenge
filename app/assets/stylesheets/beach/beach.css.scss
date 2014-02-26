@@ -35,8 +35,8 @@ html{
 body{
 
   background-color: $beach-n;
-  background-image: url('city.jpeg');
-  background-image: none, url('city.svg');
+  background-image: image-url('city.jpeg');
+  background-image: none, image-url('city.svg');
   background-attachment:fixed;
   background-position:bottom left;
   background-repeat:no-repeat;
