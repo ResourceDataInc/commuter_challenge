@@ -1,0 +1,9 @@
+language: ruby
+rvm:
+  - 2.1.1
+bundler_args: --without development:staging:production
+before_script:
+  - cp config/database.travis.yml config/database.yml
+  - psql -c 'create database bike_commute_challenge_test;' -U postgres
+notifications:
+  email: false
