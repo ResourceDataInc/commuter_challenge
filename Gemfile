@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 
 ruby '2.1.1'
 
+# loaded before everything else
+gem 'dotenv-rails', groups: [:development, :test]
+
 gem 'rake', '~> 10.0'
 gem 'rails', '4.0.3'
 gem 'pg', '~> 0.15'
