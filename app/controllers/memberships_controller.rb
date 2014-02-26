@@ -12,7 +12,7 @@ class MembershipsController < ApplicationController
   end
 
   def update
-    if @membership.update_attributes(params[:membership])
+    if @membership.update_attributes(membership_params)
       flash[:success] = t("team.join.approve_confirmation")
     else
       flash[:error] = t("team.join.approve_failure")
@@ -27,5 +27,11 @@ class MembershipsController < ApplicationController
     @membership.destroy
     flash[:success] = t("membership.delete.success")
     redirect_to @team
+  end
+
+  private
+
+  def membership_params
+    params.require(:membership).permit(:team_id, :team, :user_id, :user, :approved)
   end
 end

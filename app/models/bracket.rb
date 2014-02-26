@@ -9,8 +9,6 @@ class Bracket < ActiveRecord::Base
   validate :validate_upper_limit_cannot_be_between_existing_boundary
   validate :validate_lower_limit_cannot_be_between_existing_boundary
 
-  attr_accessible :competition_id, :lower_limit, :name, :upper_limit
-
   def teams
     competition.teams.where("business_size between ? AND ?", lower_limit, upper_limit)
   end

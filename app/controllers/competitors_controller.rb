@@ -12,7 +12,7 @@ class CompetitorsController < ApplicationController
   end
 
   def update
-    if @competitor.update_attributes(params[:competitor])
+    if @competitor.update_attributes(competitor_params)
       flash[:success] = t("competition.join.approve_confirmation")
     else
       flash[:error] = t("competition.join.approve_failure")
@@ -27,5 +27,11 @@ class CompetitorsController < ApplicationController
     @competitor.destroy
     flash[:success] = t("competitor.delete.success")
     redirect_to edit_competition_path @competitor.competition
+  end
+
+  private
+
+  def competitor_params
+    params.require(:competitor).permit(:approved, :approved_at, :team_id, :team)
   end
 end

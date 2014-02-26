@@ -5,9 +5,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  attr_accessible :email, :username, :password, :password_confirmation,
-                  :remember_me
-
   has_many :memberships, inverse_of: :user, :dependent => :destroy
   has_many :teams, through: :memberships
   has_many :rides, foreign_key: :rider_id, :dependent => :destroy

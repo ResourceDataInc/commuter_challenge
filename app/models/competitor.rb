@@ -6,8 +6,6 @@ class Competitor < ActiveRecord::Base
   validates :team, associated: true, presence: true
   validates :team_id, uniqueness: true
 
-  attr_accessible :approved, :approved_at, :team_id, :team
-
   before_save :update_approved_at
 
   private
