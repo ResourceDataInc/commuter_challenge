@@ -27,7 +27,7 @@ class RidesController < ApplicationController
   end
 
   def update
-    if @ride.update_attributes(params[:ride])
+    if @ride.update_attributes(ride_params)
       flash[:success] = t("ride.edit.success")
       redirect_to dashboard_path
     else
@@ -42,5 +42,13 @@ class RidesController < ApplicationController
     @ride.destroy
     flash[:success] = t("ride.delete.success")
     redirect_to dashboard_path
+  end
+
+  private
+
+  def ride_params
+    params.require(:ride).permit(:date, :description, :bike_distance,
+                                 :bus_distance, :walk_distance, :rider_id,
+                                 :is_round_trip, :work_trip)
   end
 end

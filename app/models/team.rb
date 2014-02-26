@@ -10,8 +10,6 @@ class Team < ActiveRecord::Base
   validates :captain, presence: true
   validates :business_size, presence: true, :numericality => { :greater_than => 0 }
 
-  attr_accessible :captain_id, :description, :name, :business_size
-
   scope :by_name, -> { order :name }
 
   def to_param

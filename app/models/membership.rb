@@ -7,8 +7,6 @@ class Membership < ActiveRecord::Base
   validates :team, associated: true, presence: true
   validates :user, associated: true, presence: true
 
-  attr_accessible :team_id, :team, :user_id, :user, :approved
-
   before_save :update_approved_at
 
   scope :by_username, -> { includes(:user).order("users.username") }
