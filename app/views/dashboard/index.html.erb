@@ -13,37 +13,52 @@
 <div class="dashboard">
   <div class="row stats">
     <div class="span2">
-      <div class="stat-header"><%= t("dashboard.user.mileage") %></div>
-      <div class="number"><%= current_user.total_distance %></div>
-    </div>
-    <div class="span2">
       <div class="stat-header"><%= t("dashboard.user.commutes") %></div>
-      <div class="number"><%= current_user.ride_count %></div>
+      <div class="number"><%= @member_commutes || "--" %></div>
     </div>
+
     <div class="span2">
-      <div class="stat-header"><%= t("dashboard.user.position") %></div>
-      <div class="number positive">--</div>
-    </div>
-    <div class="span2">
-      <div class="stat-header"><%= t("dashboard.team.participation") %></div>
+      <div class="stat-header"><%= t("dashboard.user.participation") %></div>
       <div class="number positive">
-        <% if current_user.teams.any? %>
-          <%= current_user.teams.first.participation_percent %> %
+        <% if current_user.active_membership %>
+          <%= content_tag :span, title: "#{@member_commutes} logged trips out of #{@team_member_possible_commutes} possible trips" do %>
+            <%= @member_participation %> %
+          <% end %>
         <% else %>
           --
         <% end %>
       </div>
     </div>
+
+    <div class="span2">
+      <div class="stat-header"><%= t("dashboard.user.mileage") %></div>
+      <div class="number"><%= @personal_mileage %></div>
+    </div>
+
     <div class="span2">
       <div class="stat-header"><%= t("dashboard.team.commutes") %></div>
       <div class="number positive">
-        <% if current_user.teams.any? %>
-          <%= current_user.teams.first.team_rides %>
+        <% if current_user.active_membership %>
+          <%= @team_commutes %>
         <% else %>
           --
         <% end %>
       </div>
     </div>
+
+    <div class="span2">
+      <div class="stat-header"><%= t("dashboard.team.participation") %></div>
+      <div class="number positive">
+        <% if current_user.active_membership %>
+          <%= content_tag :span, title: "#{@team_commutes} logged trips out of #{@team_possible_commutes} possible trips" do %>
+            <%= @team_participation %> %
+          <% end %>
+        <% else %>
+          --
+        <% end %>
+      </div>
+    </div>
+
     <div class="span2">
       <div class="stat-header"><%= t("dashboard.team.position") %></div>
       <div class="number positive">--</div>

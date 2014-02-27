@@ -56,7 +56,7 @@
       <%= content_tag_for :tr, membership, class: ("warning" unless membership.approved?) do %>
         <td class="span3"><%= link_to membership.user.username, membership.user %></td>
         <td><%= membership.ride_count %></td>
-        <td class="muted"><%= membership.participation_percent %></td>
+        <td class="muted"><%= @calculator.membership_participation(membership).percent %></td>
 
         <% if can? :manage, @team %>
           <td class="hidden-phone"><%= membership.approved? ? "Approved" : "Pending" %></td>

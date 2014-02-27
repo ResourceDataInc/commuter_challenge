@@ -24,13 +24,35 @@ describe User do
     it { should validate_uniqueness_of :username }
   end
 
-  describe "#total_distance" do
-    it "sums all distance" do
+  describe "#active_membership" do
+    it "returns membership for team of an active competition" do
       user = FactoryGirl.create(:user)
-      user.rides.create(bike_distance: 3)
-      user.rides.create(bus_distance: 7)
-      user.rides.create(walk_distance: 0.5)
-      user.total_distance.should be_within(0.001).of(3 + 7 + 0.5)
+      active_team = FactoryGirl.create(:team)
+      active_competition = FactoryGirl.create(:competition, start_on: 1.week.ago, end_on: 1.month.from_now)
+      FactoryGirl.create(:competitor, competition: active_competition, team: active_team)
+      active_membership = FactoryGirl.create(:membership, user: user, team: active_team)
+
+      inactive_team = FactoryGirl.create(:team)
+      inactive_competition = FactoryGirl.create(:competition, start_on: 12.months.ago, end_on: 10.months.ago)
+      FactoryGirl.create(:competitor, competition: inactive_competition, team: inactive_team)
+      FactoryGirl.create(:membership, user: user, team: inactive_team)
+
+      expect(user.active_membership).to eq(active_membership)
+    end
+
+    it "returns nil when not on a team" do
+      user = FactoryGirl.create(:user)
+      expect(user.active_membership).to be_nil
+    end
+
+    it "returns nil when no active competition" do
+      user = FactoryGirl.create(:user)
+      team = FactoryGirl.create(:team)
+      competition = FactoryGirl.create(:competition, start_on: 2.months.ago, end_on: 1.week.ago)
+      competitor = FactoryGirl.create(:competitor, competition: competition, team: team)
+      membership = FactoryGirl.create(:membership, user: user, team: team)
+
+      expect(user.active_membership).to be_nil
     end
   end
 end

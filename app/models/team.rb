@@ -15,16 +15,4 @@ class Team < ActiveRecord::Base
   def to_param
     "#{id}-#{name.parameterize}"
   end
-
-  def approved_users
-    memberships.where(approved: true)
-  end
-
-  def participation_percent
-    @participation_percent ||= competition.calculations.team_participation_percent(business_size, rides)
-  end
-
-  def team_rides
-    @team_rides ||= competition.calculations.team_actual_rides(rides)
-  end
 end

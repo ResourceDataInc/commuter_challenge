@@ -3,7 +3,8 @@ class Competition < ActiveRecord::Base
   has_many :brackets, :dependent => :destroy, inverse_of: :competition
   accepts_nested_attributes_for :brackets
   has_many :competitors, inverse_of: :competition, :dependent => :destroy
-  has_many :teams, through: :competitors, inverse_of: :competition
+  has_many :teams, through: :competitors
+  has_many :memberships, through: :teams
   has_many :members, through: :teams
   has_many :rides, through: :members
   
@@ -17,24 +18,18 @@ class Competition < ActiveRecord::Base
 
   scope :by_start_date, -> { order 'start_on desc' }
 
+  scope :active, -> { where(["start_on <= ? and end_on >= ?", Calendar.today, Calendar.today]) }
+
   def to_param
     "#{id}-#{title.parameterize}"
   end
 
-  def total_work_days
-    calculations.total_work_days
-  end
-
-  def work_days
-    calculations.work_days
-  end
-
-  def calculations
-    @calculations ||= Calculations.new(start_on, end_on)
-  end
-
   def active?
-    (start_on..end_on).cover? Calendar.today
+    date_range.cover? Calendar.today
+  end
+
+  def date_range
+    start_on..end_on
   end
 
   private

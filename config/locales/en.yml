@@ -60,7 +60,7 @@ en:
     user:
       mileage: "Your Mileage"
       commutes: "Your Commutes"
-      position: "Your Position"
+      participation: "Your Participation"
       no-team: "Join or create a team to start competing"
 
   help:

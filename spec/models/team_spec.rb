@@ -34,14 +34,4 @@ describe Team do
       team.should be_valid
     end
   end
-
-  context "stats" do
-    it "should count the number of approved users" do
-      team = FactoryGirl.create(:team)
-      team.memberships.create(user: FactoryGirl.create(:user), approved: true)
-      team.memberships.create(user: FactoryGirl.create(:user), approved: true)
-      team.memberships.create(user: FactoryGirl.create(:user), approved: false)
-      team.approved_users.count.should equal(2)
-    end
-  end
 end
