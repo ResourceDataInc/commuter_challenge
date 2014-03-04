@@ -30,16 +30,6 @@ describe Competition do
       competition.end_on = 1.month.from_now
       competition.should be_valid
     end
-
-    it "should require start date be in the future" do
-      competition = FactoryGirl.build :competition,
-        start_on: 1.month.ago
-      competition.should_not be_valid
-      competition.should have(1).error_on(:start_on)
-
-      competition.start_on = Time.now
-      competition.should be_valid
-    end
   end
 
   context "calculations" do

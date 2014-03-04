@@ -14,7 +14,6 @@ class Competition < ActiveRecord::Base
   validates :end_on, presence: true
 
   validate :validate_start_on_before_end_on
-  validate :validate_start_on_not_in_past
 
   scope :by_start_date, -> { order 'start_on desc' }
 
@@ -44,13 +43,6 @@ class Competition < ActiveRecord::Base
     return if start_on.blank? || end_on.blank?
     unless start_on < end_on
       errors.add :end_on, "cannot be before start date"
-    end
-  end
-
-  def validate_start_on_not_in_past
-    return if start_on.blank?
-    if start_on_changed? && start_on < Calendar.today
-      errors.add :start_on, "cannot be in the past"
     end
   end
 end
