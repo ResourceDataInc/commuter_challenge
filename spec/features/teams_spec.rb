@@ -32,6 +32,7 @@ describe "teams" do
     login_as user
 
     team = FactoryGirl.create(:team, captain: user, name: "Foo", description: "bar", business_size: 1000)
+    FactoryGirl.create(:competitor, team: team)
     visit root_url
     click_on "Teams"
     click_on team.name
@@ -57,6 +58,7 @@ describe "teams" do
     login_as user
 
     team = FactoryGirl.create(:team, captain: user, name: "Foo", description: "bar")
+    FactoryGirl.create(:competitor, team: team)
     visit root_url
     click_on "Teams"
     click_on team.name
