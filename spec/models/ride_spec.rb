@@ -34,15 +34,6 @@ describe Ride do
       ride.bus_distance = 11
       ride.should be_valid
     end
-
-    it "cannot be logged for a future date" do
-      pending
-      ride = FactoryGirl.build :ride, date: Calendar.tomorrow
-      ride.should_not be_valid
-      ride.should have(1).error_on(:date)
-      ride.date = Calendar.today
-      ride.should be_valid
-    end
   end
 
   describe "#total_distance" do
@@ -64,6 +55,15 @@ describe Ride do
       trips = Ride.work_trips
       trips.should include work
       trips.should_not include personal
+    end
+  end
+
+  describe "total_distance" do
+    it "sums up all distances" do
+      FactoryGirl.create(:ride, bike_distance: 5, bus_distance: nil, walk_distance: nil)
+      FactoryGirl.create(:ride, bike_distance: nil, bus_distance: 2, walk_distance: 0.5)
+
+      expect(Ride.total_distance).to be_within(0.001).of(7.5)
     end
   end
 end

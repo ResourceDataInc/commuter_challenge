@@ -17,14 +17,6 @@ class Bracket < ActiveRecord::Base
     teams.flat_map(&:memberships)
   end
 
-  def teams_by_participation
-    teams.sort_by(&:participation_percent).reverse.first(3)
-  end
-
-  def memberships_by_participation
-    memberships.sort_by(&:participation_percent).reverse.first(3)
-  end
-
   scope :by_lower_limit, -> { order :lower_limit }
 
   private

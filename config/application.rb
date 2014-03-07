@@ -56,5 +56,7 @@ module BikeCommuteChallenge
     config.assets.version = '1.0'
 
     config.i18n.enforce_available_locales = true
+
+    config.beginning_of_week = :sunday
   end
 end

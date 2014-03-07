@@ -11,18 +11,12 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, uniqueness: true
 
-  def total_distance
-    rides.map(&:total_distance).sum
-  end
-
   def to_param
     "#{id}-#{username.parameterize}"
   end
-  
-  # calculates the amount of rides - round trips count as 2, one way and null as one
-  def ride_count
-  	return (self.rides.where("is_round_trip").count * 2) + 
-  		self.rides.where("is_round_trip IN (FALSE,NULL)").count
+
+  def active_membership
+    # joining to a has-many-through association returns readonly records
+    memberships.joins(:competition).merge(Competition.active).readonly(false).first
   end
-  
 end

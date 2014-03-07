@@ -23,6 +23,7 @@ class TeamsController < ApplicationController
   def show
     @memberships = @team.memberships.by_username
     @membership = Membership.new
+    @calculator = ParticipationCalculator.new(@team.competition)
   end
 
   def edit
