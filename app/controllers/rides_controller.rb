@@ -12,7 +12,7 @@ class RidesController < ApplicationController
   end
 
   def create
-    if @ride.save
+    if score_keeper.update(@ride) { @ride.save }
       flash[:success] = t("ride.add.success")
       redirect_to dashboard_path
     else
@@ -27,7 +27,7 @@ class RidesController < ApplicationController
   end
 
   def update
-    if @ride.update_attributes(ride_params)
+    if score_keeper.update(@ride) { @ride.update_attributes(ride_params) }
       flash[:success] = t("ride.edit.success")
       redirect_to dashboard_path
     else
@@ -39,7 +39,7 @@ class RidesController < ApplicationController
   end
 
   def destroy
-    @ride.destroy
+    score_keeper.update(@ride) { @ride.destroy }
     flash[:success] = t("ride.delete.success")
     redirect_to dashboard_path
   end
@@ -50,5 +50,9 @@ class RidesController < ApplicationController
     params.require(:ride).permit(:date, :description, :bike_distance,
                                  :bus_distance, :walk_distance, :rider_id,
                                  :is_round_trip, :work_trip)
+  end
+
+  def score_keeper
+    @score_keeper ||= ScoreKeeper.new(current_user)
   end
 end

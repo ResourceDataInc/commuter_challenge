@@ -17,10 +17,12 @@ class CompetitionsController < ApplicationController
   end
 
   def show
-    @competition = Competition.includes(teams: [:rides, { members: [:rides] }]).find(params[:id])
+    @competition = Competition.includes(:teams).find(params[:id])
     calculator = ParticipationCalculator.new(@competition)
+
     team_participations = calculator.team_participations
     member_participations = calculator.member_participations
+
     @brackets = Hash[@competition.brackets.by_lower_limit.map { |bracket|
       range = bracket.lower_limit..bracket.upper_limit
       tps = team_participations.select { |tp| range.include?(tp.team.business_size) }
@@ -28,8 +30,8 @@ class CompetitionsController < ApplicationController
       [
         bracket,
         {
-          teams: tps.sort_by { |tp| -tp.participation_percent },
-          members: mps.sort_by { |mp| -mp.participation_percent }.first(10)
+          teams: tps.sort_by { |tp| -tp.percent },
+          members: mps.sort_by { |mp| -mp.percent }.first(10)
         }
       ]
     }]

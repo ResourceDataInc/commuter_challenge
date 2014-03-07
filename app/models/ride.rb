@@ -15,6 +15,10 @@ class Ride < ActiveRecord::Base
 
   scope :work_trips, -> { where(work_trip: true) }
 
+  def self.total_distance
+    sum("coalesce(bike_distance, 0) + coalesce(bus_distance, 0) + coalesce(walk_distance, 0)")
+  end
+
   def total_distance
     [bike_distance, bus_distance, walk_distance].compact.sum
   end
