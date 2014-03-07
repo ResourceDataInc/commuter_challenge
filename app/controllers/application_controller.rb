@@ -10,7 +10,16 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_competition
   def current_competition
-    Competition.by_start_date.first
+    @current_competition ||= Competition.by_start_date.first
+  end
+
+  helper_method :current_membership
+  def current_membership
+    if current_competition
+      @current_membership ||= current_user.memberships.joins(:competition)
+        .where(["competitions.id = ?", current_competition.id])
+        .first
+    end
   end
 
   rescue_from CanCan::AccessDenied do |exception|

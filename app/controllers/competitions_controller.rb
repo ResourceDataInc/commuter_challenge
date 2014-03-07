@@ -2,6 +2,7 @@ class CompetitionsController < ApplicationController
   load_and_authorize_resource
 
   def index
+    @competitions = @competitions.by_start_date
   end
 
   def new
@@ -18,6 +19,7 @@ class CompetitionsController < ApplicationController
 
   def show
     @competition = Competition.includes(:teams).find(params[:id])
+    @teams = @competition.teams
     calculator = ParticipationCalculator.new(@competition)
 
     team_participations = calculator.team_participations

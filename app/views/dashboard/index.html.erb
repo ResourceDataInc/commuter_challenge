@@ -1,9 +1,14 @@
 <div class ="row">
   <div class="span8">
-	<h1><%= t("dashboard.greeting") %>, <%= current_user.username %></h1>
+    <h1><%= t("dashboard.greeting") %>, <%= current_user.username %></h1>
+    <% if current_membership %>
+      <span class="lead">
+        <%= link_to current_membership.team.name, current_membership.team %>
+      </span>
+    <% end %>
   </div>
   <div class="span4">
-    <% if !current_user.teams.any? %>
+    <% unless current_membership %>
       <%= link_to t("dashboard.user.no-team"), teams_path, class: "btn btn-orange pull-right" %>
     <% end %>
     <div class="clearfix"></div>
@@ -22,7 +27,7 @@
       <div class="number positive">
         <% if current_user.active_membership %>
           <%= content_tag :span, title: "#{@member_commutes} logged trips out of #{@team_member_possible_commutes} possible trips" do %>
-            <%= @member_participation %> %
+            <%= number_to_percentage @member_participation, strip_insignificant_zeros: true, precision: 1 %>
           <% end %>
         <% else %>
           --
@@ -51,7 +56,7 @@
       <div class="number positive">
         <% if current_user.active_membership %>
           <%= content_tag :span, title: "#{@team_commutes} logged trips out of #{@team_possible_commutes} possible trips" do %>
-            <%= @team_participation %> %
+            <%= number_to_percentage @team_participation, strip_insignificant_zeros: true, precision: 1 %>
           <% end %>
         <% else %>
           --

@@ -43,6 +43,8 @@ en:
     leaderboard:
       teams: "Teams"
       riders: "Top Commuters"
+    status:
+      unstarted: "This competition hasn't started yet!"
 
   competitor:
     delete:
@@ -65,7 +67,10 @@ en:
 
   help:
     title: "Welcome to the BCA's Commuter Challenge!"
-    competition_ended: "Time's Up!"
+    competition:
+      countdown: "Days Left"
+      countup: "Days Until Start"
+      ended: "Time's Up!"
     start:
       captain:
         title: "Team Captains"
