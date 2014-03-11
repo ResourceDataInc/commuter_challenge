@@ -3,13 +3,16 @@
     <% if current_competition.present? %>
       <% if current_competition.active? %>
         <h1><%= (current_competition.end_on - Calendar.today).to_i + 1 %></h1>
-        <h2>Days Left</h2>
+        <h2><%= t "help.competition.countdown" %></h2>
+      <% elsif current_competition.start_on > Calendar.today %>
+        <h1><%= (current_competition.start_on - Calendar.today).to_i + 1 %></h1>
+        <h2><%= t "help.competition.countup" %></h2>
       <% else %>
-        <h2><%= t "help.competition_ended" %></h2>
+        <h2><%= t "help.competition.ended" %></h2>
         Browse the <%= link_to "final standings", current_competition %>.
       <% end %>
     <% end %>
-  </div> 
+  </div>
 
   <div class="span4 instructions">
       <h3><%= t("help.start.rider.title") %></h3>

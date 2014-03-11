@@ -16,7 +16,26 @@
     </div>
   </div>
 
-  <% if @brackets.present? %>
+  <% if @competition.start_on > Calendar.today %>
+    <div class="row">
+      <div class="span12">
+        <%= t "competition.status.unstarted" %>
+
+        <% unless current_membership %>
+          <%= link_to "Create a team", new_team_path %>
+          , or join one below.
+        <% end %>
+      </div>
+    </div>
+
+    <%= render "teams/table", teams: @teams %>
+  <% elsif @brackets.present? %>
     <%= render "leaderboard", brackets: @brackets %>
   <% end %>
+
+  <div class="row">
+    <div class="span12">
+      <%= link_to "Browse past competitions", competitions_path, class: "btn" %>
+    </div>
+  </div>
 <% end %>
