@@ -28,6 +28,7 @@ gem 'uglifier', '>= 1.3.0'
 group :production, :staging do
   gem 'unicorn', :platforms => :ruby
   gem 'rails_12factor'
+  gem 'heroku_rails_deflate'
 end
 
 group :development, :test do
