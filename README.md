@@ -1,4 +1,7 @@
 # Bike Commute Challenge
+
+[![Code Climate](https://codeclimate.com/github/ResourceDataInc/commuter_challenge.png)](https://codeclimate.com/github/ResourceDataInc/commuter_challenge)
+
 * [Staging](http://summer-bike-challenge-staging.herokuapp.com/)
 * [Production](http://summer-bike-challenge-prod.herokuapp.com/)
 
