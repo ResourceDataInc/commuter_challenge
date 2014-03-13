@@ -8,16 +8,18 @@
 
 ## What is it?
 
-An application for setting up and tracking bicycle competitions.
+An application for tracking commutes for the [Bicycle Commuters of
+Anchorage](http://bicycleanchorage.org/wordpress/) annual commuter challenge.
 
 ## Development
 
 ### Environment
-* Ruby 2.0.0
-* Rails 3.2.x
+* Ruby 2.1.x
+* Rails 4.0.x
 
 ### Basics
-* Checkout code: `git@github.com:ResourceDataInc/bike_commute_challenge.git`
+
+* Clone the repository
 * Install bundler: `gem install bundler`
 * Install prerequisites: `bundle install`
 
@@ -45,6 +47,16 @@ An application for setting up and tracking bicycle competitions.
   members will then review your changes.
 * Once everyone agrees the feature is good to go, merge your branch.
 
-### Jenkins
+### Continuous Integration
 
-TODO: Set up Travis CI
+Travis is used for automated builds. Travis is setup up to automatically run
+the test suite for each push to the repository, and for each pull requests. A
+pull request will not be accepted if any spec is failing.
+
+https://travis-ci.org/ResourceDataInc/commuter_challenge
+
+### Code Quality
+
+Code Climate is used for code quality analysis and test coverage.
+
+https://codeclimate.com/github/ResourceDataInc/commuter_challenge
