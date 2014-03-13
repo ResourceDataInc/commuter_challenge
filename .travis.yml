@@ -7,3 +7,6 @@ before_script:
   - psql -c 'create database bike_commute_challenge_test;' -U postgres
 notifications:
   email: false
+addons:
+  code_climate:
+    repo_token: 4d82c5b90b7dc64d6e713f44511dbb02efa930f3095f43ed38ccb71e5db991dc

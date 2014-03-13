@@ -45,3 +45,7 @@ group :development do
   gem 'letter_opener'
   gem 'binding_of_caller'
 end
+
+group :test do
+  gem "codeclimate-test-reporter", require: nil
+end
