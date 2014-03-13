@@ -1,5 +1,6 @@
 # Bike Commute Challenge
 
+[![Build Status](https://travis-ci.org/ResourceDataInc/commuter_challenge.png?branch=master)](https://travis-ci.org/ResourceDataInc/commuter_challenge)
 [![Code Climate](https://codeclimate.com/github/ResourceDataInc/commuter_challenge.png)](https://codeclimate.com/github/ResourceDataInc/commuter_challenge)
 
 * [Staging](http://summer-bike-challenge-staging.herokuapp.com/)
