@@ -6,7 +6,7 @@ ruby '2.1.1'
 gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'rake', '~> 10.0'
-gem 'rails', '4.0.3'
+gem 'rails', '4.0.4'
 gem 'pg', '~> 0.15'
 gem 'jquery-rails'
 gem 'devise', '~> 3.2'
