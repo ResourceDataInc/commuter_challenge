@@ -63,7 +63,7 @@ en:
       mileage: "Your Mileage"
       commutes: "Your Commutes"
       participation: "Your Participation"
-      no-team: "Join or create a team to start competing"
+      no_team: "Join or create a team to start competing"
 
   help:
     title: "Welcome to the BCA's Commuter Challenge!"
