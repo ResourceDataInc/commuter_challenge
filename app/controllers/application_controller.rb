@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_membership
   def current_membership
-    if current_competition
+    if current_competition && current_user
       @current_membership ||= current_user.memberships.joins(:competition)
         .where(["competitions.id = ?", current_competition.id])
         .first
