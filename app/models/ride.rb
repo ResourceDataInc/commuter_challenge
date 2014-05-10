@@ -10,6 +10,7 @@ class Ride < ActiveRecord::Base
   # validate :validate_date_not_in_future
   validate :validate_distance_presence
   validate :validate_total_distance
+  validate :validate_date_is_recent
 
   scope :latest, -> { order('date DESC, created_at DESC') }
 
@@ -52,6 +53,12 @@ class Ride < ActiveRecord::Base
   def validate_date_not_in_future
     if date? && date.to_date > Calendar.today
       errors.add :date, "can't be in the future"
+    end
+  end
+
+  def validate_date_is_recent
+    if date? && date <= 15.days.ago
+      errors.add :date, "must be within the past 2 weeks"
     end
   end
 end

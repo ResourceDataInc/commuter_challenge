@@ -34,6 +34,14 @@ describe Ride do
       ride.bus_distance = 11
       ride.should be_valid
     end
+
+    it "must be logged within two weeks of current date" do
+      ride = FactoryGirl.build(:ride, date: 15.days.ago)
+      ride.should_not be_valid
+      ride.should have(1).error_on(:date)
+      ride.date = 14.days.ago
+      ride.should be_valid
+    end
   end
 
   describe "#total_distance" do

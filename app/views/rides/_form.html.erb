@@ -1,5 +1,5 @@
 <%= simple_form_for @ride, builder: EmbeddedFormBuilder do |f| %>
-  <%= f.input :date, as: :datepicker %>
+  <%= f.input :date, as: :datepicker, hint: "must be within the past 2 weeks" %>
   <%= f.input :bike_distance %>
   <%= f.input :bus_distance %>
   <%= f.input :walk_distance %>
