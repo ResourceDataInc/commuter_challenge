@@ -8,6 +8,12 @@
 
   h2{
     font-size: 3em;
+    text-shadow:
+      1px 1px 0 $beach-b,
+      -1px -1px 0 $beach-b,
+      1px -1px 0 $beach-b,
+      -1px 1px 0 $beach-b,
+      1px 1px 0 $beach-b;
   }
 }
 
