@@ -4,10 +4,14 @@
 
 .datepicker {
   color: $gray;
+  padding: 0;
 }
 
 form{
-
+  .help-block{
+    @extend .muted;
+    font-style: italic;
+  }
 }
 
 .form-actions{
