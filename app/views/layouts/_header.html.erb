@@ -11,9 +11,10 @@
 
         <ul id="main-menu" class="nav">
           <% if Competition.count > 0 %>
-            <li class="<%= 'active' if params[:controller] == 'competitions' %>"><%= link_to "Leaderboard", competition_path(current_competition) %></li>
+            <%= header_link_to "Leaderboard", competition_path(current_competition) %>
           <% end %>
-          <li class="<%= 'active' if params[:controller] == 'teams' %>"><%= link_to "Teams", teams_path %></li>
+          <%= header_link_to "Teams", teams_path %>
+          <%= header_link_to "Rules", rules_path %>
         </ul>
 
         <%= render "layouts/user_session" %>

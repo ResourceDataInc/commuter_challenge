@@ -1,0 +1,42 @@
+.rules{
+  font-size: 1.2em;
+  background: $beach-f;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  @include box-sizing(border-box);
+  border: 3px solid $white;
+  @include box-shadow(0 0 3px rgba($beach-b, 1), 0 0 3px rgba($beach-b, 1));
+  color: darken($beach-d, 15);
+
+  h3{
+    padding: 0px;
+    margin: 0px;
+  }
+
+  a{
+    color: darken($beach-d, 15)
+  }
+
+  ul, ol{
+    margin-bottom: 12px;
+
+    li{
+      .rule{
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+@media (max-width: 979px){
+  .rules{
+    background: rgba($beach-f, 0.8);
+  }
+}
+
+@media (max-width: 979px) and (min-width: 768px){
+  .rules{
+    width: 352px;
+  }
+}
