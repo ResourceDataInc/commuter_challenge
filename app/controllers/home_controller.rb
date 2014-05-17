@@ -4,4 +4,7 @@ class HomeController < ApplicationController
 
   def rules
   end
+
+  def sponsors
+  end
 end
