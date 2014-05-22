@@ -13,7 +13,7 @@ class TeamsController < ApplicationController
 
     if @team.save
       join_first_competition(@team)
-      flash[:success] = t("team.add.success") 
+      flash[:success] = t("team.add.success")
       redirect_to @team
     else
       render :new
@@ -31,7 +31,7 @@ class TeamsController < ApplicationController
 
   def update
     if @team.update_attributes(team_params)
-      flash[:success] = t("team.edit.success") 
+      flash[:success] = t("team.edit.success")
       redirect_to @team
     else
       render :edit
@@ -43,7 +43,7 @@ class TeamsController < ApplicationController
 
   def destroy
     @team.destroy
-    flash[:success] = t("team.delete.success") 
+    flash[:success] = t("team.delete.success")
     redirect_to root_url
   end
 

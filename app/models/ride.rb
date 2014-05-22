@@ -23,13 +23,13 @@ class Ride < ActiveRecord::Base
   def total_distance
     [bike_distance, bus_distance, walk_distance].compact.sum
   end
-  
+
   def trip_type
-  	if self.is_round_trip
-  		I18n.t("ride.options.round")
-  	else
-  		I18n.t("ride.options.one")
-  	end
+    if self.is_round_trip
+      I18n.t("ride.options.round")
+    else
+      I18n.t("ride.options.one")
+    end
   end
 
   private

@@ -35,7 +35,7 @@
                   <td><%= competitor.team.business_size %></td>
                   <td><%= truncate(competitor.team.description, :separator=>'...', :length =>40) %></td>
 
-                  <% if can? :manage, @competition %>        
+                  <% if can? :manage, @competition %>
                     <td class="hidden-phone"><%= competitor.approved? ? "Approved" : "Pending" %></td>
                     <td class="hidden-phone">
                       <% unless competitor.approved? %>
@@ -61,7 +61,7 @@
               <tr>
                 <th>Name</th>
                 <th>Lower</th>
-                <th>Upper</th>              
+                <th>Upper</th>
                 <th>Actions</th>
               </tr>
             </thead>

@@ -7,7 +7,7 @@ class Competition < ActiveRecord::Base
   has_many :memberships, through: :teams
   has_many :members, through: :teams
   has_many :rides, through: :members
-  
+
   validates :title, presence: true
   validates :description, presence: true
   validates :owner, presence: true

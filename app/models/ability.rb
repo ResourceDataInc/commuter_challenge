@@ -11,7 +11,7 @@ class Ability
     if user.present?
       can :index, :dashboard
       can :manage, Competition, owner_id: user.id
-      cannot :create, Competition 
+      cannot :create, Competition
       can :manage, Team, captain_id: user.id
       can :manage, Ride, rider_id: user.id
       can :manage, Bracket, :competition => { :owner_id => user.id }

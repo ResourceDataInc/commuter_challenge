@@ -22,7 +22,7 @@ class Bracket < ActiveRecord::Base
   private
 
   def validate_upper_limit_after_lower_limit
-    return if lower_limit.blank? || upper_limit.blank?    
+    return if lower_limit.blank? || upper_limit.blank?
     unless lower_limit < upper_limit
       errors.add :upper_limit, "cannot be before lower limit"
     end

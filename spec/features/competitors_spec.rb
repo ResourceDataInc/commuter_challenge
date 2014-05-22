@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "competitors" do  
+describe "competitors" do
   let(:owner) { FactoryGirl.create(:user) }
   let!(:competition) { FactoryGirl.create(:competition, owner: owner)}
   let(:captain) { FactoryGirl.create(:user) }

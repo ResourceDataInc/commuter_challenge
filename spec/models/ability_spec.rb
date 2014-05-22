@@ -78,7 +78,7 @@ describe Ability do
     end
 
     it "can manage own bracket" do
-      bracket = FactoryGirl.create :bracket, 
+      bracket = FactoryGirl.create :bracket,
         competition: FactoryGirl.create(:competition, owner: user)
       ability.should be_able_to :manage, bracket
     end

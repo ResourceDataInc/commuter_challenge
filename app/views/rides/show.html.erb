@@ -3,7 +3,7 @@
 <%= content_tag_for :div, @ride do %>
   <h1><%= @ride.date %></h1>
   <div class="row">
-    <div class="span4 ride-info">      
+    <div class="span4 ride-info">
       <p>
         <%# use a presenter for this %>
         Created by: <%= link_to @ride.rider.username, @ride.rider %>
