@@ -4,7 +4,8 @@ rvm:
 bundler_args: --without development:staging:production
 before_script:
   - cp config/database.travis.yml config/database.yml
-  - psql -c 'create database bike_commute_challenge_test;' -U postgres
+  - rake db:create
+  - rake db:schema:load
 notifications:
   email: false
 addons:
