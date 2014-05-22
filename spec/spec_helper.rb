@@ -42,4 +42,8 @@ RSpec.configure do |config|
   config.order = "random"
 
   config.include DomHelper, type: :feature
+
+  config.before :suite do
+    ActiveRecord::Migration.maintain_test_schema!
+  end
 end
