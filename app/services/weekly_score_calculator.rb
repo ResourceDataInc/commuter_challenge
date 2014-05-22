@@ -26,7 +26,7 @@ class WeeklyScoreCalculator
   end
 
   def points_for_ride(ride)
-    ride.is_round_trip ? 2 : 1
+    ride.round_trip? ? 2 : 1
   end
 
   def max_per_week

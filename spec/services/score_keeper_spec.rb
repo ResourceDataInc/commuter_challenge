@@ -11,7 +11,7 @@ describe ScoreKeeper do
   end
 
   it "handles a new ride" do
-    ride = FactoryGirl.build(:ride, rider: user, work_trip: true, is_round_trip: true)
+    ride = FactoryGirl.build(:ride, rider: user, work_trip: true, type: :round_trip)
 
     ScoreKeeper.new(user).update(ride) do
       ride.save!
@@ -21,18 +21,18 @@ describe ScoreKeeper do
   end
 
   it "handles an updated ride" do
-    ride = FactoryGirl.create(:ride, rider: user, work_trip: true, is_round_trip: true)
+    ride = FactoryGirl.create(:ride, rider: user, work_trip: true, type: :round_trip)
     user.active_membership.update_attributes ride_count: 2
 
     ScoreKeeper.new(user).update(ride) do
-      ride.update_attributes is_round_trip: false
+      ride.update_attributes type: :one_way
     end
 
     expect(user.active_membership.ride_count).to eq(1)
   end
 
   it "handles a deleted ride" do
-    ride = FactoryGirl.create(:ride, rider: user, work_trip: true, is_round_trip: true)
+    ride = FactoryGirl.create(:ride, rider: user, work_trip: true, type: :round_trip)
     user.active_membership.update_attributes ride_count: 2
 
     ScoreKeeper.new(user).update(ride) do
@@ -43,7 +43,7 @@ describe ScoreKeeper do
   end
 
   it "handles a ride that moves to another week" do
-    ride = FactoryGirl.create(:ride, rider: user, work_trip: true, is_round_trip: true, date: Time.now)
+    ride = FactoryGirl.create(:ride, rider: user, work_trip: true, type: :round_trip, date: Time.now)
     user.active_membership.update_attributes ride_count: 2
 
     ScoreKeeper.new(user).update(ride) do
@@ -63,7 +63,7 @@ describe ScoreKeeper do
   end
 
   it "does not update score if block returns falsy value" do
-    ride = FactoryGirl.build(:ride, rider: user, work_trip: true, is_round_trip: true)
+    ride = FactoryGirl.build(:ride, rider: user, work_trip: true, type: :round_trip)
 
     ScoreKeeper.new(user).update(ride) do
       ride.save
