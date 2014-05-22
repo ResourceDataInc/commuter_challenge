@@ -16,7 +16,7 @@ def log_rides!(member)
                     walk_distance: rand(0..2),
                     description: "#{member.username} Ride #{i}",
                     work_trip: [true, false].sample,
-                    is_round_trip: [true, false].sample)
+                    type: Ride.types.values.sample)
 
     score_keeper.update(ride) { ride.save! }
   end
@@ -42,7 +42,7 @@ Bracket.find_each do |bracket|
   %w{red blue}.each do |color|
     captain = create_user!("#{bracket.name}-#{color}-captain".downcase)
 
-    team = Team.create!(name: "#{bracket.name} #{color} Team".capitalize,
+    team = Team.create!(name: "#{bracket.name} #{color} Team".titleize,
                        description: color,
                        business_size: rand(bracket.lower_limit..bracket.upper_limit),
                        captain: captain)
