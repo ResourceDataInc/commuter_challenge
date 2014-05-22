@@ -32,7 +32,7 @@ class ParticipationCalculator
   def member_participations
     competition.brackets.flat_map do |bracket|
       # yikes
-      memberships = Membership.approved.includes(:team, :user).merge(bracket.teams).order("memberships.ride_count desc").limit(10)
+      memberships = Membership.approved.joins(:team).includes(:team, :user).merge(bracket.teams).order("memberships.ride_count desc").limit(10)
       memberships.map do |membership|
         membership_participation(membership)
       end
