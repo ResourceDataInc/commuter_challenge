@@ -10,9 +10,9 @@
     <%= f.toggle_button t("ride.options.personal_trip"), false %>
   <% end %>
 
-  <%= f.button_group :is_round_trip do %>
-    <%= f.toggle_button t("ride.options.round"), true %>
-    <%= f.toggle_button t("ride.options.one"), false %>
+  <%= f.button_group :type do %>
+    <%= f.toggle_button t("ride.options.round"), "round_trip" %>
+    <%= f.toggle_button t("ride.options.one"), "one_way" %>
   <% end %>
 
   <%= f.button :button, t("ride.submit"), class: "btn-orange pull-right" %>

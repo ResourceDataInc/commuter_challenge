@@ -11,7 +11,8 @@
 
       <p><%= @ride.work_trip? ? t("ride.options.work_trip") : t("ride.options.personal_trip") %></p>
 
-      <p><%= @ride.is_round_trip ? t("ride.options.round") : t("ride.options.one") %></p>
+      <%# TODO same functionality that's in the model? %>
+      <p><%= @ride.round_trip? ? t("ride.options.round") : t("ride.options.one") %></p>
 
       <% if @ride.bike_distance? %>
         <p>Bike: <%= @ride.bike_distance %></p>

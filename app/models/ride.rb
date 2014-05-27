@@ -1,6 +1,11 @@
 class Ride < ActiveRecord::Base
   belongs_to :rider, class_name: "User"
 
+  # enable use of 'type' column without STI
+  self.inheritance_column = nil
+
+  enum type: [:one_way, :round_trip]
+
   validates :date, presence: true
   validates :bike_distance, :numericality => { :greater_than_or_equal_to => 0, allow_nil: true }
   validates :bus_distance, :numericality => { :greater_than_or_equal_to => 0, allow_nil: true }
@@ -24,8 +29,9 @@ class Ride < ActiveRecord::Base
     [bike_distance, bus_distance, walk_distance].compact.sum
   end
 
+  # TODO move to a helper
   def trip_type
-    if self.is_round_trip
+    if round_trip?
       I18n.t("ride.options.round")
     else
       I18n.t("ride.options.one")
