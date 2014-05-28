@@ -22,6 +22,12 @@ describe WeeklyScoreCalculator do
     expect(counter.points_for_ride(ride)).to eq(2)
   end
 
+  it "counts vacations as two points" do
+    ride = FactoryGirl.build(:ride, type: :vacation)
+    counter = WeeklyScoreCalculator.new(ride.date)
+    expect(counter.points_for_ride(ride)).to eq(2)
+  end
+
   it "counts a max of two points per day" do
     rides = [
       FactoryGirl.build(:ride, date: sunday, type: :round_trip),

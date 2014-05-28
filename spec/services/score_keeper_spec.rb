@@ -21,11 +21,12 @@ describe ScoreKeeper do
   end
 
   it "handles an updated ride" do
-    ride = FactoryGirl.create(:ride, rider: user, work_trip: true, type: :round_trip)
+    ride = FactoryGirl.create(:ride, rider: user, work_trip: true, type: :vacation,
+                              bike_distance: nil, bus_distance: nil, walk_distance: nil)
     user.active_membership.update_attributes ride_count: 2
 
     ScoreKeeper.new(user).update(ride) do
-      ride.update_attributes type: :one_way
+      ride.update_attributes type: :one_way, bike_distance: 2
     end
 
     expect(user.active_membership.ride_count).to eq(1)

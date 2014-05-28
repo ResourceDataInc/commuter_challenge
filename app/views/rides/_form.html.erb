@@ -9,10 +9,12 @@
     <%= f.toggle_button t("ride.options.work_trip"), true %>
     <%= f.toggle_button t("ride.options.personal_trip"), false %>
   <% end %>
+  <div class="clearfix"></div>
 
   <%= f.button_group :type do %>
-    <%= f.toggle_button t("ride.options.round"), "round_trip" %>
-    <%= f.toggle_button t("ride.options.one"), "one_way" %>
+    <%= f.toggle_button t("ride.options.round_trip"), "round_trip" %>
+    <%= f.toggle_button t("ride.options.one_way"), "one_way" %>
+    <%= f.toggle_button t("ride.options.vacation"), "vacation" %>
   <% end %>
 
   <%= f.button :button, t("ride.submit"), class: "btn-orange pull-right" %>

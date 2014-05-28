@@ -11,12 +11,15 @@ def log_rides!(member)
   (1..14).each do |i|
     ride = Ride.new(rider: member,
                     date: i.days.ago,
-                    bike_distance: rand(1..10),
-                    bus_distance: rand(0..10),
-                    walk_distance: rand(0..2),
                     description: "#{member.username} Ride #{i}",
                     work_trip: [true, false].sample,
                     type: Ride.types.values.sample)
+
+    unless ride.vacation?
+      ride.bike_distance = rand(1..10)
+      ride.bus_distance = rand(0..10)
+      ride.walk_distance = rand(0..2)
+    end
 
     score_keeper.update(ride) { ride.save! }
   end
