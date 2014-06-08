@@ -54,6 +54,31 @@ describe ScoreKeeper do
     expect(user.active_membership.ride_count).to eq(2)
   end
 
+  it "counts a future ride in the current week" do
+    Calendar.stub(today: Calendar.today.beginning_of_week)
+
+    user.active_membership.update_attributes(ride_count: 4)
+    ride = FactoryGirl.build(:ride, date: Calendar.today + 2.days, rider: user, work_trip: true, type: :round_trip)
+
+    ScoreKeeper.new(user).update(ride) do
+      ride.save!
+    end
+
+    expect(user.active_membership.ride_count).to eq(6)
+  end
+
+  it "ignores a ride logged for next week" do
+    user.active_membership.update_attributes(ride_count: 4)
+    next_week = Calendar.today.end_of_week + 1.day
+    ride = FactoryGirl.build(:ride, date: next_week, rider: user, work_trip: true, type: :round_trip)
+
+    ScoreKeeper.new(user).update(ride) do
+      ride.save!
+    end
+
+    expect(user.active_membership.ride_count).to eq(4)
+  end
+
   it "returns block's return value" do
     ride = FactoryGirl.build(:ride)
     value = ScoreKeeper.new(user).update(ride) do
