@@ -19,7 +19,7 @@
   <div class="row stats">
     <div class="span2">
       <div class="stat-header"><%= t("dashboard.user.commutes") %></div>
-      <div class="number"><%= @membership_participation.actual_trips || "--" %></div>
+      <div class="number"><%= @membership_participation.try(:actual_trips) || "--" %></div>
     </div>
 
     <div class="span2">
@@ -40,7 +40,7 @@
 
     <div class="span2">
       <div class="stat-header"><%= t("dashboard.team.commutes") %></div>
-      <div class="number positive"><%= @team_participation.actual_trips || "--" %></div>
+      <div class="number positive"><%= @team_participation.try(:actual_trips) || "--" %></div>
     </div>
 
     <div class="span2">
