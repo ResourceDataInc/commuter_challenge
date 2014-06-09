@@ -15,4 +15,5 @@
 //= require jquery.cookie
 //= require bootstrap
 //= require bootstrap-datepicker
+//= require tablesorter.min.js
 //= require_tree .

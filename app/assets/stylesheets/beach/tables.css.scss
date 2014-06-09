@@ -7,3 +7,9 @@
     color: darken($beach-d, 15);
   }
 }
+
+.sortable{
+  th {
+    cursor: pointer;
+  }
+}
