@@ -19,16 +19,14 @@
   <div class="row stats">
     <div class="span2">
       <div class="stat-header"><%= t("dashboard.user.commutes") %></div>
-      <div class="number"><%= @member_commutes || "--" %></div>
+      <div class="number"><%= @membership_participation.try(:actual_trips) || "--" %></div>
     </div>
 
     <div class="span2">
       <div class="stat-header"><%= t("dashboard.user.participation") %></div>
       <div class="number positive">
         <% if current_user.active_membership %>
-          <%= content_tag :span, title: "#{@member_commutes} logged trips out of #{@team_member_possible_commutes} possible trips" do %>
-            <%= number_to_percentage @member_participation, strip_insignificant_zeros: true, precision: 1 %>
-          <% end %>
+          <%= render "competitions/participation", participation: @membership_participation %>
         <% else %>
           --
         <% end %>
@@ -42,22 +40,14 @@
 
     <div class="span2">
       <div class="stat-header"><%= t("dashboard.team.commutes") %></div>
-      <div class="number positive">
-        <% if current_user.active_membership %>
-          <%= @team_commutes %>
-        <% else %>
-          --
-        <% end %>
-      </div>
+      <div class="number positive"><%= @team_participation.try(:actual_trips) || "--" %></div>
     </div>
 
     <div class="span2">
       <div class="stat-header"><%= t("dashboard.team.participation") %></div>
       <div class="number positive">
         <% if current_user.active_membership %>
-          <%= content_tag :span, title: "#{@team_commutes} logged trips out of #{@team_possible_commutes} possible trips" do %>
-            <%= number_to_percentage @team_participation, strip_insignificant_zeros: true, precision: 1 %>
-          <% end %>
+          <%= render "competitions/participation", participation: @team_participation %>          
         <% else %>
           --
         <% end %>

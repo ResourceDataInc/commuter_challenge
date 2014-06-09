@@ -54,10 +54,10 @@ describe Ride do
     end
 
     it "must be logged within two weeks of current date" do
-      ride = FactoryGirl.build(:ride, date: 15.days.ago)
+      ride = FactoryGirl.build(:ride, date: Calendar.today - 15.days)
       ride.should_not be_valid
       ride.should have(1).error_on(:date)
-      ride.date = 14.days.ago
+      ride.date = Calendar.today - 14.days
       ride.should be_valid
     end
   end

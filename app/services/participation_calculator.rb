@@ -22,7 +22,7 @@ class ParticipationCalculator
     else
       percent = 0.0
     end
-    TeamParticipation.new(team, percent.round(1))
+    TeamParticipation.new(team, percent.round(1), possible_trips, trips)
   end
 
   def team_trips(team)
@@ -45,7 +45,7 @@ class ParticipationCalculator
     else
       percent = 0.0
     end
-    MemberParticipation.new(membership.user, membership.team, percent.round(1))
+    MemberParticipation.new(membership.user, membership.team, percent.round(1), member_possible_trips, membership.ride_count)
   end
 
   def member_possible_trips
@@ -79,5 +79,5 @@ class ParticipationCalculator
   end
 end
 
-TeamParticipation = Struct.new(:team, :percent)
-MemberParticipation = Struct.new(:member, :team, :percent)
+TeamParticipation = Struct.new(:team, :percent, :possible_trips, :actual_trips)
+MemberParticipation = Struct.new(:member, :team, :percent, :possible_trips, :actual_trips)
