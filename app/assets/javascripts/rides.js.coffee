@@ -1,4 +1,6 @@
 jQuery ->
+  $(".sortable").tablesorter()
+
   form = $("form.new_ride,form.edit_ride")
 
   disableFields = ->
