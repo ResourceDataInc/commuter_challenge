@@ -11,6 +11,7 @@
         <th>Date</th>
         <th>Distance</th>
         <th>Type</th>
+        <th>Work/Personal</th>
         <th>Description</th>
       </tr>
     </thead>
@@ -20,6 +21,7 @@
         <td><%= ride.date %></td>
         <td><%= ride.bike_distance %></td>
         <td><%= trip_type(ride) %></td>
+        <td><%= work_or_personal(ride.work_trip) %></td>
         <td><%= ride.description %></td>
         <% if can? :manage, ride %>
           <td><%= link_to "Edit", edit_ride_path(ride) %></td>
