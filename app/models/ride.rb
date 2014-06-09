@@ -1,6 +1,11 @@
 class Ride < ActiveRecord::Base
   belongs_to :rider, class_name: "User"
 
+  # enable use of 'type' column without STI
+  self.inheritance_column = nil
+
+  enum type: [:one_way, :round_trip, :vacation]
+
   validates :date, presence: true
   validates :bike_distance, :numericality => { :greater_than_or_equal_to => 0, allow_nil: true }
   validates :bus_distance, :numericality => { :greater_than_or_equal_to => 0, allow_nil: true }
@@ -16,6 +21,8 @@ class Ride < ActiveRecord::Base
 
   scope :work_trips, -> { where(work_trip: true) }
 
+  before_validation :handle_vacation_distance
+
   def self.total_distance
     sum("coalesce(bike_distance, 0) + coalesce(bus_distance, 0) + coalesce(walk_distance, 0)")
   end
@@ -24,18 +31,10 @@ class Ride < ActiveRecord::Base
     [bike_distance, bus_distance, walk_distance].compact.sum
   end
 
-  def trip_type
-    if self.is_round_trip
-      I18n.t("ride.options.round")
-    else
-      I18n.t("ride.options.one")
-    end
-  end
-
   private
 
   def validate_distance_presence
-    if bike_distance.blank? && bus_distance.blank? && walk_distance.blank?
+    if !vacation? && bike_distance.blank? && bus_distance.blank? && walk_distance.blank?
       errors.add :bike_distance, "a distance is required"
       errors.add :bus_distance, "a distance is required"
       errors.add :walk_distance, "a distance is required"
@@ -43,7 +42,7 @@ class Ride < ActiveRecord::Base
   end
 
   def validate_total_distance
-    if total_distance <= 0
+    if !vacation? && total_distance <= 0
       errors.add :bike_distance, "total distance must be greater than zero"
       errors.add :bus_distance, "total distance must be greater than zero"
       errors.add :walk_distance, "total distance must be greater than zero"
@@ -59,6 +58,14 @@ class Ride < ActiveRecord::Base
   def validate_date_is_recent
     if date? && date <= 15.days.ago
       errors.add :date, "must be within the past 2 weeks"
+    end
+  end
+
+  def handle_vacation_distance
+    if vacation?
+      self.bike_distance = nil
+      self.bus_distance = nil
+      self.walk_distance = nil
     end
   end
 end

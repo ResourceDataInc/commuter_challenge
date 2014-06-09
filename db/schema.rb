@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140227024246) do
+ActiveRecord::Schema.define(version: 20140522210402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,13 +66,13 @@ ActiveRecord::Schema.define(version: 20140227024246) do
     t.date     "date"
     t.decimal  "bike_distance"
     t.text     "description"
-    t.boolean  "is_round_trip"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.integer  "rider_id"
     t.decimal  "bus_distance"
     t.decimal  "walk_distance"
     t.boolean  "work_trip"
+    t.integer  "type",          default: 0
   end
 
   create_table "teams", force: true do |t|

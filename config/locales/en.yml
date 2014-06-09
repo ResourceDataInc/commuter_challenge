@@ -106,8 +106,9 @@ en:
       action: "Commutes"
       none: "No commutes logged."
     options:
-      one: "One Way"
-      round: "Round Trip"
+      one_way: "One Way"
+      round_trip: "Round Trip"
+      vacation: "Vacation"
       work_trip: "Work Related"
       personal_trip: "Personal"
     submit: "Submit"

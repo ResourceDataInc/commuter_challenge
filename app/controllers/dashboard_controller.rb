@@ -31,10 +31,10 @@ class DashboardController < ApplicationController
   end
 
   def copyable_ride_attrs
-    %w{bike_distance bus_distance walk_distance description is_round_trip work_trip}
+    %w{bike_distance bus_distance walk_distance description type work_trip}
   end
 
   def default_ride_attrs
-    { date: Calendar.today, is_round_trip: true, work_trip: true }
+    { date: Calendar.today, type: :round_trip, work_trip: true }
   end
 end

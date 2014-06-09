@@ -2,13 +2,11 @@ class RidesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @ride = Ride.new
-    @ride.is_round_trip = true
+    @ride = Ride.new(type: :round_trip)
   end
 
   def new
-    @ride = Ride.new
-    @ride.is_round_trip = true
+    @ride = Ride.new(type: :round_trip)
   end
 
   def create
@@ -49,7 +47,7 @@ class RidesController < ApplicationController
   def ride_params
     params.require(:ride).permit(:date, :description, :bike_distance,
                                  :bus_distance, :walk_distance, :rider_id,
-                                 :is_round_trip, :work_trip)
+                                 :type, :work_trip)
   end
 
   def score_keeper
