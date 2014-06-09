@@ -56,7 +56,7 @@ class Ride < ActiveRecord::Base
   end
 
   def validate_date_is_recent
-    if date? && date <= 15.days.ago
+    if date? && date <= Calendar.today - 15.days
       errors.add :date, "must be within the past 2 weeks"
     end
   end

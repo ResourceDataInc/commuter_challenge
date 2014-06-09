@@ -65,7 +65,7 @@ describe Competition do
     end
 
     it "includes competitions that start today" do
-      competition = FactoryGirl.create(:competition, start_on: Date.today, end_on: 4.months.from_now)
+      competition = FactoryGirl.create(:competition, start_on: Calendar.today, end_on: 4.months.from_now)
       expect(Competition.active).to include(competition)
     end
 
