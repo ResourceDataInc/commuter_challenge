@@ -8,6 +8,10 @@ class ScoreKeeper
   def update(ride, &block)
     return_value = nil
 
+    if ride.date > Calendar.today.end_of_week
+      return block.call
+    end
+
     rider.transaction do
       score_counter = WeeklyScoreCalculator.new(ride.date)
       trips_before = work_trips(score_counter.date_range)
