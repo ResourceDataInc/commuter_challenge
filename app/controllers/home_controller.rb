@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   def index
   end
 
-  def rules
+  def help
   end
 
   def sponsors

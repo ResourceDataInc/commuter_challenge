@@ -1,0 +1,55 @@
+.rules, .faq{
+  .accordion-heading{
+    font-weight: bold;
+  }
+}
+
+.faq{
+  .accordion-inner{
+    padding-left: 20px;
+  }
+}
+
+.rules{
+  .accordion-heading{
+    display:table;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .accordion-toggle, .rule{
+    display:table-cell;
+    vertical-align: middle;
+  }
+
+  .rule:before{
+    color: $white;
+    width: 35px;
+    line-height: 35px;
+    content: counter(counter);
+    counter-increment: counter;
+    font-weight: bold;
+    display: inline-block;
+    text-align:center;
+    background: $beach-b;
+    @include box-shadow(0 0 3px rgba(0,0,0,.9));
+    border-radius: 50%;
+  }
+
+  .rule-1:before{
+    content: '1'
+  }
+
+  .rule-2:before{
+    content: '2'
+  }
+
+  .rule-3:before{
+    content: '3'
+  }
+
+  .rule-4:before{
+    content: '4'
+  }  
+
+}
