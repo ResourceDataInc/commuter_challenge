@@ -1,0 +1,3 @@
+<%= content_tag :span, title: "#{participation.actual_trips} logged trips out of #{participation.possible_trips} possible trips" do %>
+  <%= number_to_percentage participation.percent, strip_insignificant_zeros: true, precision: 1 %>
+<% end %>

@@ -9,12 +9,8 @@ class DashboardController < ApplicationController
     if @membership = current_user.active_membership
       @team = @membership.team
       calculator = ParticipationCalculator.new(@team.competition)
-      @member_commutes = @membership.ride_count
-      @team_member_possible_commutes = calculator.member_possible_trips
-      @member_participation = calculator.membership_participation(@membership).percent
-      @team_commutes = calculator.team_trips(@team)
-      @team_possible_commutes = calculator.possible_trips(@team)
-      @team_participation = calculator.team_participation(@team).percent
+      @membership_participation = calculator.membership_participation(@membership)
+      @team_participation = calculator.team_participation(@team)
     end
   end
 
