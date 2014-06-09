@@ -4,7 +4,7 @@ module RidesHelper
   end
 
   def work_or_personal(work)
-    if(work)
+    if work
       I18n.t("ride.options.work_trip")
     else
       I18n.t("ride.options.personal_trip")
