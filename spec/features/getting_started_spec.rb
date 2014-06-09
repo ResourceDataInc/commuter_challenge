@@ -6,7 +6,7 @@ describe "Getting started" do
                        start_on: 1.month.ago,
                        end_on: 17.days.from_now)
 
-    visit help_path
+    visit root_path
 
     # today + 17 more
     page.should have_content "18 Days Left"
@@ -17,7 +17,7 @@ describe "Getting started" do
                        start_on: 4.months.ago,
                        end_on: 1.month.ago)
 
-    visit help_path
+    visit root_path
     page.should have_content I18n.t("help.competition.ended")
   end
 end

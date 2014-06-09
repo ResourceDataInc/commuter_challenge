@@ -8,7 +8,9 @@
         <td>
           <h4><%= link_to participation.team.name, participation.team %></h4>
         </td>
-        <td><%= participation.percent %>%</td>
+        <td>
+          <%= render "competitions/participation", participation: participation %>
+        </td>
       <% end %>
     <% end %>
   </table>

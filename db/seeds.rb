@@ -11,12 +11,15 @@ def log_rides!(member)
   (1..14).each do |i|
     ride = Ride.new(rider: member,
                     date: i.days.ago,
-                    bike_distance: rand(1..10),
-                    bus_distance: rand(0..10),
-                    walk_distance: rand(0..2),
                     description: "#{member.username} Ride #{i}",
                     work_trip: [true, false].sample,
-                    is_round_trip: [true, false].sample)
+                    type: Ride.types.values.sample)
+
+    unless ride.vacation?
+      ride.bike_distance = rand(1..10)
+      ride.bus_distance = rand(0..10)
+      ride.walk_distance = rand(0..2)
+    end
 
     score_keeper.update(ride) { ride.save! }
   end
@@ -42,7 +45,7 @@ Bracket.find_each do |bracket|
   %w{red blue}.each do |color|
     captain = create_user!("#{bracket.name}-#{color}-captain".downcase)
 
-    team = Team.create!(name: "#{bracket.name} #{color} Team".capitalize,
+    team = Team.create!(name: "#{bracket.name} #{color} Team".titleize,
                        description: color,
                        business_size: rand(bracket.lower_limit..bracket.upper_limit),
                        captain: captain)

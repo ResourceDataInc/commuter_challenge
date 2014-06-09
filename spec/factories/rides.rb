@@ -6,7 +6,7 @@ FactoryGirl.define do
     bike_distance 9001
     description "Epic Ride"
     rider factory: :user
-    is_round_trip false
+    type :one_way
     work_trip true
   end
 end
