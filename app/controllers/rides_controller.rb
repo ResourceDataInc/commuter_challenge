@@ -2,7 +2,7 @@ class RidesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @ride = Ride.new(type: :round_trip)
+    redirect_to root_path
   end
 
   def new
