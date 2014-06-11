@@ -47,9 +47,4 @@ describe "rides" do
     click_on I18n.t("ride.delete.action")
     within(".alert") { page.should have_content I18n.t("ride.delete.success") }
   end
-
-  it "cannot be created by anonymous user" do
-    visit rides_url
-    page.should_not have_link I18n.t("ride.add.action")
-  end
 end
