@@ -16,4 +16,5 @@
 //= require bootstrap
 //= require bootstrap-datepicker
 //= require tablesorter.min.js
+//= require expander.min.js
 //= require_tree .
