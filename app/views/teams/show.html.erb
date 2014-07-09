@@ -23,7 +23,7 @@
   </div>
 
   <div class="row">
-    <div class="span4 team-info">
+    <div class="span8  team-info">
       <p>
           <%# user a presenter for this %>
           Created by: <%= link_to @team.captain.username, @team.captain %>
@@ -31,7 +31,10 @@
       <p>
         Business Size: <%= @team.business_size %>
       </p>
-      <%= simple_format @team.description %>
+      <div id="team-description">
+        <%= simple_format(@team.description) %>
+      </div>
+
     </div>
   </div>
 
