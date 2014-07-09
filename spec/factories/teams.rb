@@ -6,3 +6,7 @@ FactoryGirl.define do
     captain factory: :user
   end
 end
+
+
+
+
