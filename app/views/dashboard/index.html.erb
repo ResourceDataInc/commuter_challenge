@@ -84,7 +84,7 @@
               <td><%= link_to ride.date.strftime("%b #{ride.date.day.ordinalize}"), ride %></td>
               <td><%= ride.total_distance %></td>
               <td><%= trip_type(ride) %></td>
-              <td><%= ride.description.truncate(80) %></td>
+              <td><%= ride.description.present? && ride.description.truncate(80) %></td>
             <% end %>
           <% end %>
         </table>
