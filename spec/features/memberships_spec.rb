@@ -19,7 +19,7 @@ describe "memberships" do
   end
 
   it "can be approved by a captain" do
-    membership = FactoryGirl.create(:membership, team: team, user: user , approved: false)
+    membership = FactoryGirl.create(:membership, team: team, user: user, approved: false)
     login_as captain
     visit team_url(team)
 
@@ -40,11 +40,10 @@ describe "memberships" do
   it "cannot be approved by a captain" do
     team.update_attributes(business_size: 1)
     user0 = FactoryGirl.create(:user, username: "test", password: "pwd4test", password_confirmation: "pwd4test")
-    FactoryGirl.create(:membership, team: team, user: user0, approved: false)
+    FactoryGirl.create(:membership, team: team, user: user0, approved: true)
     membership = FactoryGirl.create(:membership, team: team, user: user, approved: false)
     login_as captain
     visit team_url(team)
-
     within selector_for(membership) do
       click_on I18n.t("team.join.approve_action")
     end

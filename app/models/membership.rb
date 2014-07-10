@@ -28,7 +28,8 @@ class Membership < ActiveRecord::Base
   end
 
   def membership_cannot_exceed_business_size
-    if team.present? && team.memberships_count > team.business_size
+
+    if team.present? && team.memberships.approved.count >= team.business_size
       errors.add(:team, "Cannot be higher than the business size")
     end
   end

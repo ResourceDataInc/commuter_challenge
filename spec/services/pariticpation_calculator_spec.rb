@@ -108,9 +108,9 @@ describe ParticipationCalculator do
       team.update_attributes(business_size: 2)
       FactoryGirl.create(:bracket, competition: competition, lower_limit: 1, upper_limit: 4)
 
-      membership4 = FactoryGirl.create(:membership, team: team, ride_count: 4)
-      membership2 = FactoryGirl.create(:membership, team: team, ride_count: 2)
-      membership3 = FactoryGirl.create(:membership, team: team, ride_count: 3)
+      # membership4 = FactoryGirl.create(:membership, team: team, ride_count: 4)
+      # membership2 = FactoryGirl.create(:membership, team: team, ride_count: 2)
+      # membership3 = FactoryGirl.create(:membership, team: team, ride_count: 3)
       membership1 = FactoryGirl.create(:membership, team: team, ride_count: 1)
       membership5 = FactoryGirl.create(:membership, team: team, ride_count: 5)
 
