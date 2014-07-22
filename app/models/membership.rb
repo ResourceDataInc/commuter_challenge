@@ -8,14 +8,11 @@ class Membership < ActiveRecord::Base
   validates :user, associated: true, presence: true
   validates_presence_of :ride_count
   validates_numericality_of :ride_count, greater_than_or_equal_to: 0
-
   validate :membership_cannot_exceed_business_size, on: :update
 
   before_save :update_approved_at
 
-
   scope :by_username, -> { includes(:user).order("users.username") }
-
   scope :approved, -> { where(approved: true) }
 
   private
@@ -23,17 +20,14 @@ class Membership < ActiveRecord::Base
   def update_approved_at
     if approved_changed? && approved?
       self.approved_at = Time.now
-
     end
   end
 
   def membership_cannot_exceed_business_size
-
     if team.present? && team.memberships.approved.count >= team.business_size
-      errors.add(:team, "Cannot be higher than the business size")
+      errors.add(:memberships, "Cannot be higher than the business size")
     end
   end
-
 
 end
 

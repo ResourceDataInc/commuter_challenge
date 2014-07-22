@@ -14,6 +14,17 @@ describe Membership do
       should validate_numericality_of(:ride_count)
         .is_greater_than_or_equal_to(0)
     end
+
+    it "should require memberships to not exceed business size" do
+      team = FactoryGirl.build :team
+      5.times do
+        FactoryGirl.create(:membership, team: team, approved: true)
+      end       
+      team.should be_valid
+      FactoryGirl.create(:membership, team: team, approved: true)
+      team.should_not be_valid
+    end
+
   end
 
   describe "approval" do
