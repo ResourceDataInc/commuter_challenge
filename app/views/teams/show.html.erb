@@ -48,6 +48,7 @@
         <th>%</th>
 
         <% if can? :manage, @team %>
+          <th class="span2 hidden-phone">Email</th>
           <th class="span2 hidden-phone">Status</th>
           <th class="span3 hidden-phone">Actions</th>
         <% end %>
@@ -63,6 +64,7 @@
         </td>
 
         <% if can? :manage, @team %>
+          <td class="hidden-phone"><%= mail_to membership.user.email, membership.user.email, subject: "Commuter challenge" %></td>
           <td class="hidden-phone"><%= membership.approved? ? "Approved" : "Pending" %></td>
 
           <td class="hidden-phone">
