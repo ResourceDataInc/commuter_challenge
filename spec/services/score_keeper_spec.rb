@@ -118,4 +118,15 @@ describe ScoreKeeper do
 
     expect(user.active_membership.ride_count).to eq(0)
   end
+
+  it "returns false if ride is invalid" do
+    ride = Ride.new
+
+    result = ScoreKeeper.new(user).update(ride) do
+      ride.save
+    end
+
+    expect(result).to be_falsey
+    expect(user.active_membership.ride_count).to eq(0)
+  end
 end

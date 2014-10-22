@@ -6,6 +6,8 @@ class ScoreKeeper
   end
 
   def update(ride, &block)
+    return false unless ride.valid?
+
     return_value = nil
 
     if ride.date > Calendar.today.end_of_week
