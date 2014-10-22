@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 20140522210402) do
     t.integer  "lower_limit"
     t.integer  "upper_limit"
     t.integer  "competition_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "competitions", force: true do |t|
@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(version: 20140522210402) do
     t.date     "start_on"
     t.date     "end_on"
     t.integer  "owner_id"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "competitors_count", default: 0
   end
 
@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(version: 20140522210402) do
     t.integer  "team_id"
     t.boolean  "approved"
     t.datetime "approved_at"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "competitors", ["competition_id"], name: "index_competitors_on_competition_id", using: :btree
@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(version: 20140522210402) do
     t.integer  "team_id"
     t.integer  "user_id"
     t.boolean  "approved",    default: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.datetime "approved_at"
     t.integer  "ride_count",  default: 0
   end
@@ -66,8 +66,8 @@ ActiveRecord::Schema.define(version: 20140522210402) do
     t.date     "date"
     t.decimal  "bike_distance"
     t.text     "description"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "rider_id"
     t.decimal  "bus_distance"
     t.decimal  "walk_distance"
@@ -79,8 +79,8 @@ ActiveRecord::Schema.define(version: 20140522210402) do
     t.string   "name"
     t.text     "description"
     t.integer  "captain_id"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "business_size"
     t.integer  "memberships_count", default: 0
   end
@@ -98,8 +98,8 @@ ActiveRecord::Schema.define(version: 20140522210402) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "username"
   end
 

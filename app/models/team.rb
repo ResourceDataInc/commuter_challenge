@@ -18,11 +18,9 @@ class Team < ActiveRecord::Base
   end
 
   private
-
   def business_size_cannot_be_lower_than_approved_memberships
     if self.business_size < self.memberships.approved.count
       errors.add(:business_size, "Cannot be lower than approved membership.")
     end
   end
-
 end

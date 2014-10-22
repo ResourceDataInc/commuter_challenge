@@ -37,7 +37,6 @@ class TeamsController < ApplicationController
       flash[:error] = t("team.edit.failure")
       render :edit
     end
-
   end
 
   def delete

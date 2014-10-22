@@ -22,13 +22,11 @@ class Membership < ActiveRecord::Base
       self.approved_at = Time.now
     end
   end
-
   def membership_cannot_exceed_business_size
     if team.present? && team.memberships.approved.count >= team.business_size
-      errors.add(:memberships, "Cannot be higher than the business size")
+      errors.add(:memberships, "cannot be higher than the business size")
     end
   end
-
 end
 
 
