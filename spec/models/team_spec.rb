@@ -33,5 +33,16 @@ describe Team do
       team.business_size = 1
       team.should be_valid
     end
+
+    it "should require business size equal or greater than memberships " do
+      team = FactoryGirl.build :team
+      5.times do
+        FactoryGirl.create(:membership, team: team, approved: true)
+      end       
+      team.should be_valid
+      team.business_size = 4
+      team.should_not be_valid
+      team.should have(1).error_on(:business_size)   
+    end
   end
 end

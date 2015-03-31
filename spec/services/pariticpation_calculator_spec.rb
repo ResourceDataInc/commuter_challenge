@@ -105,8 +105,8 @@ describe ParticipationCalculator do
       competition.update_attributes(start_on: Date.today.beginning_of_week,
                                     end_on: Date.today.end_of_week)
 
-      team.update_attributes(business_size: 2)
-      FactoryGirl.create(:bracket, competition: competition, lower_limit: 1, upper_limit: 4)
+      team.update_attributes(business_size: 5)
+      FactoryGirl.create(:bracket, competition: competition, lower_limit: 1, upper_limit: 5)
 
       membership4 = FactoryGirl.create(:membership, team: team, ride_count: 4)
       membership2 = FactoryGirl.create(:membership, team: team, ride_count: 2)

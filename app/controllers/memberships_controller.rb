@@ -6,7 +6,7 @@ class MembershipsController < ApplicationController
     if @membership.save
       flash[:success] = t("team.join.request_confirmation")
     else
-      flash[:alert] = t("team.join.request_already_member")
+      flash[:alert] = t("team.join.request_failure")
     end
     redirect_to @team
   end

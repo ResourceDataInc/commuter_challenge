@@ -34,6 +34,7 @@ class TeamsController < ApplicationController
       flash[:success] = t("team.edit.success")
       redirect_to @team
     else
+      flash[:error] = t("team.edit.failure")
       render :edit
     end
   end

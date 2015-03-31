@@ -124,7 +124,8 @@ en:
       title: "Confirm Delete"
     edit:
       action: "Edit"
-      success: "Team updated"  
+      success: "Team updated"
+      failure: "Unable to edit team"
       title: "Edit Team"
     index:
       action: "Teams"
@@ -135,7 +136,7 @@ en:
       request_already_member: "You are already a member of this team"
       approve_action: "Approve"
       approve_confirmation: "Team member approved"
-      approve_failure: "Unable to approve team member :("
+      approve_failure: "Unable to approve team member :( Please verify that the buisness size is large enough to support new membership."
 
   user:
     rides:

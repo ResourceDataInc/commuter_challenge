@@ -9,10 +9,18 @@ class Team < ActiveRecord::Base
   validates :name, presence: true
   validates :captain, presence: true
   validates :business_size, presence: true, :numericality => { :greater_than => 0 }
+  validate :business_size_cannot_be_lower_than_approved_memberships, on: :update
 
   scope :by_name, -> { order :name }
 
   def to_param
     "#{id}-#{name.parameterize}"
+  end
+
+  private
+  def business_size_cannot_be_lower_than_approved_memberships
+    if self.business_size < self.memberships.approved.count
+      errors.add(:business_size, "Cannot be lower than approved membership.")
+    end
   end
 end
