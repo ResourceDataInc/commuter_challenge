@@ -66,7 +66,7 @@ en:
       no_team: "Join or create a team to start competing"
 
   help:
-    title: "Welcome to the BCA – AIA 2015 Summer Bike, Walk, & Bus Commuter Challenge"
+    title: "Welcome to the Bike Anchorage – AIA 2015 Summer Bike, Walk, & Bus Commuter Challenge"
     competition:
       countdown: "Days Left"
       countup: "Days Until Start"
@@ -76,7 +76,7 @@ en:
         title: "Team Captains"
         one: "Create an account."
         two: "Create a team."
-        three: "Approve your team's commuters."
+        three: "Approve commuters."
       rider:
         title: "All Commuters"
         one: "Create an account."
