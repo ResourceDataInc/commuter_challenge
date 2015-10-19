@@ -2,5 +2,6 @@
 
 set -e
 
+#git push  <REMOTENAME> <LOCALBRANCHNAME>:<REMOTEBRANCHNAME>
 git push -f staging master:master
 heroku run rake db:migrate --app summer-bike-challenge-staging
