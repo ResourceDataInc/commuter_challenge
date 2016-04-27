@@ -54,9 +54,9 @@ BikeCommuteChallenge::Application.configure do
 
   ActionMailer::Base.smtp_settings = {
     port: '587',
-    address: 'smtp.mandrillapp.com',
-    user_name: ENV['MANDRILL_USERNAME'],
-    password: ENV['MANDRILL_APIKEY'],
+    address: 'smtp.sendgrid.net',
+    user_name: ENV['SENDGRID_USERNAME'],
+    password: ENV['SENDGRID_PASSWORD'],
     domain: 'heroku.com',
     authentication: :plain
   }
@@ -64,7 +64,7 @@ BikeCommuteChallenge::Application.configure do
   ActionMailer::Base.delivery_method = :smtp
 
   config.action_mailer.default_url_options = {
-    host: 'commuterchallenge.bicycleanchorage.org'
+    host: 'http://commuterchallenge.bikeanchorage.org'
   }
 
   # Enable threaded mode
