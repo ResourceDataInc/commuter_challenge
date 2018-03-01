@@ -6,7 +6,7 @@
 ## What is it?
 
 An application for tracking commutes for the [Bicycle Commuters of
-Anchorage](http://bicycleanchorage.org/wordpress/) annual commuter challenge.
+Anchorage](http://www.bikeanchorage.org) annual commuter challenge.
 
 ## Development
 
