@@ -1,11 +1,13 @@
 language: ruby
 rvm:
-  - 2.1.1
+  - 2.2.0
 bundler_args: --without development:staging:production
 before_script:
   - cp config/database.travis.yml config/database.yml
   - rake db:create
   - rake db:schema:load
+after_script:
+  - bundle exec codeclimate-test-reporter
 notifications:
   email: false
 addons:
