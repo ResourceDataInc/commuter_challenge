@@ -3,9 +3,6 @@
 [![Build Status](https://travis-ci.org/ResourceDataInc/commuter_challenge.png?branch=master)](https://travis-ci.org/ResourceDataInc/commuter_challenge)
 [![Code Climate](https://codeclimate.com/github/ResourceDataInc/commuter_challenge.png)](https://codeclimate.com/github/ResourceDataInc/commuter_challenge)
 
-* [Staging](http://summer-bike-challenge-staging.herokuapp.com/)
-* [Production](http://summer-bike-challenge-prod.herokuapp.com/)
-
 ## What is it?
 
 An application for tracking commutes for the [Bicycle Commuters of
