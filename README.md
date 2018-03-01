@@ -14,8 +14,8 @@ Anchorage](http://bicycleanchorage.org/wordpress/) annual commuter challenge.
 ## Development
 
 ### Environment
-* Ruby 2.1.x
-* Rails 4.0.x
+* Ruby 2.2.x
+* Rails 4.2.x
 
 ### Basics
 
